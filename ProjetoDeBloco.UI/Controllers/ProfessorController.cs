@@ -98,9 +98,10 @@ namespace ProjetoDeBloco.UI.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ModelState.AddModelError("listaDeErros", ex.Message);
+                return View(model);
             }
         }
 

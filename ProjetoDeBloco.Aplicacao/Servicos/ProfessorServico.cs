@@ -56,6 +56,8 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
                 professor.Editar(entidade.Nome, entidade.DataNascimento, entidade.AreaDeFormacao, entidade.AnoDeFormacao);
 
+                professor.Ativar();
+
                 _repProfessor.Atualizar(professor);
             }
         }
