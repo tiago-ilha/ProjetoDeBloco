@@ -12,11 +12,13 @@ namespace ProjetoDeBloco.UI.Controllers
     {
         private readonly IModuloServico _servicoModulo;
         private readonly IBlocoServico _servicoBloco;
+        private readonly IProfessorServico _servicoProfessor;
 
-        public ModuloController(IModuloServico servicoModulo, IBlocoServico servicoBloco)
+        public ModuloController(IModuloServico servicoModulo, IBlocoServico servicoBloco, IProfessorServico servicoProfessor)
         {
             _servicoModulo = servicoModulo;
             _servicoBloco = servicoBloco;
+            _servicoProfessor = servicoProfessor;
         }
 
         public ActionResult Index()
@@ -36,23 +38,34 @@ namespace ProjetoDeBloco.UI.Controllers
         public ActionResult Cadastrar()
         {
             CarregarBlocos();
-            //CarregarProfessores();
+            CarregarProfessores();
             return View();
         }        
 
         // POST: Modulo/Create
         [HttpPost]
-        public ActionResult Cadastrar(FormCollection collection)
+        public ActionResult Cadastrar(ModuloVM model)
         {
+            if (!ModelState.IsValid)
+                return View(model);
+
             try
             {
-                // TODO: Add insert logic here
+                var idBloco = Request.Form["IdBloco"];
+
+                //model.Bloco.Id = _servicoBloco.BuscarPorId(idBloco);
+                model.ProfessorTitular.Id = Guid.Parse(Request.Form["IdProfessor"]);
+
+                _servicoModulo.Cadastrar(model);
+
+                ModelState.Clear();
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex)
             {
-                return View();
+                ModelState.AddModelError("listaDeErros", ex.Message);
+                return View(model);
             }
         }
 
@@ -124,7 +137,7 @@ namespace ProjetoDeBloco.UI.Controllers
 
         private void CarregarProfessores()
         {
-            //ViewBag.Professores = new SelectList()
+            ViewBag.Professores = new SelectList(_servicoProfessor.ListarTodos(), "Id", "Nome");
         }
 
         private void CarregarBlocos()
