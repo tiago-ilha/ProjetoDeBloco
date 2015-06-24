@@ -1,0 +1,46 @@
+﻿@model ProjetoDeBloco.Aplicacao.ViewModels.BlocoVM
+
+@{
+    ViewBag.Title = "Remover bloco";
+}
+
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+    <li>@Html.ActionLink("Bloco", "Index")</li>
+    <li class="active">Remover de bloco</li>
+</ol>
+
+<h2>@ViewBag.Title</h2>
+
+<h5>Tem certeza que deseja deletar esse registro?</h5>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCurso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Curso.Nome)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Deletar" class="btn btn-primary" /> 
+            @Html.ActionLink("Voltar a consulta", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>

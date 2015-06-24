@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ProjetoDeBloco.Aplicacao.ViewModels.ProfessorVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Novo Professor", "Cadastrar", null, new { @class="btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Matricula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataNascimento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AreaDeFormacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AnoDeFormacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ativo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Matricula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataNascimento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AreaDeFormacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AnoDeFormacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ativo)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id = item.Id }, new { @class="btn btn-default"}) 
+            @Html.ActionLink("Visualizar", "Visualizar", new { id = item.Id }, new { @class = "btn btn-default" }) 
+            @Html.ActionLink("Remover", "Remover", new { id = item.Id }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

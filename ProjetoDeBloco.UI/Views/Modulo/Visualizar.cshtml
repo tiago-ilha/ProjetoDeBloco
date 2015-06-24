@@ -1,0 +1,47 @@
+﻿@model ProjetoDeBloco.Aplicacao.ViewModels.ModuloVM
+
+@{
+    ViewBag.Title = "Visualizar módulo";
+}
+
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+    <li>@Html.ActionLink("Modulo", "Index")</li>
+    <li class="active">@ViewBag.Title</li>
+</ol>
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdBloco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdBloco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdProfessor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdProfessor)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.Id }, new { @class = "btn btn-primary" }) 
+    @Html.ActionLink("Voltar para a consulta", "Index", new { @class = "btn btn-default" })
+</p>
