@@ -1,17 +1,12 @@
 ﻿@model ProjetoDeBloco.Aplicacao.ViewModels.ModuloVM
 
 @{
-    ViewBag.Title = "Visualizar módulo";
+    ViewBag.Title = "Remover";
 }
 
-<ol class="breadcrumb">
-    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-    <li>@Html.ActionLink("Modulo", "Index")</li>
-    <li class="active">@ViewBag.Title</li>
-</ol>
+<h2>Remover Módulo</h2>
 
-<h2>@ViewBag.Title</h2>
-
+<h5>Tem certeza que deseja remover esse registro?</h5>
 <div>
     <hr />
     <dl class="dl-horizontal">
@@ -40,8 +35,13 @@
         </dd>
 
     </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Remover" class="btn btn-primary" />
+            @Html.ActionLink("Voltar a consulta", "Index", null, new { @class="btn btn-default"})
+        </div>
+    }
 </div>
-<p>
-    @Html.ActionLink("Editar", "Editar", new { id = Model.Id }, new { @class = "btn btn-primary" }) 
-    @Html.ActionLink("Voltar para a consulta", "Index", null, new { @class = "btn btn-default" })
-</p>

@@ -31,6 +31,19 @@ namespace ProjetoDeBloco.UI.Controllers
         public ActionResult Visualizar(Guid id)
         {
             var moduloVM = _servicoModulo.BuscarPorId(id);
+            var blocoVM = _servicoBloco.BuscarPorId(moduloVM.IdBloco);
+            var professorVM = _servicoProfessor.BuscarPorId(moduloVM.IdProfessor);
+
+            if (blocoVM != null)
+                moduloVM.Bloco = blocoVM;
+            else
+                moduloVM.Bloco.Nome = "--";
+
+            if (professorVM != null)
+                moduloVM.ProfessorTitular = professorVM;
+            else
+                moduloVM.ProfessorTitular.Nome = "--";
+
             return View(moduloVM);
         }
 
@@ -40,29 +53,40 @@ namespace ProjetoDeBloco.UI.Controllers
             CarregarBlocos();
             CarregarProfessores();
             return View();
-        }        
+        }
 
         // POST: Modulo/Create
         [HttpPost]
         public ActionResult Cadastrar(ModuloVM model)
         {
             if (!ModelState.IsValid)
-                return View(model);
+                return View(model);        
 
             try
             {
-                var idBloco = Request.Form["IdBloco"];
 
-                //model.Bloco.Id = _servicoBloco.BuscarPorId(idBloco);
-                model.ProfessorTitular.Id = Guid.Parse(Request.Form["IdProfessor"]);
+                if (Request.Form["Blocos"] != "")
+                {
+                    var idBloco = Guid.Parse(Request.Form["Blocos"]);
+                    model.Bloco = _servicoBloco.BuscarPorId(idBloco);
+                }
+
+                if (Request.Form["Professores"] != "")
+                {
+                    var idProfessor = Guid.Parse(Request.Form["Professores"]);
+                    model.ProfessorTitular = _servicoProfessor.BuscarPorId(idProfessor);
+                }
 
                 _servicoModulo.Cadastrar(model);
 
                 ModelState.Clear();
 
+                ViewBag.Professores = new SelectList(_servicoProfessor.ListarTodos(), "Id", "Nome", model.IdProfessor);
+                ViewBag.Blocos = new SelectList(_servicoBloco.ListarTodos(), "Id", "Nome", model.IdBloco);
+
                 return RedirectToAction("Index");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ModelState.AddModelError("listaDeErros", ex.Message);
                 return View(model);
@@ -70,31 +94,71 @@ namespace ProjetoDeBloco.UI.Controllers
         }
 
         // GET: Modulo/Edit/5
-        public ActionResult Editar(int id)
+        public ActionResult Editar(Guid id)
         {
-            return View();
+            var moduloVM = _servicoModulo.BuscarPorId(id);
+
+            ViewBag.Professores = new SelectList(_servicoProfessor.ListarTodos(), "Id", "Nome", moduloVM.IdProfessor);
+            ViewBag.Blocos = new SelectList(_servicoBloco.ListarTodos(), "Id", "Nome", moduloVM.IdBloco);
+
+            return View(moduloVM);
         }
 
         // POST: Modulo/Edit/5
         [HttpPost]
-        public ActionResult Editar(int id, FormCollection collection)
+        public ActionResult Editar(ModuloVM model)
         {
+            if (!ModelState.IsValid)
+                return View(model);
+
             try
             {
-                // TODO: Add update logic here
+                if (Request.Form["Blocos"] != "")
+                {
+                    var bloco = _servicoBloco.BuscarPorId(Guid.Parse(Request.Form["Blocos"])); ;
+                    model.IdBloco = bloco.Id;
+                }
+
+                if (Request.Form["Professores"] != "")
+                {
+                    var professor = _servicoProfessor.BuscarPorId(Guid.Parse(Request.Form["Professores"])); ;
+                    model.IdProfessor = professor.Id;
+                }
+
+                _servicoModulo.Cadastrar(model);
+
+                ModelState.Clear();
+
+                ViewBag.Professores = new SelectList(_servicoProfessor.ListarTodos(), "Id", "Nome", model.IdProfessor);
+                ViewBag.Blocos = new SelectList(_servicoBloco.ListarTodos(), "Id", "Nome", model.IdBloco);
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ModelState.AddModelError("listaDeErros", ex.Message);
+                return View(model);
             }
         }
 
         // GET: Modulo/Delete/5
         public ActionResult Remover(Guid id)
         {
-            return View();
+            var moduloVM = _servicoModulo.BuscarPorId(id);
+            var blocoVM = _servicoBloco.BuscarPorId(moduloVM.IdBloco);
+            var professorVM = _servicoProfessor.BuscarPorId(moduloVM.IdProfessor);
+
+            if (blocoVM != null)
+                moduloVM.Bloco = blocoVM;
+            else
+                moduloVM.Bloco.Nome = "--";
+
+            if (professorVM != null)
+                moduloVM.ProfessorTitular = professorVM;
+            else
+                moduloVM.ProfessorTitular.Nome = "--";
+
+            return View(moduloVM);
         }
 
         // POST: Modulo/Delete/5
@@ -103,7 +167,9 @@ namespace ProjetoDeBloco.UI.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                var moduloVM = _servicoModulo.BuscarPorId(modulo.Id);
+
+                _servicoModulo.Remover(moduloVM);
 
                 return RedirectToAction("Index");
             }
@@ -124,10 +190,21 @@ namespace ProjetoDeBloco.UI.Controllers
             {
                 ModuloVM model = new ModuloVM();
 
+                var bloco = _servicoBloco.BuscarPorId(item.IdBloco);
+                var professor = _servicoProfessor.BuscarPorId(item.IdProfessor);
+
                 model.Id = item.Id;
                 model.Nome = item.Nome;
-                model.Bloco.Nome = item.Bloco.Nome;
-                model.ProfessorTitular.Nome = item.ProfessorTitular.Nome;
+                model.IdBloco = bloco.Id;
+                model.Bloco = bloco;
+
+                if (professor != null && professor.Id != Guid.Empty)
+                {
+                    model.IdProfessor = professor.Id;
+                    model.ProfessorTitular = professor;
+                }
+                else
+                    model.ProfessorTitular.Nome = "--";
 
                 lista.Add(model);
             }

@@ -39,26 +39,28 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
             if (entidade.Id == Guid.Empty)
             {
-                if (entidade.ProfessorTitular != null)
-                {
+                if (entidade.ProfessorTitular.Id != Guid.Empty)
                     modulo = new Modulo(entidade.Nome, entidade.Bloco.Id, entidade.ProfessorTitular.Id);
 
-                    _repModulo.Salvar(modulo);
-                }
                 else
-                {
-                    modulo = new Modulo(entidade.Nome, entidade.IdBloco);
+                    modulo = new Modulo(entidade.Nome, entidade.Bloco.Id);
 
-                    _repModulo.Salvar(modulo);
-                }
+                _repModulo.Salvar(modulo);
             }
             else
             {
                 modulo = _repModulo.ObterPor(entidade.Id);
 
-                modulo.Editar(entidade.Nome, entidade.IdBloco, entidade.IdProfessor);
+                //if (modulo.ProfessorTitular.IdProfessor != Guid.Empty)                
+                    modulo.Editar(entidade.Nome, entidade.IdBloco, entidade.IdProfessor);                
+                //else
+                
+
+                
 
                 _repModulo.Atualizar(modulo);
+
+
             }
         }
 

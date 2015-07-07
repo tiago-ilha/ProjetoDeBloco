@@ -51,6 +51,7 @@
     <Compile Include="Mapeamento\AlunoMap.cs" />
     <Compile Include="Mapeamento\BlocoMap.cs" />
     <Compile Include="Mapeamento\CursoMap.cs" />
+    <Compile Include="Mapeamento\ModuloMap.cs" />
     <Compile Include="Mapeamento\PessoaMap.cs" />
     <Compile Include="Mapeamento\ProfessorMap.cs" />
     <Compile Include="Migrations\201506071434561_v1.0.cs" />

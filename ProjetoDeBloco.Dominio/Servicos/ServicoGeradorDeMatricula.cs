@@ -10,9 +10,25 @@ namespace ProjetoDeBloco.Dominio.Servicos
 {
     public static class ServicoGeradorDeMatricula
     {
-        public static void Gerar(Pessoa pessoa)
+        public static int Gerar(Pessoa pessoa)
         {
-            
+            var matricula = 0;
+            string montarMatricula;
+
+            if (pessoa.GetType() != typeof(Administrador))
+            {
+                Random codigo = new Random();
+
+                var ano = DateTime.Now.Year.ToString();
+                var numero = codigo.Next(999).ToString();
+
+                montarMatricula = ano + numero;
+
+                matricula = Convert.ToInt32(montarMatricula);
+                pessoa.Matricula = matricula;
+            }
+
+            return matricula;
         }
     }
 }

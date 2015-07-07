@@ -3,6 +3,7 @@ using ProjetoDeBloco.Aplicacao.Servicos.Interfaces;
 using ProjetoDeBloco.Aplicacao.ViewModels;
 using ProjetoDeBloco.Dominio.Entidades.Instituicao.Pessoas;
 using ProjetoDeBloco.Dominio.Interfaces.Repositorios;
+using ProjetoDeBloco.Dominio.Servicos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +48,8 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
                 if (jaExiste)
                     throw new Exception("Já existe um professor cadastrado com esse nome!");
+
+                ServicoGeradorDeMatricula.Gerar(professor);                
 
                 _repProfessor.Salvar(professor);
             }

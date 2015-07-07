@@ -37,6 +37,8 @@ namespace ProjetoDeBloco.Infraestrutura.Data
             modelBuilder.Configurations.Add(new AlunoMap());
             modelBuilder.Configurations.Add(new AdministradorMap());
             modelBuilder.Configurations.Add(new ProfessorMap());
+
+            modelBuilder.Configurations.Add(new ModuloMap());
         }
     }
 }

@@ -9,6 +9,12 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
 {
     public class ModuloVM
     {
+        public ModuloVM()
+        {
+            ProfessorTitular = new ProfessorVM();
+            Bloco = new BlocoVM();
+        }
+
         public Guid Id { get; set; }
 
         [Required(ErrorMessage = "Informe o nome do módulo!")]
@@ -21,7 +27,7 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
         public Guid IdBloco { get; set; }
 
         [Display(Name = "Professor")]
-        public Guid? IdProfessor { get; set; }
+        public Guid IdProfessor { get; set; }
         public virtual BlocoVM Bloco { get; set; }
         public virtual ProfessorVM ProfessorTitular { get; set; }
     }

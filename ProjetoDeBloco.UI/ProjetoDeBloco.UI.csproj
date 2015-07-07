@@ -181,6 +181,8 @@
     <Content Include="Views\Professor\Editar.cshtml" />
     <Content Include="Views\Professor\Remover.cshtml" />
     <Content Include="Views\Professor\Visualizar.cshtml" />
+    <Content Include="Views\Modulo\Editar.cshtml" />
+    <Content Include="Views\Modulo\Remover.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

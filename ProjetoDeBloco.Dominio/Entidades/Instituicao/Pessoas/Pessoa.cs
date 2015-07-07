@@ -23,7 +23,7 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Pessoas
         }
 
         public Guid Id { get; protected set; }
-        public int Matricula { get; protected set; }
+        public int Matricula { get; set; }
         public string Nome { get; protected set; }
         public DateTime DataNascimento { get; protected set; }
         public bool Ativo { get; protected set; }

@@ -9,7 +9,7 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
 {
     public class Modulo
     {
-        protected Modulo(){}
+        protected Modulo() { }
 
         public Modulo(string nome, Guid idBloco)
         {
@@ -18,9 +18,10 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
             if (nome.Length > 50) throw new Exception("Informe o nome com no máximo 50!");
             if (idBloco == Guid.Empty) throw new Exception("Informe um bloco para o módulo!");
 
+            this.Id = Guid.NewGuid();
             this.Nome = nome;
             this.IdBloco = idBloco;
-            this.IdProfessor = Guid.Empty;
+            this.IdProfessor = null;
         }
 
         public Modulo(string nome, Guid idBloco, Guid idProfessor)
@@ -30,6 +31,7 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
             if (nome.Length > 50) throw new Exception("Informe o nome com no máximo 50!");
             if (idBloco == Guid.Empty) throw new Exception("Informe um bloco para o módulo!");
 
+            this.Id = Guid.NewGuid();
             this.Nome = nome;
             this.IdBloco = idBloco;
             this.IdProfessor = idProfessor;
@@ -39,8 +41,8 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
         public string Nome { get; set; }
         public Guid IdBloco { get; set; }
         public Guid? IdProfessor { get; set; }
-        public virtual Bloco Bloco { get; set; }
-        public virtual Professor ProfessorTitular { get; set; }
+        //public virtual Bloco Bloco { get; set; }
+        //public virtual Professor ProfessorTitular { get; set; }
 
         public void Editar(string nome, Guid idBloco, Guid? idProfessor)
         {
@@ -52,8 +54,10 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
             this.Nome = nome;
             this.IdBloco = idBloco;
 
-            if (idProfessor.HasValue)
+            if (idProfessor != Guid.Empty)
                 this.IdProfessor = idProfessor;
+            else
+                this.IdProfessor = null;
         }
     }
 }
