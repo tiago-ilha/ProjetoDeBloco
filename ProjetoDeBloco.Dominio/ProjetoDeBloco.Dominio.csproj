@@ -47,6 +47,7 @@
     <Compile Include="Entidades\Instituicao\Pessoas\Pessoa.cs" />
     <Compile Include="Entidades\Instituicao\Pessoas\Professor.cs" />
     <Compile Include="Enum\AvaliacaoStatus.cs" />
+    <Compile Include="Interfaces\Repositorios\IAlunoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorios\IBlocoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorios\ICursoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorios\IModuloRepositorio.cs" />

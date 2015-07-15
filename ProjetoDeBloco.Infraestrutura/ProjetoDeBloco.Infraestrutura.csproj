@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\AlunoRepositorio.cs" />
     <Compile Include="Repositorios\BlocoRepositorio.cs" />
     <Compile Include="Repositorios\CursoRepositorio.cs" />
     <Compile Include="Repositorios\ModuloRepositorio.cs" />

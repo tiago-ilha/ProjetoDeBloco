@@ -23,6 +23,7 @@ namespace ProjetoDeBloco.Aplicacao.AutoMappers
             CreateMap<Bloco, BlocoVM>();
             CreateMap<Modulo, ModuloVM>();
             CreateMap<Professor, ProfessorVM>();
+            CreateMap<Aluno, AlunoVM>();
         }
     }
 }

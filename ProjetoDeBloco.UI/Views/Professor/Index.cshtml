@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Novo Professor", "Cadastrar", null, new { @class="btn btn-primary"})
+    @Html.ActionLink("Novo Professor", "Cadastrar", null, new { @class = "btn btn-primary" })
 </p>
 <table class="table">
     <tr>
@@ -32,32 +32,42 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Matricula)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataNascimento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AreaDeFormacao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AnoDeFormacao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ativo)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Editar", new { id = item.Id }, new { @class="btn btn-default"}) 
-            @Html.ActionLink("Visualizar", "Visualizar", new { id = item.Id }, new { @class = "btn btn-default" }) 
-            @Html.ActionLink("Remover", "Remover", new { id = item.Id }, new { @class = "btn btn-danger" })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Matricula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AreaDeFormacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnoDeFormacao)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Ativo)*@
+                @if (item.Ativo)
+                {
+                    <p>Sim</p>
+                }
+                else
+                {
+                    <p>Não</p>
+                }
+            </td>
+
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Visualizar", "Visualizar", new { id = item.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Remover", "Remover", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>
