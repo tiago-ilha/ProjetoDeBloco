@@ -1,0 +1,7 @@
+C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Dominio.Test\bin\Debug\ProjetoDeBloco.Dominio.Test.dll
+C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Dominio.Test\bin\Debug\ProjetoDeBloco.Dominio.Test.pdb
+C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Dominio.Test\bin\Debug\ProjetoDeBloco.Dominio.dll
+C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Dominio.Test\bin\Debug\ProjetoDeBloco.Dominio.pdb
+C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Dominio.Test\obj\Debug\ProjetoDeBloco.Dominio.Test.csprojResolveAssemblyReference.cache
+C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Dominio.Test\obj\Debug\ProjetoDeBloco.Dominio.Test.dll
+C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Dominio.Test\obj\Debug\ProjetoDeBloco.Dominio.Test.pdb
