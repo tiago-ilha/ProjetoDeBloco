@@ -2,3 +2,4 @@ C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Dominio\bin\Debug\ProjetoDeBloco.Dominio.pdb
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Dominio\obj\Debug\ProjetoDeBloco.Dominio.dll
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Dominio\obj\Debug\ProjetoDeBloco.Dominio.pdb
+C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Dominio\obj\Debug\ProjetoDeBloco.Dominio.csprojResolveAssemblyReference.cache

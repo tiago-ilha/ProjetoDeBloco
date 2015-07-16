@@ -39,6 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidades\AvaliacaoInstitucional\Avaliacao.cs" />
+    <Compile Include="Entidades\AvaliacaoInstitucional\Questao.cs" />
+    <Compile Include="Entidades\AvaliacaoInstitucional\Resposta.cs" />
     <Compile Include="Entidades\Instituicao\Estrutura\Bloco.cs" />
     <Compile Include="Entidades\Instituicao\Estrutura\Curso.cs" />
     <Compile Include="Entidades\Instituicao\Estrutura\Modulo.cs" />
@@ -47,6 +50,7 @@
     <Compile Include="Entidades\Instituicao\Pessoas\Pessoa.cs" />
     <Compile Include="Entidades\Instituicao\Pessoas\Professor.cs" />
     <Compile Include="Enum\AvaliacaoStatus.cs" />
+    <Compile Include="Enum\TopicoAvaliacao.cs" />
     <Compile Include="Interfaces\Repositorios\IAlunoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorios\IBlocoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorios\ICursoRepositorio.cs" />
