@@ -14,7 +14,11 @@ namespace ProjetoDeBloco.Infraestrutura.Data
     public class ProjetoDeBlocoDataContext : DbContext
     {
         public ProjetoDeBlocoDataContext()
-            : base("name=ProjetoDeBloco") { }
+            : base("name=ProjetoDeBloco")
+        {
+            //Não fazer uso desse código comentado
+            //Database.SetInitializer<ProjetoDeBlocoDataContext>(new ZerarBanco());
+        }
 
         public DbSet<Curso> Cursos { get; set; }
         public DbSet<Bloco> Blocos { get; set; }
@@ -28,7 +32,7 @@ namespace ProjetoDeBloco.Infraestrutura.Data
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
-            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();            
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
             modelBuilder.Configurations.Add(new CursoMap());
             modelBuilder.Configurations.Add(new BlocoMap());
@@ -39,6 +43,14 @@ namespace ProjetoDeBloco.Infraestrutura.Data
             modelBuilder.Configurations.Add(new ProfessorMap());
 
             modelBuilder.Configurations.Add(new ModuloMap());
+        }
+    }
+
+    public class ZerarBanco : DropCreateDatabaseAlways<ProjetoDeBlocoDataContext>
+    {
+        protected override void Seed(ProjetoDeBlocoDataContext context)
+        {
+            base.Seed(context);
         }
     }
 }

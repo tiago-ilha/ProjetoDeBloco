@@ -14,7 +14,7 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 {
     public class ProfessorServico : IProfessorServico
     {
-        private readonly IProfessorRepositorio _repProfessor;
+        private readonly IProfessorRepositorio _repProfessor;       
 
         public ProfessorServico(IProfessorRepositorio repProfessor)
         {
@@ -44,12 +44,9 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
                 professor = new Professor(entidade.Nome, entidade.DataNascimento, entidade.AreaDeFormacao, entidade.AnoDeFormacao);
                 professor.Ativar();
 
-                var jaExiste = _repProfessor.JaEstaSalvo(entidade.Nome);
+                GerarMatricula(professor);
 
-                if (jaExiste)
-                    throw new Exception("Já existe um professor cadastrado com esse nome!");
-
-                ServicoGeradorDeMatricula.Gerar(professor);                
+                VerificaSeJaExiste(entidade);
 
                 _repProfessor.Salvar(professor);
             }
@@ -63,7 +60,7 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
                 _repProfessor.Atualizar(professor);
             }
-        }
+        }        
 
         public void Remover(ViewModels.ProfessorVM entidade)
         {
@@ -76,5 +73,31 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
         {
             _repProfessor.Dispose();
         }
+
+        #region Métodos Compartilhados
+
+        private void VerificaSeJaExiste(ViewModels.ProfessorVM entidade)
+        {
+            var jaExiste = _repProfessor.JaEstaSalvo(entidade.Nome);
+
+            if (jaExiste)
+                throw new Exception("Já existe um professor cadastrado com esse nome!");
+        }
+
+        private void GerarMatricula(Professor professor)
+        {
+            var listaDePessoas = _repProfessor.ObterPor();
+
+            long matricula = 0;
+            if (listaDePessoas.Count() > 0)
+            {
+                matricula = listaDePessoas.OrderBy(x => x.Matricula).Reverse().FirstOrDefault().Matricula;
+                ServicoGeradorDeMatricula.Gerar(professor, matricula);
+            }
+            else
+                ServicoGeradorDeMatricula.Gerar(professor, matricula);
+        }       
+
+        #endregion
     }
 }

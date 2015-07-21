@@ -16,7 +16,6 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
 
         [Required(ErrorMessage="Informe um curso para esse bloco!")]
         [Display(Name="Nome do curso")]
-
         public Guid IdCurso { get; set; }
         public CursoVM Curso { get; set; }
 

@@ -10,25 +10,31 @@ namespace ProjetoDeBloco.Dominio.Servicos
 {
     public static class ServicoGeradorDeMatricula
     {
-        public static int Gerar(Pessoa pessoa)
+        public static long Gerar(Pessoa pessoa, long ultimaMatricula)
         {
-            var matricula = 0;
-            string montarMatricula;
+            long matricula;
 
             if (pessoa.GetType() != typeof(Administrador))
             {
-                Random codigo = new Random();
+                if (ultimaMatricula == 0)
+                    matricula = (DateTime.Now.Year * 100000000000) + 1;
+                else
+                    matricula = ultimaMatricula + 1;
 
-                var ano = DateTime.Now.Year.ToString();
-                var numero = codigo.Next(999).ToString();
-
-                montarMatricula = ano + numero;
-
-                matricula = Convert.ToInt32(montarMatricula);
                 pessoa.Matricula = matricula;
+
+                //Random codigo = new Random();
+
+                //var ano = DateTime.Now.Year.ToString();
+                //var numero = codigo.Next(999).ToString();
+
+                //montarMatricula = ano + numero;
+
+                //matricula = Convert.ToInt32(montarMatricula);
+                //pessoa.Matricula = matricula;
             }
 
-            return matricula;
+            return pessoa.Matricula;
         }
     }
 }

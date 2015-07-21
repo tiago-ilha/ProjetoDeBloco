@@ -19,6 +19,7 @@ namespace ProjetoDeBloco.IoC
             container.RegisterType<IModuloRepositorio, ModuloRepositorio>(new HierarchicalLifetimeManager());
             container.RegisterType<IProfessorRepositorio, ProfessorRepositorio>(new HierarchicalLifetimeManager());
             container.RegisterType<IAlunoRepositorio, AlunoRepositorio>(new HierarchicalLifetimeManager());
+            
 
             container.RegisterType<ICursoServico, CursoServico>(new HierarchicalLifetimeManager());
             container.RegisterType<IBlocoServico, BlocoServico>(new HierarchicalLifetimeManager());

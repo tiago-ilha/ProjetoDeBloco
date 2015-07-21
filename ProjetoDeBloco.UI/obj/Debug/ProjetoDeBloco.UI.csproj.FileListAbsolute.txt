@@ -1,4 +1,4 @@
-C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.UI\obj\Debug\ProjetoDeBloco.UI.csprojResolveAssemblyReference.cache
+C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.UI\bin\AutoMapper.Net4.dll
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.UI\bin\ProjetoDeBloco.UI.dll.config
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.UI\bin\ProjetoDeBloco.UI.dll
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.UI\bin\ProjetoDeBloco.UI.pdb
@@ -46,6 +46,6 @@ C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.UI\bin\AutoMapper.xml
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.UI\bin\Microsoft.Practices.Unity.xml
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.UI\bin\ProjetoDeBloco.Infraestrutura.pdb
+C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.UI\obj\Debug\ProjetoDeBloco.UI.csprojResolveAssemblyReference.cache
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.UI\obj\Debug\ProjetoDeBloco.UI.dll
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.UI\obj\Debug\ProjetoDeBloco.UI.pdb
-C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.UI\bin\AutoMapper.Net4.dll

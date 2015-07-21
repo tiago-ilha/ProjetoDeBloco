@@ -45,7 +45,7 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
                 if (!JaExsiteCadastrado(aluno))
                 {
-                    ServicoGeradorDeMatricula.Gerar(aluno);
+                    //ServicoGeradorDeMatricula.Gerar(aluno);
                     _repAluno.Salvar(aluno);
                 }
             }
