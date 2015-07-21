@@ -42,22 +42,25 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
             if (entidade.Id == Guid.Empty)
             {
                 aluno = new Aluno(entidade.Nome, entidade.DataNascimento);
+                aluno.Ativar();
 
-                if (!JaExsiteCadastrado(aluno))
-                {
-                    //ServicoGeradorDeMatricula.Gerar(aluno);
-                    _repAluno.Salvar(aluno);
-                }
+                GerarMatricula(aluno);
+
+                VerificaSeJaExiste(entidade);
+
+                _repAluno.Salvar(aluno);
             }
             else
             {
                 aluno = _repAluno.ObterPor(entidade.Id);
 
                 aluno.Editar(entidade.Nome, entidade.DataNascimento);
+                if (!aluno.Ativo)
+                    aluno.Ativar();
 
                 _repAluno.Atualizar(aluno);
             }
-        }        
+        }
 
         public void Remover(AlunoVM entidade)
         {
@@ -73,17 +76,26 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
         #region "Métodos compartilhados"
 
-        private bool JaExsiteCadastrado(Aluno aluno)
+        private void VerificaSeJaExiste(AlunoVM entidade)
         {
-            var jaExiste = _repAluno.JaEstaSalvo(aluno.Nome);
+            var jaExiste = _repAluno.JaEstaSalvo(entidade.Nome);
 
             if (jaExiste)
-            {
-                throw new Exception("Aluno já foi cadastrado com esse nome!");
-                return true;
-            }
+                throw new Exception("Já existe um professor cadastrado com esse nome!");
+        }
 
-            return false;
+        private void GerarMatricula(Aluno aluno)
+        {
+            var listaDePessoas = _repAluno.ObterPor();
+
+            long matricula = 0;
+            if (listaDePessoas.Count() > 0)
+            {
+                matricula = listaDePessoas.OrderBy(x => x.Matricula).Reverse().FirstOrDefault().Matricula;
+                ServicoGeradorDeMatricula.Gerar(aluno, matricula);
+            }
+            else
+                ServicoGeradorDeMatricula.Gerar(aluno, matricula);
         }
 
         #endregion

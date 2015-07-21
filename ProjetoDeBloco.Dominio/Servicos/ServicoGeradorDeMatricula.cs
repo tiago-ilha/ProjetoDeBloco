@@ -22,16 +22,6 @@ namespace ProjetoDeBloco.Dominio.Servicos
                     matricula = ultimaMatricula + 1;
 
                 pessoa.Matricula = matricula;
-
-                //Random codigo = new Random();
-
-                //var ano = DateTime.Now.Year.ToString();
-                //var numero = codigo.Next(999).ToString();
-
-                //montarMatricula = ano + numero;
-
-                //matricula = Convert.ToInt32(montarMatricula);
-                //pessoa.Matricula = matricula;
             }
 
             return pessoa.Matricula;

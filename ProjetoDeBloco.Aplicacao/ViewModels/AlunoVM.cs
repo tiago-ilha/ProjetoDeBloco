@@ -10,7 +10,7 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
     public class AlunoVM
     {
         public Guid Id { get; set; }
-        public int? Matricula { get; set; }
+        public long? Matricula { get; set; }
 
         [Required(ErrorMessage = "Informe o nome do Aluno!")]
         [MinLength(5, ErrorMessage = "Informe o nome do Aluno com no mínimo 5 caracteres")]

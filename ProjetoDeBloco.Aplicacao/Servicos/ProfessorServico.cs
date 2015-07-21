@@ -76,7 +76,7 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
         #region Métodos Compartilhados
 
-        private void VerificaSeJaExiste(ViewModels.ProfessorVM entidade)
+        private void VerificaSeJaExiste(ProfessorVM entidade)
         {
             var jaExiste = _repProfessor.JaEstaSalvo(entidade.Nome);
 
