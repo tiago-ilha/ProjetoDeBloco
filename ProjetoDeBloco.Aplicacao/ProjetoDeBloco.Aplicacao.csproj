@@ -68,6 +68,8 @@
     <Compile Include="ViewModels\CursoVM.cs" />
     <Compile Include="ViewModels\ModuloVM.cs" />
     <Compile Include="ViewModels\ProfessorVM.cs" />
+    <Compile Include="ViewModels\QuestionarioVM.cs" />
+    <Compile Include="ViewModels\RespostaVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjetoDeBloco.Dominio\ProjetoDeBloco.Dominio.csproj">

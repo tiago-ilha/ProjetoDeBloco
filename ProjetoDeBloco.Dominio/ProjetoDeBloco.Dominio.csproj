@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidades\AvaliacaoInstitucional\Avaliacao.cs" />
-    <Compile Include="Entidades\AvaliacaoInstitucional\Questao.cs" />
+    <Compile Include="Entidades\AvaliacaoInstitucional\Questionario.cs" />
     <Compile Include="Entidades\AvaliacaoInstitucional\Resposta.cs" />
     <Compile Include="Entidades\Instituicao\Estrutura\Bloco.cs" />
     <Compile Include="Entidades\Instituicao\Estrutura\Curso.cs" />
