@@ -1,7 +1,7 @@
+C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\bin\Debug\EntityFramework.dll
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\bin\Debug\ProjetoDeBloco.Infraestrutura.dll.config
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\bin\Debug\ProjetoDeBloco.Infraestrutura.dll
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\bin\Debug\ProjetoDeBloco.Infraestrutura.pdb
-C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\bin\Debug\EntityFramework.dll
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\bin\Debug\ProjetoDeBloco.Dominio.dll
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\bin\Debug\ProjetoDeBloco.Dominio.pdb

@@ -137,7 +137,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ModuloController.cs" />
     <Compile Include="Controllers\ProfessorController.cs" />
-    <Compile Include="Controllers\QestionarioController.cs" />
+    <Compile Include="Controllers\QuestaoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -203,6 +203,8 @@
     <Content Include="Views\Aluno\Cadastrar.cshtml" />
     <Content Include="Views\Aluno\Editar.cshtml" />
     <Content Include="Views\Aluno\Remover.cshtml" />
+    <Content Include="Views\Questao\Cadastrar.cshtml" />
+    <Content Include="Views\Shared\Parciais\_Respostas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

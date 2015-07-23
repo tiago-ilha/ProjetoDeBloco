@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ProjetoDeBloco.Aplicacao.ViewModels;
+using ProjetoDeBloco.Dominio.Entidades.AvaliacaoInstitucional;
 using ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura;
 using ProjetoDeBloco.Dominio.Entidades.Instituicao.Pessoas;
 using System;
@@ -24,6 +25,8 @@ namespace ProjetoDeBloco.Aplicacao.AutoMappers
             CreateMap<ModuloVM, Modulo>();
             CreateMap<ProfessorVM, Professor>();
             CreateMap<AlunoVM, Aluno>();
+            CreateMap<QuestaoVM, Questao>();
+            CreateMap<RespostaVM, Resposta>();
         }
     }
 }

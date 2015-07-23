@@ -54,6 +54,8 @@
     <Compile Include="Mapeamento\ModuloMap.cs" />
     <Compile Include="Mapeamento\PessoaMap.cs" />
     <Compile Include="Mapeamento\ProfessorMap.cs" />
+    <Compile Include="Mapeamento\QuestaoMap.cs" />
+    <Compile Include="Mapeamento\RepostaMap.cs" />
     <Compile Include="Migrations\201506071434561_v1.0.cs" />
     <Compile Include="Migrations\201506071434561_v1.0.Designer.cs">
       <DependentUpon>201506071434561_v1.0.cs</DependentUpon>
@@ -65,6 +67,7 @@
     <Compile Include="Repositorios\CursoRepositorio.cs" />
     <Compile Include="Repositorios\ModuloRepositorio.cs" />
     <Compile Include="Repositorios\ProfessorRepositorio.cs" />
+    <Compile Include="Repositorios\TurmaRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

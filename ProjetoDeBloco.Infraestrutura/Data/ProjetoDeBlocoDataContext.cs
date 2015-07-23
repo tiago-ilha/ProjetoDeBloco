@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura;
 using ProjetoDeBloco.Dominio.Entidades.Instituicao.Pessoas;
+using ProjetoDeBloco.Dominio.Entidades.AvaliacaoInstitucional;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using ProjetoDeBloco.Infraestrutura.Mapeamento;
 
@@ -14,19 +15,21 @@ namespace ProjetoDeBloco.Infraestrutura.Data
     public class ProjetoDeBlocoDataContext : DbContext
     {
         public ProjetoDeBlocoDataContext()
-            : base("name=ProjetoDeBloco")
-        {
-            //Não fazer uso desse código comentado
-            //Database.SetInitializer<ProjetoDeBlocoDataContext>(new ZerarBanco());
-        }
+            : base("name=ProjetoDeBloco") { }
 
         public DbSet<Curso> Cursos { get; set; }
         public DbSet<Bloco> Blocos { get; set; }
         public DbSet<Modulo> Modulos { get; set; }
+        public DbSet<Turma> Turmas { get; set; }
+
+
         public DbSet<Pessoa> Pessoa { get; set; }
         public DbSet<Aluno> Alunos { get; set; }
         public DbSet<Administrador> Administradores { get; set; }
         public DbSet<Professor> Professores { get; set; }
+
+        public DbSet<Questao> Questoes { get; set; }
+        public DbSet<Resposta> Respostas { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -43,14 +46,9 @@ namespace ProjetoDeBloco.Infraestrutura.Data
             modelBuilder.Configurations.Add(new ProfessorMap());
 
             modelBuilder.Configurations.Add(new ModuloMap());
-        }
-    }
 
-    public class ZerarBanco : DropCreateDatabaseAlways<ProjetoDeBlocoDataContext>
-    {
-        protected override void Seed(ProjetoDeBlocoDataContext context)
-        {
-            base.Seed(context);
+            modelBuilder.Configurations.Add(new QuestaoMap());
+            modelBuilder.Configurations.Add(new RespostaMap());
         }
-    }
+    }    
 }

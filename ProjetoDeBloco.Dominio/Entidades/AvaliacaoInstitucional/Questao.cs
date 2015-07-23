@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace ProjetoDeBloco.Dominio.Entidades.AvaliacaoInstitucional
 {
-    public class Questionario
+    public class Questao
     {
-        public Questionario(string pergunta)
+        public Questao(string descricao)
         {
-            if (string.IsNullOrEmpty(pergunta)) throw new Exception("Informe uma pergunta!");
+            if (string.IsNullOrEmpty(descricao)) throw new Exception("Informe uma pergunta!");
 
-            this.Pergunta = pergunta;
+            this.Descricao = descricao;
             this._respostas = new HashSet<Resposta>();
         }
 
         public Guid Id { get; private set; }
-        public string Pergunta { get; private set; }
+        public string Descricao { get; private set; }
 
         private HashSet<Resposta> _respostas;
 

@@ -14,6 +14,8 @@ namespace ProjetoDeBloco.Dominio.Entidades.AvaliacaoInstitucional
         }
 
         public Guid Id { get; set; }
-        public string Descricao { get; set; }        
+        public string Descricao { get; set; }
+
+        public virtual Questao Questao { get; set; }
     }
 }

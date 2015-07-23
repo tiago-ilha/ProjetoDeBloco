@@ -9,6 +9,6 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
     public class RespostaVM
     {
         public Guid Id { get; set; }
-        public string Resposta { get; set; }
+        public string Descricao { get; set; }
     }
 }

@@ -7,29 +7,31 @@ using System.Web.Mvc;
 
 namespace ProjetoDeBloco.UI.Controllers
 {
-    public class QestionarioController : Controller
+    public class QuestaoController : Controller
     {
-        // GET: Qestionario
+        // GET: Questao
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Qestionario/Details/5
-        public ActionResult Visualizar(Guid id)
+        // GET: Questao/Details/5
+        public ActionResult Visualizar(int id)
         {
             return View();
         }
 
-        // GET: Qestionario/Create
-        public ActionResult Cadastrar()
+        // GET: Questao/Create
+        public ActionResult Cadastrar(RespostasDasQuestoes model)
         {
+
+
             return View();
         }
 
-        // POST: Qestionario/Create
+        // POST: Questao/Create
         [HttpPost]
-        public ActionResult Cadastrar(QuestionarioVM model)
+        public ActionResult Cadastrar(FormCollection collection)
         {
             try
             {
@@ -43,15 +45,15 @@ namespace ProjetoDeBloco.UI.Controllers
             }
         }
 
-        // GET: Qestionario/Edit/5
-        public ActionResult Editar(Guid id)
+        // GET: Questao/Edit/5
+        public ActionResult Editar(int id)
         {
             return View();
         }
 
-        // POST: Qestionario/Edit/5
+        // POST: Questao/Edit/5
         [HttpPost]
-        public ActionResult Editar(QuestionarioVM model)
+        public ActionResult Editar(int id, FormCollection collection)
         {
             try
             {
@@ -65,15 +67,15 @@ namespace ProjetoDeBloco.UI.Controllers
             }
         }
 
-        // GET: Qestionario/Delete/5
-        public ActionResult Remover(int id)
+        // GET: Questao/Delete/5
+        public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Qestionario/Delete/5
+        // POST: Questao/Delete/5
         [HttpPost]
-        public ActionResult Remover(int id, FormCollection collection)
+        public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {

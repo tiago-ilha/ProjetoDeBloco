@@ -1,3 +1,4 @@
+C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\obj\Debug\ProjetoDeBloco.Aplicacao.csprojResolveAssemblyReference.cache
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\bin\Debug\AutoMapper.Net4.dll
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\bin\Debug\ProjetoDeBloco.Aplicacao.dll
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\bin\Debug\ProjetoDeBloco.Aplicacao.pdb
@@ -7,6 +8,5 @@ C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\bin\Debug\AutoMapper.pdb
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\bin\Debug\AutoMapper.xml
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\bin\Debug\AutoMapper.Net4.pdb
-C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\obj\Debug\ProjetoDeBloco.Aplicacao.csprojResolveAssemblyReference.cache
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\obj\Debug\ProjetoDeBloco.Aplicacao.dll
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\obj\Debug\ProjetoDeBloco.Aplicacao.pdb
