@@ -64,6 +64,7 @@
     <Compile Include="Servicos\Interfaces\ITurmaServico.cs" />
     <Compile Include="Servicos\ModuloServico.cs" />
     <Compile Include="Servicos\ProfessorServico.cs" />
+    <Compile Include="Servicos\TurmaServico.cs" />
     <Compile Include="ViewModels\AlunoVM.cs" />
     <Compile Include="ViewModels\BlocoVM.cs" />
     <Compile Include="ViewModels\CursoVM.cs" />
