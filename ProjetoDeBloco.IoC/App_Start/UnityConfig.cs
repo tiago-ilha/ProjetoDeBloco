@@ -19,6 +19,7 @@ namespace ProjetoDeBloco.IoC
             container.RegisterType<IModuloRepositorio, ModuloRepositorio>(new HierarchicalLifetimeManager());
             container.RegisterType<IProfessorRepositorio, ProfessorRepositorio>(new HierarchicalLifetimeManager());
             container.RegisterType<IAlunoRepositorio, AlunoRepositorio>(new HierarchicalLifetimeManager());
+            container.RegisterType<ITurmaRepositorio, TurmaRepositorio>(new HierarchicalLifetimeManager());
             
 
             container.RegisterType<ICursoServico, CursoServico>(new HierarchicalLifetimeManager());
@@ -26,6 +27,7 @@ namespace ProjetoDeBloco.IoC
             container.RegisterType<IModuloServico, ModuloServico>(new HierarchicalLifetimeManager());
             container.RegisterType<IProfessorServico, ProfessorServico>(new HierarchicalLifetimeManager());
             container.RegisterType<IAlunoServico, AlunoServico>(new HierarchicalLifetimeManager());
+            container.RegisterType<ITurmaServico, TurmaServico>(new HierarchicalLifetimeManager());
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

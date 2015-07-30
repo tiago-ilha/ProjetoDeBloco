@@ -54,8 +54,7 @@
     <Compile Include="Mapeamento\ModuloMap.cs" />
     <Compile Include="Mapeamento\PessoaMap.cs" />
     <Compile Include="Mapeamento\ProfessorMap.cs" />
-    <Compile Include="Mapeamento\QuestaoMap.cs" />
-    <Compile Include="Mapeamento\RepostaMap.cs" />
+    <Compile Include="Mapeamento\TurmaMapeamento.cs" />
     <Compile Include="Migrations\201506071434561_v1.0.cs" />
     <Compile Include="Migrations\201506071434561_v1.0.Designer.cs">
       <DependentUpon>201506071434561_v1.0.cs</DependentUpon>

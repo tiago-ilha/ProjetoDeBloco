@@ -11,13 +11,14 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
     {
         protected Turma() { }
 
-        public Turma(Modulo modulo)
+        public Turma(Guid idModulo)
         {
-            this.Modulo = modulo;
+            this.IdModulo = idModulo;
             this.Alunos = new HashSet<Aluno>();
         }
         public Guid Id { get; private set; }
-        public Modulo Modulo { get; private set; }
+        public Guid IdModulo { get; private set; }
+        public virtual Modulo Modulo { get; private set; }
         public virtual HashSet<Aluno> Alunos { get; private set; }
 
         public void AdicionarAluno(Aluno aluno)

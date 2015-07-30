@@ -11,7 +11,7 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
     {
         public Guid Id { get; set; }
         [Required(ErrorMessage="Informe um módulo!")]
-        public ModuloVM Modulo { get; set; }
+        public Guid IdModulo { get; set; }
         public IList<AlunoVM> Alunos { get; set; }
     }
 }
