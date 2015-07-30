@@ -34,19 +34,32 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
         public void Cadastrar(TurmaVM entidade)
         {
-            //Turma turma;
+            Turma turma;
 
-            //if (entidade.Id == Guid.Empty)
-            //{
-            //    turma = new Turma(entidade.IdModulo);
+            if (entidade.Id == Guid.Empty)
+            {
+                turma = new Turma(entidade.IdModulo);
 
-                
-
-            //    if(entidade.Alunos.Count > 0)
-            //    {
+                if (entidade.Alunos.Count > 0)
+                {
                     
-            //    }
-            //}
+                    //    //Mapper.Map<TurmaVM,Turma>(TurmaVM,Action<IMappingAction<TurmaVM,Turma>)
+                    //foreach (var item in entidade.Alunos)
+                    //{
+                        
+                    //}
+                }
+
+                _repTurma.Salvar(turma);
+            }
+            else
+            {
+                turma = _repTurma.ObterPor(entidade.Id);
+
+                turma.Editar(entidade.IdModulo);
+
+                _repTurma.Salvar(turma);
+            }
             //throw new NotImplementedException();
         }
 

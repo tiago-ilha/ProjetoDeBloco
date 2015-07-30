@@ -25,5 +25,12 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
         {
             Alunos.Add(aluno);
         }
+
+        public void Editar(Guid idModulo)
+        {
+            if(idModulo == Guid.Empty) throw new Exception("Informe um módulo!");
+
+            this.IdModulo = idModulo;
+        }
     }
 }
