@@ -51,7 +51,10 @@ namespace ProjetoDeBloco.UI.Controllers
                 if (!ModelState.IsValid)
                     return View(model);
 
-                model.IdCurso = Guid.Parse(Request.Form["CursoId"]);
+                if (Request.Form["CursoId"] != "")
+                    model.IdCurso = Guid.Parse(Request.Form["CursoId"]);
+                else
+                    model.IdCurso = Guid.Empty;
 
                 _servicoBloco.Cadastrar(model);
 
@@ -63,6 +66,7 @@ namespace ProjetoDeBloco.UI.Controllers
             }
             catch (Exception ex)
             {
+                ViewBag.CursoId = new SelectList(_servicoCurso.ListarTodos(), "Id", "Nome", model.IdCurso);
                 ModelState.AddModelError("listaDeErros", ex.Message);
                 return View(model);
             }

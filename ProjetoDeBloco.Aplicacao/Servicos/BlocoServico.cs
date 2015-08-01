@@ -44,6 +44,9 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
             {
                 var curso = _repCurso.ObterPor(entidade.IdCurso);
 
+                if (curso == null)
+                    curso.Id = Guid.Empty;
+
                 bloco = new Bloco(entidade.Nome, curso.Id);
 
                 var jaExiste = _repBloco.JaExiste(entidade.Nome);

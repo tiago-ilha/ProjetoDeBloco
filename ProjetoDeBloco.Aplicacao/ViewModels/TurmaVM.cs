@@ -10,8 +10,13 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
     public class TurmaVM
     {
         public Guid Id { get; set; }
+
+        [Required(ErrorMessage = "Informe um identificador!")]
+        public int Identificador { get; set; }
+
         [Required(ErrorMessage="Informe um módulo!")]
         public Guid IdModulo { get; set; }
+        
         public IList<AlunoVM> Alunos { get; set; }
     }
 }

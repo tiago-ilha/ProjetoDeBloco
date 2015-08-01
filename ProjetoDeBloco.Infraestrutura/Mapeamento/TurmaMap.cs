@@ -9,15 +9,14 @@ using System.Threading.Tasks;
 
 namespace ProjetoDeBloco.Infraestrutura.Mapeamento
 {
-    public class TurmaMapeamento : EntityTypeConfiguration<Turma>
+    public class TurmaMap : EntityTypeConfiguration<Turma>
     {
-        public TurmaMapeamento()
+        public TurmaMap()
         {
             ToTable("Turma");
 
             Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
-            HasRequired(x => x.Modulo).WithMany().HasForeignKey(x => x.IdModulo);
+            Property(x => x.Identificador).HasColumnType("int").IsRequired();          
         }
     }
 }

@@ -18,6 +18,9 @@ namespace ProjetoDeBloco.Infraestrutura.Mapeamento
             Property(modulo => modulo.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(modulo => modulo.Nome).HasColumnType("varchar").HasMaxLength(80).IsRequired();
+
+            HasRequired(modulo => modulo.Bloco).WithMany().HasForeignKey(x => x.IdBloco);
+            HasMany(modulo => modulo.Turmas).WithRequired(turma => turma.Modulo).HasForeignKey(x => x.IdModulo);
         }
     }
 }

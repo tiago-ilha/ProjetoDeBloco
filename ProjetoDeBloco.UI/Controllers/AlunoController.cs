@@ -111,5 +111,17 @@ namespace ProjetoDeBloco.UI.Controllers
                 return View(model);
             }
         }
+
+        [HttpGet]
+        public JsonResult Listar()
+        {
+            //var resultado = _servico.ListarTodos();
+            var resultado = from aluno in _servico.ListarTodos()
+                            select {
+           
+        };
+
+            return this.Json(new { Result = resultado }, JsonRequestBehavior.AllowGet);
+        }
     }
 }

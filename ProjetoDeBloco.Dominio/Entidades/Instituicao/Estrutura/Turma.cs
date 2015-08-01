@@ -11,12 +11,13 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
     {
         protected Turma() { }
 
-        public Turma(Guid idModulo)
+        public Turma(Guid idModulo, int identificador)
         {
             this.IdModulo = idModulo;
             this.Alunos = new HashSet<Aluno>();
         }
         public Guid Id { get; private set; }
+        public int Identificador { get; private set; }
         public Guid IdModulo { get; private set; }
         public virtual Modulo Modulo { get; private set; }
         public virtual HashSet<Aluno> Alunos { get; private set; }
@@ -26,11 +27,13 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
             Alunos.Add(aluno);
         }
 
-        public void Editar(Guid idModulo)
+        public void Editar(Guid idModulo,int identificador)
         {
             if(idModulo == Guid.Empty) throw new Exception("Informe um módulo!");
+            if (identificador == null) throw new Exception("Informe o identificador da turma!");
 
-            this.IdModulo = idModulo;
+            this.Identificador = identificador;
+            this.IdModulo = idModulo;            
         }
     }
 }

@@ -38,17 +38,9 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
             if (entidade.Id == Guid.Empty)
             {
-                turma = new Turma(entidade.IdModulo);
+                turma = new Turma(entidade.IdModulo,entidade.Identificador);
 
-                if (entidade.Alunos.Count > 0)
-                {
-                    
-                    //    //Mapper.Map<TurmaVM,Turma>(TurmaVM,Action<IMappingAction<TurmaVM,Turma>)
-                    //foreach (var item in entidade.Alunos)
-                    //{
-                        
-                    //}
-                }
+                AdicionarAlunos(entidade, turma);
 
                 _repTurma.Salvar(turma);
             }
@@ -56,21 +48,42 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
             {
                 turma = _repTurma.ObterPor(entidade.Id);
 
-                turma.Editar(entidade.IdModulo);
+                turma.Editar(entidade.IdModulo,entidade.Identificador);
+
+                AdicionarAlunos(entidade, turma);
 
                 _repTurma.Salvar(turma);
             }
-            //throw new NotImplementedException();
         }
 
         public void Remover(ViewModels.TurmaVM entidade)
         {
-            throw new NotImplementedException();
+            var turma = _repTurma.ObterPor(entidade.Id);
+
+            _repTurma.Remover(turma);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _repTurma.Dispose();
         }
+
+        #region Método Compartilhado
+        private void AdicionarAlunos(TurmaVM entidade, Turma turma)
+        {
+
+            if (entidade.Alunos.Count > 0)
+            {
+                var alunos = entidade.Alunos;
+                foreach (var item in alunos)
+                {
+                    var alunoConvertido = Mapper.Map<AlunoVM, Aluno>(item);
+
+                    turma.AdicionarAluno(alunoConvertido);
+                }
+            }
+        }
+
+        #endregion
     }
 }

@@ -11,7 +11,6 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
     {
         public ModuloVM()
         {
-            ProfessorTitular = new ProfessorVM();
             Bloco = new BlocoVM();
         }
 
@@ -25,10 +24,6 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
         [Required(ErrorMessage="Informe um bloco!")]
         [Display(Name="Bloco")]
         public Guid IdBloco { get; set; }
-
-        [Display(Name = "Professor")]
-        public Guid IdProfessor { get; set; }
         public virtual BlocoVM Bloco { get; set; }
-        public virtual ProfessorVM ProfessorTitular { get; set; }
     }
 }

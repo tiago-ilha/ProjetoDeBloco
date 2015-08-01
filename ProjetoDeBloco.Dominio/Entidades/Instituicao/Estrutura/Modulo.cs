@@ -21,30 +21,16 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
             this.Id = Guid.NewGuid();
             this.Nome = nome;
             this.IdBloco = idBloco;
-            this.IdProfessor = null;
-        }
-
-        public Modulo(string nome, Guid idBloco, Guid idProfessor)
-        {
-            if (string.IsNullOrEmpty(nome)) throw new Exception("Informe o nome do módulo!");
-            if (nome.Length < 5) if (nome.Length < 3) throw new Exception("Informe o nome com no mínimo 5!");
-            if (nome.Length > 50) throw new Exception("Informe o nome com no máximo 50!");
-            if (idBloco == Guid.Empty) throw new Exception("Informe um bloco para o módulo!");
-
-            this.Id = Guid.NewGuid();
-            this.Nome = nome;
-            this.IdBloco = idBloco;
-            this.IdProfessor = idProfessor;
+            this.Turmas = new HashSet<Turma>();
         }
 
         public Guid Id { get; set; }
         public string Nome { get; set; }
         public Guid IdBloco { get; set; }
-        public Guid? IdProfessor { get; set; }
-        //public virtual Bloco Bloco { get; set; }
-        //public virtual Professor ProfessorTitular { get; set; }
+        public virtual Bloco Bloco { get; set; }
+        public virtual ICollection<Turma> Turmas { get; private set; }
 
-        public void Editar(string nome, Guid idBloco, Guid? idProfessor)
+        public void Editar(string nome, Guid idBloco)
         {
             if (string.IsNullOrEmpty(nome)) throw new Exception("Informe o nome do módulo!");
             if (nome.Length < 5) if (nome.Length < 3) throw new Exception("Informe o nome com no mínimo 5!");
@@ -53,11 +39,6 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
 
             this.Nome = nome;
             this.IdBloco = idBloco;
-
-            if (idProfessor != Guid.Empty)
-                this.IdProfessor = idProfessor;
-            else
-                this.IdProfessor = null;
         }
     }
 }
