@@ -112,16 +112,16 @@ namespace ProjetoDeBloco.UI.Controllers
             }
         }
 
-        //[HttpGet]
-        //public JsonResult Listar()
-        //{
-        //    //var resultado = _servico.ListarTodos();
-        //    var resultado = from aluno in _servico.ListarTodos()
-        //                    select {
-           
-        //};
+        [HttpGet]        
+        public JsonResult Listar()
+        {
+            //var resultado = _servico.ListarTodos();
+            var resultado = (from aluno in _servico.ListarTodos()
+                            orderby aluno.Nome
+                            select new { id = aluno.Id, nome = aluno.Nome }).ToList();
 
-        //    return this.Json(new { Result = resultado }, JsonRequestBehavior.AllowGet);
-        //}
+
+            return this.Json(new { Result = resultado }, JsonRequestBehavior.AllowGet);
+        }
     }
 }

@@ -14,6 +14,7 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
         [Required(ErrorMessage = "Informe um identificador!")]
         public int Identificador { get; set; }
 
+        [Display(Name="Módulo")]
         [Required(ErrorMessage="Informe um módulo!")]
         public Guid IdModulo { get; set; }
         

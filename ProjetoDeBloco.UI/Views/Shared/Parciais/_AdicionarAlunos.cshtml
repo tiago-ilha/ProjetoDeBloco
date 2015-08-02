@@ -1,36 +1,28 @@
 ﻿@model ProjetoDeBloco.Aplicacao.ViewModels.TurmaVM
+@using ProjetoDeBloco.UI.Helpers
 
-<div class="row">
-    <div class="col-md-4">
-        <select id="listadaDeAlunos">
-            <option selected>Selecione os alunos</option>
-        </select>
-    </div>
+<div class="form-group">
+    <label for="listadaDeAlunos">Alunos:</label>
+    <select class="form-control" id="listadaDeAlunos"></select>
 </div>
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <td>Nome</td>
-        </tr>
-    </thead>
-    <tbody>
+@using (Html.BeginScripts())
+{
+    <script>
+        $(document).ready(function () {
 
-    </tbody>
-</table>
+            $("#listadaDeAlunos").html("");
 
-
-<script>
-    $(document).ready(function () {
-
-        $('#listadaDeAlunos').html("");
-
-        $.getJSON("/Aluno/Listar", null, function (data) {
-
-            $.each(data.Result, function (index, aluno) {
-
-                $('#listadaDeAlunos').append("<option value='" + aluno.Id + "'>" + category.Nome + "</option>");
+            $.getJSON("Aluno/Listar", null, function (data) {
+                $.each(data.Result, function (index, aluno) {
+                    $("#listadaDeAlunos").append("<option value='" + aluno.Id + "'>" + aluno.Nome + "</option>");
+                });
             });
-        })
-    });
-</script>
+        });
+    </script>
+}
+
+@*@using (Html.BeginScripts())
+{
+    <script src="@Url.Content("~/Scripts/interno/financas/moeda/indice/cadastrar-indice-da-moeda.js")"></script>
+}*@
