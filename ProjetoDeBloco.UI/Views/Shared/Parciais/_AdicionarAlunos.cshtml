@@ -1,28 +1,85 @@
 ﻿@model ProjetoDeBloco.Aplicacao.ViewModels.TurmaVM
 @using ProjetoDeBloco.UI.Helpers
 
-<div class="form-group">
-    <label for="listadaDeAlunos">Alunos:</label>
-    <select class="form-control" id="listadaDeAlunos"></select>
+<div class="form-group alinhamento">
+    <label class="control-label col-md-1" for="listadaDeAlunos">Alunos</label>
+    <div class="col-md-4">
+        <select class="form-control" id="listadaDeAlunos">
+            <option>Selecione os alunos</option>
+        </select>
+    </div>
 </div>
+
+<div class="form-group">
+    <button type="button" class="btn btn-primary">Adicionar</button>
+</div>
+
+<table id="tabelaDeAlunos" class="table table-hover">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th> - </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Alunos.Count > 0)
+        {
+            var index = 0;
+            foreach (var aluno in Model.Alunos)
+            {
+                <tr>
+                    <td>@aluno.Nome</td>
+                    <input type="hidden" name="Alunos[@index].Nome" value="@aluno.Nome" />
+                    <td><a class="btn" title="Remover Aluno"><i class="glyphicon-trash"></i></a></td>
+                </tr>
+                index++;
+            }
+        }
+        else
+        {
+            <tr class="negrito">
+                <td>Nenhum registro foi encontrado.</td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        @if (Model != null)
+        {
+            <tr>
+                <td>Total: @Model.Alunos.Count</td>
+            </tr>
+        }
+        else
+        {
+
+            <tr>
+                <td>Total: 0</td>
+            </tr>
+        }
+    </tfoot>
+</table>
+
+<style>
+    .alinhamento {
+        margin-left: 100px;
+    }
+
+     .negrito {
+        font-weight: bold;
+    }
+
+</style>
 
 @using (Html.BeginScripts())
 {
     <script>
         $(document).ready(function () {
 
-            $("#listadaDeAlunos").html("");
-
-            $.getJSON("Aluno/Listar", null, function (data) {
+            $.getJSON("/Aluno/Listar", null, function (data) {
                 $.each(data.Result, function (index, aluno) {
-                    $("#listadaDeAlunos").append("<option value='" + aluno.Id + "'>" + aluno.Nome + "</option>");
+                    $("#listadaDeAlunos").append("<option value='" + aluno.id + "'>" + aluno.nome + "</option>");
                 });
             });
         });
     </script>
 }
-
-@*@using (Html.BeginScripts())
-{
-    <script src="@Url.Content("~/Scripts/interno/financas/moeda/indice/cadastrar-indice-da-moeda.js")"></script>
-}*@
