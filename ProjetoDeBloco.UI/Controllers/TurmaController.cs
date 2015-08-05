@@ -31,34 +31,51 @@ namespace ProjetoDeBloco.UI.Controllers
         {
             var turma = CarregarTurma(id);
             return View(turma);
-        }        
+        }
 
         // GET: Turma/Create
         public ActionResult Cadastrar()
         {
             CarregarModulos();
             return View();
-        }       
+        }
 
         // POST: Turma/Create
         [HttpPost]
-        public ActionResult Cadastrar(TurmaVM model)
+        public ActionResult Cadastrar(TurmaVM model, IList<AlunoVM> alunos)
         {
+            Guid idModulo;
+
             try
             {
                 if (!ModelState.IsValid)
                     return View();
 
-                _servicoTurma.Cadastrar(model);
 
+                if (Request.Form["Modulos"] != "")
+                {
+                    idModulo = Guid.Parse(Request.Form["Modulos"]);
+                    model.Modulo = _servicoModulo.BuscarPorId(idModulo);
+                }
+                else
+                {
+                    idModulo = Guid.Empty;
+                    model.Modulo.Id = idModulo;
+                }
+
+                _servicoTurma.Cadastrar(model);
                 ModelState.Clear();
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ViewBag.Modulos = new SelectList(_servicoModulo.ListarTodos(), "Id", "Nome", model.IdModulo);
+                ModelState.AddModelError("listaDeErros", ex.Message);
+                return View(model);
             }
+
+            ViewBag.Modulos = new SelectList(_servicoModulo.ListarTodos(), "Id", "Nome", model.IdModulo);
         }
 
         // GET: Turma/Edit/5

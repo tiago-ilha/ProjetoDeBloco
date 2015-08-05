@@ -13,7 +13,11 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
 
         public Turma(Guid idModulo, int identificador)
         {
+            if (idModulo == Guid.Empty) throw new Exception("Informe um módulo!");
+            if (identificador == 0) throw new Exception("Informe o identificador da turma!");
+
             this.IdModulo = idModulo;
+            this.Identificador = identificador;
             this.Alunos = new HashSet<Aluno>();
         }
         public Guid Id { get; private set; }

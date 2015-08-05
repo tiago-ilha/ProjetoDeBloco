@@ -7,18 +7,19 @@
         <select class="form-control" id="listadaDeAlunos">
             <option>Selecione os alunos</option>
         </select>
+        @Html.ValidationMessage("Alunos")
     </div>
 </div>
 
 <div class="form-group">
-    <button type="button" class="btn btn-primary">Adicionar</button>
+    <button type="button" class="btn btn-primary" id="Adicionar">Adicionar</button>
 </div>
 
-<table id="tabelaDeAlunos" class="table table-hover">
+<table id="tabelaDeAlunos" class="table table-striped table-hover">
     <thead>
         <tr>
             <th>Nome</th>
-            <th> - </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -29,8 +30,8 @@
             {
                 <tr>
                     <td>@aluno.Nome</td>
-                    <input type="hidden" name="Alunos[@index].Nome" value="@aluno.Nome" />
-                    <td><a class="btn" title="Remover Aluno"><i class="glyphicon-trash"></i></a></td>
+                    <input type="hidden" name="Alunos[@index].Nome" class="campo-nome" value="@aluno.Nome" />
+                    <td><a class="btn" title="Remover Aluno"><i class="glyphicon glyphicon-trash"></i></a></td>
                 </tr>
                 index++;
             }
@@ -41,22 +42,7 @@
                 <td>Nenhum registro foi encontrado.</td>
             </tr>
         }
-    </tbody>
-    <tfoot>
-        @if (Model != null)
-        {
-            <tr>
-                <td>Total: @Model.Alunos.Count</td>
-            </tr>
-        }
-        else
-        {
-
-            <tr>
-                <td>Total: 0</td>
-            </tr>
-        }
-    </tfoot>
+    </tbody>    
 </table>
 
 <style>
@@ -64,22 +50,85 @@
         margin-left: 100px;
     }
 
-     .negrito {
+    .negrito {
         font-weight: bold;
     }
 
+    .campo-nome {
+    }
 </style>
 
 @using (Html.BeginScripts())
 {
     <script>
-        $(document).ready(function () {
+        $(document).ready(function () {           
 
+            ListarAlunos();
+
+            $('#Adicionar').click(function () {
+
+                if (!ValidarAlunosSelecionados()) {
+                    return;
+                }
+
+                var numeroDeLinhas = $('#tabelaDeAlunos tbody tr').length;
+
+                if (numeroDeLinhas != 0) {
+
+                    $('.negrito').remove();
+
+                    AdicionarLinha();
+                }
+                else
+                    AdicionarLinha();
+            });
+
+
+        });
+
+        function ValidarAlunosSelecionados() {
+            var resultado = true;
+
+            var nome = $('#listadaDeAlunos option:selected').text();
+
+            if (nome == "" || nome == "Selecione os alunos") {
+                $('#Alunos').val("Informe alunos");
+                resultado = false;
+            }
+
+            return resultado;
+        }
+
+        function AdicionarLinha() {
+            numeroDeLinhas = $('.negrito').length;
+
+            var id = numeroDeLinhas + 1;
+            var nome = $('#listadaDeAlunos option:selected').text();
+
+            $('#tabelaDeAlunos').append("<tr>" +
+                "<input type='hidden' name=Alunos[" + numeroDeLinhas + "].Nome class='campo-nome' value='" + nome + "'/>" +
+                "<td>" + nome + "</td>" +
+                "<td><a class='btn removerAluno' title='Remover Alunos'><i class='glyphicon glyphicon-trash'></i></a>" +
+                "</td></tr>");           
+        }
+
+        $(document).on("click", ".removerAluno", function (event) {
+            $(this).parent().parent().remove();
+            updateRowIndex();
+        });
+
+        function updateRowIndex() {
+            $("#tabelaDeAlunos tbody tr").each(function (index, value) {
+                $(this).find(".campo-nome").attr("name", "Alunos[" + index + "].Nome");
+            });
+        }
+
+        function ListarAlunos() {
             $.getJSON("/Aluno/Listar", null, function (data) {
                 $.each(data.Result, function (index, aluno) {
                     $("#listadaDeAlunos").append("<option value='" + aluno.id + "'>" + aluno.nome + "</option>");
                 });
             });
-        });
+        }
     </script>
 }
