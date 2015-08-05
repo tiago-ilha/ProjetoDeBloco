@@ -9,7 +9,7 @@ using System.Web.Mvc;
 namespace ProjetoDeBloco.UI.Controllers
 {
     public class AlunoController : Controller
-    {
+    { 
         private IAlunoServico _servico;
 
         public AlunoController(IAlunoServico servico)
