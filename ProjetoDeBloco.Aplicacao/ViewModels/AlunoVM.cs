@@ -9,7 +9,7 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
 {
     public class AlunoVM
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; set; }   
         public long? Matricula { get; set; }
 
         [Required(ErrorMessage = "Informe o nome do Aluno!")]

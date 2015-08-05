@@ -9,6 +9,6 @@ namespace ProjetoDeBloco.Aplicacao.Servicos.Interfaces
 {
     public interface IAlunoServico : IAplicacaoBase<AlunoVM>
     {
-
+         
     }
 }
