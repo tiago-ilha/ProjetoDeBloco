@@ -42,7 +42,7 @@ namespace ProjetoDeBloco.UI.Controllers
 
         // POST: Turma/Create
         [HttpPost]
-        public ActionResult Cadastrar(TurmaVM model, IList<AlunoVM> alunos)
+        public ActionResult Cadastrar(TurmaVM model)
         {
             Guid idModulo;
 

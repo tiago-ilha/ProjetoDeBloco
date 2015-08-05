@@ -1,4 +1,3 @@
-C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.IoC\bin\Debug\AutoMapper.Net4.dll
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.IoC\bin\Debug\ProjetoDeBloco.IoC.dll
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.IoC\bin\Debug\ProjetoDeBloco.IoC.pdb
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.IoC\bin\Debug\Microsoft.Practices.Unity.Configuration.dll

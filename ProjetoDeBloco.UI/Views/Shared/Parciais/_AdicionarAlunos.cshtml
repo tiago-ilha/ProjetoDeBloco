@@ -7,7 +7,7 @@
         <select class="form-control" id="listadaDeAlunos">
             <option>Selecione os alunos</option>
         </select>
-        @Html.ValidationMessage("Alunos")
+        @Html.ValidationMessage("ValidarCampoAluno")
     </div>
 </div>
 
@@ -42,7 +42,7 @@
                 <td>Nenhum registro foi encontrado.</td>
             </tr>
         }
-    </tbody>    
+    </tbody>
 </table>
 
 <style>
@@ -61,7 +61,7 @@
 @using (Html.BeginScripts())
 {
     <script>
-        $(document).ready(function () {           
+        $(document).ready(function () {
 
             ListarAlunos();
 
@@ -84,7 +84,30 @@
             });
 
 
+
+            var turma = {
+                identificador: $('#Identificador'),
+                modulo: $('#IdModulo option:selected').text(),
+                alunos: {
+                    nome: listadaDeAlunos
+                }
+            }
+
+            $('#Cadastro').click(function () {
+
+
+                console.log(turma);
+            });
+
+            ListaDeALunos = [];
+
+            $('#tabelaDeAlunos tr').each(function (index, data) {
+                ListaDeALunos = $(this).find('td').html();
+            });
         });
+
+
+
 
         function ValidarAlunosSelecionados() {
             var resultado = true;
@@ -92,7 +115,7 @@
             var nome = $('#listadaDeAlunos option:selected').text();
 
             if (nome == "" || nome == "Selecione os alunos") {
-                $('#Alunos').val("Informe alunos");
+                $('#ValidarCampoAluno').html("Informe alunos");
                 resultado = false;
             }
 
@@ -109,7 +132,7 @@
                 "<input type='hidden' name=Alunos[" + numeroDeLinhas + "].Nome class='campo-nome' value='" + nome + "'/>" +
                 "<td>" + nome + "</td>" +
                 "<td><a class='btn removerAluno' title='Remover Alunos'><i class='glyphicon glyphicon-trash'></i></a>" +
-                "</td></tr>");           
+                "</td></tr>");
         }
 
         $(document).on("click", ".removerAluno", function (event) {
