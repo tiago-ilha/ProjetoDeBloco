@@ -49,6 +49,7 @@
     <Compile Include="Data\ProjetoDeBlocoDataContext.cs" />
     <Compile Include="Mapeamento\AdministradorMap.cs" />
     <Compile Include="Mapeamento\AlunoMap.cs" />
+    <Compile Include="Mapeamento\AvaliacaoMap.cs" />
     <Compile Include="Mapeamento\BlocoMap.cs" />
     <Compile Include="Mapeamento\CursoMap.cs" />
     <Compile Include="Mapeamento\ModuloMap.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\AlunoRepositorio.cs" />
+    <Compile Include="Repositorios\AvaliacaoRepositorio.cs" />
     <Compile Include="Repositorios\BlocoRepositorio.cs" />
     <Compile Include="Repositorios\CursoRepositorio.cs" />
     <Compile Include="Repositorios\ModuloRepositorio.cs" />

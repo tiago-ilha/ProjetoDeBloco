@@ -51,6 +51,7 @@
     <Compile Include="Enum\AvaliacaoStatus.cs" />
     <Compile Include="Enum\TopicoAvaliacao.cs" />
     <Compile Include="Interfaces\Repositorios\IAlunoRepositorio.cs" />
+    <Compile Include="Interfaces\Repositorios\IAvaliacaoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorios\IBlocoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorios\ICursoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorios\IModuloRepositorio.cs" />

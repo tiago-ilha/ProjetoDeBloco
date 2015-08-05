@@ -10,3 +10,15 @@ C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\obj\Debug\ProjetoDeBloco.Aplicacao.csprojResolveAssemblyReference.cache
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\obj\Debug\ProjetoDeBloco.Aplicacao.dll
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\obj\Debug\ProjetoDeBloco.Aplicacao.pdb
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Aplicacao\bin\Debug\AutoMapper.Net4.dll
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Aplicacao\bin\Debug\ProjetoDeBloco.Aplicacao.dll
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Aplicacao\bin\Debug\ProjetoDeBloco.Aplicacao.pdb
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Aplicacao\bin\Debug\AutoMapper.dll
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Aplicacao\bin\Debug\ProjetoDeBloco.Dominio.dll
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Aplicacao\bin\Debug\ProjetoDeBloco.Dominio.pdb
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Aplicacao\bin\Debug\AutoMapper.pdb
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Aplicacao\bin\Debug\AutoMapper.xml
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Aplicacao\bin\Debug\AutoMapper.Net4.pdb
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Aplicacao\obj\Debug\ProjetoDeBloco.Aplicacao.csprojResolveAssemblyReference.cache
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Aplicacao\obj\Debug\ProjetoDeBloco.Aplicacao.dll
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Aplicacao\obj\Debug\ProjetoDeBloco.Aplicacao.pdb

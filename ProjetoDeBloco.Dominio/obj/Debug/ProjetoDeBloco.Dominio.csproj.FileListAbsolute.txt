@@ -2,3 +2,7 @@ C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Dominio\bin\Debug\ProjetoDeBloco.Dominio.pdb
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Dominio\obj\Debug\ProjetoDeBloco.Dominio.dll
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Dominio\obj\Debug\ProjetoDeBloco.Dominio.pdb
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Dominio\bin\Debug\ProjetoDeBloco.Dominio.dll
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Dominio\bin\Debug\ProjetoDeBloco.Dominio.pdb
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Dominio\obj\Debug\ProjetoDeBloco.Dominio.dll
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Dominio\obj\Debug\ProjetoDeBloco.Dominio.pdb

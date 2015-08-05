@@ -28,6 +28,8 @@ namespace ProjetoDeBloco.Infraestrutura.Data
         public DbSet<Administrador> Administradores { get; set; }
         public DbSet<Professor> Professores { get; set; }
 
+        public DbSet<Avaliacao> Avaliacao { get; set; }
+
        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -44,7 +46,8 @@ namespace ProjetoDeBloco.Infraestrutura.Data
             modelBuilder.Configurations.Add(new AdministradorMap());
             modelBuilder.Configurations.Add(new ProfessorMap());
 
-            modelBuilder.Configurations.Add(new ModuloMap());          
+            modelBuilder.Configurations.Add(new ModuloMap());
+            modelBuilder.Configurations.Add(new AvaliacaoMap());      
         }
     }    
 }
