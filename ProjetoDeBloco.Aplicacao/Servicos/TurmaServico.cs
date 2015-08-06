@@ -39,6 +39,7 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
             if (entidade.Id == Guid.Empty)
             {
                 turma = new Turma(entidade.Modulo.Id, entidade.Identificador);
+                turma.Id = Guid.NewGuid();
 
                 AdicionarAlunos(entidade, turma);
 

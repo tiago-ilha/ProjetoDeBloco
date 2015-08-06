@@ -20,7 +20,7 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
             this.Identificador = identificador;
             this.Alunos = new HashSet<Aluno>();
         }
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
         public int Identificador { get; private set; }
         public Guid IdModulo { get; private set; }
         public virtual Modulo Modulo { get; private set; }
