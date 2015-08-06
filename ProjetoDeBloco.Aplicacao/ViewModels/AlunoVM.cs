@@ -21,4 +21,10 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
         [DataType(DataType.Date)]
         public DateTime DataNascimento { get; set; }
     }
+
+    public class TurmaAlunoVM
+    {
+        public Guid Id { get; set; }
+        public string Nome { get; set; }
+    }
 }

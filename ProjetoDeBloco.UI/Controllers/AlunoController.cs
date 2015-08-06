@@ -119,8 +119,7 @@ namespace ProjetoDeBloco.UI.Controllers
                              orderby aluno.Nome
                              select new { id = aluno.Id, nome = aluno.Nome }).ToList();
 
-
-            return this.Json(new { Result = resultado }, JsonRequestBehavior.AllowGet);
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
     }
 }

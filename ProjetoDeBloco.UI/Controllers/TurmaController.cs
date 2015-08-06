@@ -12,11 +12,13 @@ namespace ProjetoDeBloco.UI.Controllers
     {
         private readonly ITurmaServico _servicoTurma;
         private readonly IModuloServico _servicoModulo;
+        private readonly IAlunoServico _servicoAluno;
 
-        public TurmaController(ITurmaServico servicoTurma, IModuloServico servicoModulo)
+        public TurmaController(ITurmaServico servicoTurma, IModuloServico servicoModulo, IAlunoServico servicoAluno)
         {
             _servicoTurma = servicoTurma;
             _servicoModulo = servicoModulo;
+            _servicoAluno = servicoAluno;
         }
 
         // GET: Turma
@@ -46,22 +48,42 @@ namespace ProjetoDeBloco.UI.Controllers
         {
             Guid idModulo;
 
+            if (Request.Form["Modulos"] != "")
+            {
+                idModulo = Guid.Parse(Request.Form["Modulos"]);
+                model.Modulo = _servicoModulo.BuscarPorId(idModulo);
+            }
+            else
+            {
+                idModulo = Guid.Empty;
+                model.Modulo.Id = idModulo;
+            }
+
+            IList<AlunoVM> listaDeAlunos = new List<AlunoVM>();
+
+            foreach (var item in model.Alunos)
+            {
+                var aluno = _servicoAluno.BuscarPorNome(item.Nome);
+                //model.Alunos.Add(aluno);
+                
+                AlunoVM alunoVm = new AlunoVM
+                {
+                    Id = aluno.Id,
+                    Matricula = aluno.Matricula,
+                    Nome = aluno.Nome,
+                    DataNascimento = aluno.DataNascimento
+                };
+
+                listaDeAlunos.Add(alunoVm);
+            }
+
+            model.Alunos = null; //com isso eu esvazio aquela lixarada
+            model.Alunos = listaDeAlunos;
+
             try
             {
                 if (!ModelState.IsValid)
-                    return View();
-
-
-                if (Request.Form["Modulos"] != "")
-                {
-                    idModulo = Guid.Parse(Request.Form["Modulos"]);
-                    model.Modulo = _servicoModulo.BuscarPorId(idModulo);
-                }
-                else
-                {
-                    idModulo = Guid.Empty;
-                    model.Modulo.Id = idModulo;
-                }
+                    return View();                
 
                 _servicoTurma.Cadastrar(model);
                 ModelState.Clear();
@@ -75,7 +97,7 @@ namespace ProjetoDeBloco.UI.Controllers
                 return View(model);
             }
 
-            ViewBag.Modulos = new SelectList(_servicoModulo.ListarTodos(), "Id", "Nome", model.IdModulo);
+            CarregarModulos();
         }
 
         // GET: Turma/Edit/5

@@ -22,3 +22,15 @@ C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Aplicacao\bin\Debu
 C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Aplicacao\obj\Debug\ProjetoDeBloco.Aplicacao.csprojResolveAssemblyReference.cache
 C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Aplicacao\obj\Debug\ProjetoDeBloco.Aplicacao.dll
 C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Aplicacao\obj\Debug\ProjetoDeBloco.Aplicacao.pdb
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\bin\Debug\AutoMapper.Net4.dll
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\bin\Debug\ProjetoDeBloco.Aplicacao.dll
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\bin\Debug\ProjetoDeBloco.Aplicacao.pdb
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\bin\Debug\AutoMapper.dll
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\bin\Debug\ProjetoDeBloco.Dominio.dll
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\bin\Debug\ProjetoDeBloco.Dominio.pdb
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\bin\Debug\AutoMapper.pdb
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\bin\Debug\AutoMapper.xml
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\bin\Debug\AutoMapper.Net4.pdb
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\obj\Debug\ProjetoDeBloco.Aplicacao.csprojResolveAssemblyReference.cache
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\obj\Debug\ProjetoDeBloco.Aplicacao.dll
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\obj\Debug\ProjetoDeBloco.Aplicacao.pdb

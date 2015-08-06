@@ -27,12 +27,12 @@
                 @Html.DisplayFor(modelItem => item.Identificador)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdModulo)
+                @Html.DisplayFor(modelItem => item.Modulo.Nome)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", null, new { id = item.Id, @class = "btn btn-danger" }) |
-                @Html.ActionLink("Details", "Details", null, new { id = item.Id, @class = "btn btn-danger" })
-                @Html.ActionLink("Delete", "Delete", null, new { id = item.Id, @class = "btn btn-danger" })
+                @Html.ActionLink("Editar", "Edit", null, new { id = item.Id, @class = "btn btn-default" }) 
+                @Html.ActionLink("Visualizar", "Details", null, new { id = item.Id, @class = "btn btn-default" })
+                @Html.ActionLink("Remover", "Delete", null, new { id = item.Id, @class = "btn btn-danger" })
             </td>
         </tr>
     }
