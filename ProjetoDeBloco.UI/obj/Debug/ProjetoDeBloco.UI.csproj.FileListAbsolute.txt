@@ -149,3 +149,4 @@ C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.UI\bin\ProjetoDeBloco.I
 C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.UI\obj\Debug\ProjetoDeBloco.UI.csprojResolveAssemblyReference.cache
 C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.UI\obj\Debug\ProjetoDeBloco.UI.dll
 C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.UI\obj\Debug\ProjetoDeBloco.UI.pdb
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.UI\bin\AutoMapper.Net4.dll

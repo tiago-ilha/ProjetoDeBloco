@@ -103,7 +103,8 @@ namespace ProjetoDeBloco.UI.Controllers
         // GET: Turma/Edit/5
         public ActionResult Editar(Guid id)
         {
-            return View();
+            var turmaVM = _servicoTurma.BuscarPorId(id);
+            return View(turmaVM);
         }
 
         // POST: Turma/Edit/5
