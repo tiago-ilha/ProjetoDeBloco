@@ -53,9 +53,11 @@
     <Compile Include="AutoMappers\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicos\AlunoServico.cs" />
+    <Compile Include="Servicos\AvaliacaoServico.cs" />
     <Compile Include="Servicos\BlocoServico.cs" />
     <Compile Include="Servicos\CursoServico.cs" />
     <Compile Include="Servicos\Interfaces\IAlunoServico.cs" />
+    <Compile Include="Servicos\Interfaces\IAvaliacaoServico.cs" />
     <Compile Include="Servicos\Interfaces\IBlocoServico.cs" />
     <Compile Include="Servicos\Interfaces\ICursoServico.cs" />
     <Compile Include="Servicos\Interfaces\IAplicacaoBase.cs" />
@@ -68,6 +70,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModels\AlunoVM.cs" />
+    <Compile Include="ViewModels\AvaliacaoVM.cs" />
     <Compile Include="ViewModels\BlocoVM.cs" />
     <Compile Include="ViewModels\CursoVM.cs" />
     <Compile Include="ViewModels\ModuloVM.cs" />

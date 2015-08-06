@@ -9,7 +9,7 @@ using System.Web.Mvc;
 namespace ProjetoDeBloco.UI.Controllers
 {
     public class AlunoController : Controller
-    {
+    { 
         private IAlunoServico _servico;
 
         public AlunoController(IAlunoServico servico)
@@ -117,10 +117,9 @@ namespace ProjetoDeBloco.UI.Controllers
         {
             var resultado = (from aluno in _servico.ListarTodos()
                              orderby aluno.Nome
-                             select new { id = aluno.Id, nome = aluno.Nome }).ToList();
+                             select new { id = aluno.Id, nome = aluno.Nome }).Distinct().ToList();
 
-
-            return this.Json(new { Result = resultado }, JsonRequestBehavior.AllowGet);
+            return Json(resultado, JsonRequestBehavior.AllowGet);
         }
     }
 }

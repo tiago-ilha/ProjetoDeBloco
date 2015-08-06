@@ -37,8 +37,8 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
             Turma turma;
 
             if (entidade.Id == Guid.Empty)
-            {
-                turma = new Turma(entidade.Modulo.Id, entidade.Identificador);
+            {                
+                turma = new Turma(entidade.Identificador, entidade.Modulo.Id, entidade.IdProfessor);
 
                 AdicionarAlunos(entidade, turma);
 
@@ -48,7 +48,7 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
             {
                 turma = _repTurma.ObterPor(entidade.Id);
 
-                turma.Editar(entidade.IdModulo, entidade.Identificador);
+                turma.Editar(entidade.Modulo.Id,entidade.Identificador,entidade.IdProfessor);
 
                 AdicionarAlunos(entidade, turma);
 

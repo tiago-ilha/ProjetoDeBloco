@@ -18,6 +18,8 @@ namespace ProjetoDeBloco.Infraestrutura.Mapeamento
             Property(professor => professor.IdProfessor).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(professor => professor.AreaDeFormacao).HasColumnType("varchar").HasMaxLength(120).IsRequired();
             Property(professor => professor.AnoDeFormacao).HasColumnType("int").IsRequired();
+
+            HasMany(x => x.Turmas);
         }
     }
 }

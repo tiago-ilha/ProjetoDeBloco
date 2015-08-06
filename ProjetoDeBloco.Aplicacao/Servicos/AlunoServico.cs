@@ -35,6 +35,13 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
             return Mapper.Map<Aluno, AlunoVM>(aluno);
         }
 
+        public AlunoVM BuscarPorNome(string nome)
+        {
+            var aluno = _repAluno.ObterPor(nome);
+
+            return Mapper.Map<Aluno, AlunoVM>(aluno);
+        }
+
         public void Cadastrar(AlunoVM entidade)
         {
             Aluno aluno;
@@ -98,6 +105,6 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
                 ServicoGeradorDeMatricula.Gerar(aluno, matricula);
         }
 
-        #endregion
+        #endregion       
     }
 }

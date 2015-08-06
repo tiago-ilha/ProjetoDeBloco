@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace ProjetoDeBloco.UI.Controllers
 {
-    public class CursoController : Controller
+    public class CursoController : Controller 
     {
         private ICursoServico _servico;
 

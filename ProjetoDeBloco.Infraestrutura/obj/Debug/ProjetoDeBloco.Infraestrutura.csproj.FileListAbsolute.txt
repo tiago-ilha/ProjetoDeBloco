@@ -12,3 +12,31 @@ C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\obj\Debug\ProjetoDeBloco.Infraestrutura.csproj.GenerateResource.Cache
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\obj\Debug\ProjetoDeBloco.Infraestrutura.dll
 C:\Users\Tiago de Oliveira\documents\visual studio 2013\Projects\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\obj\Debug\ProjetoDeBloco.Infraestrutura.pdb
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Infraestrutura\bin\Debug\ProjetoDeBloco.Infraestrutura.dll.config
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Infraestrutura\bin\Debug\ProjetoDeBloco.Infraestrutura.dll
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Infraestrutura\bin\Debug\ProjetoDeBloco.Infraestrutura.pdb
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Infraestrutura\bin\Debug\EntityFramework.dll
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Infraestrutura\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Infraestrutura\bin\Debug\ProjetoDeBloco.Dominio.dll
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Infraestrutura\bin\Debug\ProjetoDeBloco.Dominio.pdb
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Infraestrutura\bin\Debug\EntityFramework.xml
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Infraestrutura\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Infraestrutura\obj\Debug\ProjetoDeBloco.Infraestrutura.csprojResolveAssemblyReference.cache
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Infraestrutura\obj\Debug\ProjetoDeBloco.Infraestrutura.Migrations.v10.resources
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Infraestrutura\obj\Debug\ProjetoDeBloco.Infraestrutura.csproj.GenerateResource.Cache
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Infraestrutura\obj\Debug\ProjetoDeBloco.Infraestrutura.dll
+C:\Users\Eduardo\Source\Repos\repoPadrao\real2\ProjetoDeBloco.Infraestrutura\obj\Debug\ProjetoDeBloco.Infraestrutura.pdb
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\bin\Debug\ProjetoDeBloco.Infraestrutura.dll.config
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\bin\Debug\ProjetoDeBloco.Infraestrutura.dll
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\bin\Debug\ProjetoDeBloco.Infraestrutura.pdb
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\bin\Debug\EntityFramework.dll
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\bin\Debug\ProjetoDeBloco.Dominio.dll
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\bin\Debug\ProjetoDeBloco.Dominio.pdb
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\bin\Debug\EntityFramework.xml
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\obj\Debug\ProjetoDeBloco.Infraestrutura.csprojResolveAssemblyReference.cache
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\obj\Debug\ProjetoDeBloco.Infraestrutura.Migrations.v10.resources
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\obj\Debug\ProjetoDeBloco.Infraestrutura.csproj.GenerateResource.Cache
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\obj\Debug\ProjetoDeBloco.Infraestrutura.dll
+C:\Users\Tiago de Oliveira\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\obj\Debug\ProjetoDeBloco.Infraestrutura.pdb

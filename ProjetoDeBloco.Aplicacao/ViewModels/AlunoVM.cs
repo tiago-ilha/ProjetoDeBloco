@@ -9,7 +9,7 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
 {
     public class AlunoVM
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; set; }   
         public long? Matricula { get; set; }
 
         [Required(ErrorMessage = "Informe o nome do Aluno!")]
@@ -20,5 +20,11 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
         [Required(ErrorMessage = "Informe a data de nascimento!")]
         [DataType(DataType.Date)]
         public DateTime DataNascimento { get; set; }
+    }
+
+    public class TurmaAlunoVM
+    {
+        public Guid Id { get; set; }
+        public string Nome { get; set; }
     }
 }

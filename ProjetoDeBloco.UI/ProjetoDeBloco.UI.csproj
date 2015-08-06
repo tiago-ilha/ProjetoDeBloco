@@ -132,6 +132,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AlunoController.cs" />
+    <Compile Include="Controllers\AvaliacaoController.cs" />
     <Compile Include="Controllers\BlocoController.cs" />
     <Compile Include="Controllers\CursoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -209,9 +210,11 @@
     <Content Include="Views\Aluno\Remover.cshtml" />
     <Content Include="Views\Shared\Parciais\_AdicionarAlunos.cshtml" />
     <Content Include="Views\Turma\Cadastrar.cshtml" />
+    <Content Include="Views\Turma\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Avaliacao\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

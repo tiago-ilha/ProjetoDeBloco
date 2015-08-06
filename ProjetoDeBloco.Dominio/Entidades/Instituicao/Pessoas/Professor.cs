@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,8 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Pessoas
         public Guid IdProfessor { get; set; }
         public string AreaDeFormacao { get; set; }
         public int AnoDeFormacao { get; set; }
+
+        public virtual ICollection<Turma> Turmas { get; set; }
 
         public void Editar(string nome, DateTime dataNascimento, string areaDeFormacao, int anoDeFormacao)
         {
