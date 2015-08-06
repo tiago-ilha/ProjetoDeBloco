@@ -11,18 +11,22 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
     {
         protected Turma() { }
 
-        public Turma(Guid idModulo, int identificador)
+        public Turma(string identificador, Guid idModulo, Guid idProfessor)
         {
+            if (string.IsNullOrEmpty(identificador)) throw new Exception("Informe o identificador da turma!");
             if (idModulo == Guid.Empty) throw new Exception("Informe um módulo!");
-            if (identificador == 0) throw new Exception("Informe o identificador da turma!");
+            if (idProfessor == Guid.Empty) throw new Exception("Informe um Professor!");
 
+            this.Id = Guid.NewGuid();
             this.IdModulo = idModulo;
             this.Identificador = identificador;
             this.Alunos = new HashSet<Aluno>();
         }
-        public Guid Id { get; set; }
-        public int Identificador { get; private set; }
+        public Guid Id { get;private set; }
+        public string Identificador { get; private set; }
         public Guid IdModulo { get; private set; }
+        public Guid IdProfessor { get; set; }
+        public virtual Professor Professor { get; set; }
         public virtual Modulo Modulo { get; private set; }
         public virtual HashSet<Aluno> Alunos { get; private set; }
 
@@ -31,13 +35,15 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
             Alunos.Add(aluno);
         }
 
-        public void Editar(Guid idModulo,int identificador)
+        public void Editar(Guid idModulo,string identificador, Guid idProfessor)
         {
-            if(idModulo == Guid.Empty) throw new Exception("Informe um módulo!");
             if (identificador == null) throw new Exception("Informe o identificador da turma!");
+            if(idModulo == Guid.Empty) throw new Exception("Informe um módulo!");            
+            if (idProfessor == Guid.Empty) throw new Exception("Informe um Professor!");
 
             this.Identificador = identificador;
-            this.IdModulo = idModulo;            
+            this.IdModulo = idModulo;
+            this.IdProfessor = idProfessor;            
         }
     }
 }

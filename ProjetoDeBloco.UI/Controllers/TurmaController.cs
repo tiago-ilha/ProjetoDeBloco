@@ -13,12 +13,17 @@ namespace ProjetoDeBloco.UI.Controllers
         private readonly ITurmaServico _servicoTurma;
         private readonly IModuloServico _servicoModulo;
         private readonly IAlunoServico _servicoAluno;
+        private readonly IProfessorServico _servicoProfessor;
 
-        public TurmaController(ITurmaServico servicoTurma, IModuloServico servicoModulo, IAlunoServico servicoAluno)
+        public TurmaController(ITurmaServico servicoTurma,
+            IModuloServico servicoModulo,
+            IAlunoServico servicoAluno,
+            IProfessorServico servicoProfessor)
         {
             _servicoTurma = servicoTurma;
             _servicoModulo = servicoModulo;
             _servicoAluno = servicoAluno;
+            _servicoProfessor = servicoProfessor;
         }
 
         // GET: Turma
@@ -35,10 +40,12 @@ namespace ProjetoDeBloco.UI.Controllers
             return View(turma);
         }
 
+        #region Cadastro
         // GET: Turma/Create
         public ActionResult Cadastrar()
         {
             CarregarModulos();
+            CarregarProfessor();
             return View();
         }
 
@@ -47,17 +54,11 @@ namespace ProjetoDeBloco.UI.Controllers
         public ActionResult Cadastrar(TurmaVM model)
         {
             Guid idModulo;
+            Guid idProfessor;
 
-            if (Request.Form["Modulos"] != "")
-            {
-                idModulo = Guid.Parse(Request.Form["Modulos"]);
-                model.Modulo = _servicoModulo.BuscarPorId(idModulo);
-            }
-            else
-            {
-                idModulo = Guid.Empty;
-                model.Modulo.Id = idModulo;
-            }
+            idModulo = CarregarDadosDoModulo(model);
+
+            idProfessor = CarregarDadosDoProfessor(model, idModulo);
 
             IList<AlunoVM> listaDeAlunos = new List<AlunoVM>();
 
@@ -96,15 +97,25 @@ namespace ProjetoDeBloco.UI.Controllers
                 ModelState.AddModelError("listaDeErros", ex.Message);
                 return View(model);
             }
-
+            
             CarregarModulos();
+            CarregarProfessor();
         }
 
+        #endregion
+
+        #region Editar
         // GET: Turma/Edit/5
         public ActionResult Editar(Guid id)
         {
+            var turma = CarregarDadosDaTurma(id);
+            return View(turma);
+        }
+
+        private TurmaVM CarregarDadosDaTurma(Guid id)
+        {
             var turmaVM = _servicoTurma.BuscarPorId(id);
-            return View(turmaVM);
+            return turmaVM;
         }
 
         // POST: Turma/Edit/5
@@ -123,6 +134,9 @@ namespace ProjetoDeBloco.UI.Controllers
             }
         }
 
+        #endregion
+
+        #region Remover
         // GET: Turma/Delete/5
         public ActionResult Remover(Guid id)
         {
@@ -145,6 +159,8 @@ namespace ProjetoDeBloco.UI.Controllers
             }
         }
 
+        #endregion
+
         #region Metodos Compartilhados
 
         private TurmaVM CarregarTurma(Guid id)
@@ -156,6 +172,43 @@ namespace ProjetoDeBloco.UI.Controllers
         private void CarregarModulos()
         {
             ViewBag.Modulos = new SelectList(_servicoModulo.ListarTodos(), "Id", "Nome");
+        }
+
+        private void CarregarProfessor()
+        {
+            ViewBag.Professores = new SelectList(_servicoProfessor.ListarTodos(), "Id", "Nome");
+        }
+
+        private Guid CarregarDadosDoProfessor(TurmaVM model, Guid idModulo)
+        {
+            Guid idProfessor;
+            if (Request.Form["Professores"] != "")
+            {
+                idProfessor = Guid.Parse(Request.Form["Professores"]);
+                model.Professor = _servicoProfessor.BuscarPorId(idProfessor);
+            }
+            else
+            {
+                idProfessor = Guid.Empty;
+                model.Modulo.Id = idProfessor;
+            }
+            return idProfessor;
+        }
+
+        private Guid CarregarDadosDoModulo(TurmaVM model)
+        {
+            Guid idModulo;
+            if (Request.Form["Modulos"] != "")
+            {
+                idModulo = Guid.Parse(Request.Form["Modulos"]);
+                model.Modulo = _servicoModulo.BuscarPorId(idModulo);
+            }
+            else
+            {
+                idModulo = Guid.Empty;
+                model.Modulo.Id = idModulo;
+            }
+            return idModulo;
         }
 
         #endregion

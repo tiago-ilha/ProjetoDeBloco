@@ -29,12 +29,11 @@ namespace ProjetoDeBloco.Infraestrutura.Data
         public DbSet<Professor> Professores { get; set; }
 
         public DbSet<Avaliacao> Avaliacao { get; set; }
-
        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
@@ -47,7 +46,9 @@ namespace ProjetoDeBloco.Infraestrutura.Data
             modelBuilder.Configurations.Add(new ProfessorMap());
 
             modelBuilder.Configurations.Add(new ModuloMap());
-            modelBuilder.Configurations.Add(new AvaliacaoMap());      
+            modelBuilder.Configurations.Add(new AvaliacaoMap());
+
+            modelBuilder.Entity<Turma>().Ignore(x => x.IdProfessor);
         }
     }    
 }
