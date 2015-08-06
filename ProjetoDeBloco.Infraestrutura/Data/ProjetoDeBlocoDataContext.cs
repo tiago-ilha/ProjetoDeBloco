@@ -48,7 +48,7 @@ namespace ProjetoDeBloco.Infraestrutura.Data
             modelBuilder.Configurations.Add(new ModuloMap());
             modelBuilder.Configurations.Add(new AvaliacaoMap());
 
-            modelBuilder.Entity<Turma>().Ignore(x => x.IdProfessor);
+            modelBuilder.Entity<Turma>().Ignore(x => x.Professor);
         }
     }    
 }

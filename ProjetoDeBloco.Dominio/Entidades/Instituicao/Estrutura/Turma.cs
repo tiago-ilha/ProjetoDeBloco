@@ -18,8 +18,10 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
             if (idProfessor == Guid.Empty) throw new Exception("Informe um Professor!");
 
             this.Id = Guid.NewGuid();
-            this.IdModulo = idModulo;
             this.Identificador = identificador;
+            this.IdModulo = idModulo;
+            this.IdProfessor = idProfessor;
+            
             this.Alunos = new HashSet<Aluno>();
         }
         public Guid Id { get;private set; }

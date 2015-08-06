@@ -29,8 +29,22 @@ namespace ProjetoDeBloco.UI.Controllers
         // GET: Turma
         public ActionResult Index()
         {
-            var turmas = _servicoTurma.ListarTodos();
-            return View(turmas);
+            TurmaVM turmas;
+            var listaDeTurmas = new List<TurmaVM>();
+
+            foreach (var item in _servicoTurma.ListarTodos())
+            {
+                turmas = new TurmaVM();
+                turmas.Id = item.Id;
+                turmas.Identificador = item.Identificador;
+                turmas.Modulo = _servicoModulo.BuscarPorId(item.Modulo.Id);
+                turmas.Professor = _servicoProfessor.BuscarPorId(item.IdProfessor);
+                turmas.Alunos = item.Alunos;
+
+                listaDeTurmas.Add(turmas);
+            }
+
+            return View(listaDeTurmas);
         }
 
         // GET: Turma/Details/5
@@ -56,30 +70,10 @@ namespace ProjetoDeBloco.UI.Controllers
             Guid idModulo;
             Guid idProfessor;
 
-            idModulo = CarregarDadosDoModulo(model);
+            CarregarDadosDoModulo(model);
+            CarregarDadosDoProfessor(model);
 
-            idProfessor = CarregarDadosDoProfessor(model, idModulo);
-
-            IList<AlunoVM> listaDeAlunos = new List<AlunoVM>();
-
-            foreach (var item in model.Alunos)
-            {
-                var aluno = _servicoAluno.BuscarPorNome(item.Nome);
-                //model.Alunos.Add(aluno);
-                
-                AlunoVM alunoVm = new AlunoVM
-                {
-                    Id = aluno.Id,
-                    Matricula = aluno.Matricula,
-                    Nome = aluno.Nome,
-                    DataNascimento = aluno.DataNascimento
-                };
-
-                listaDeAlunos.Add(alunoVm);
-            }
-
-            model.Alunos = null; //com isso eu esvazio aquela lixarada
-            model.Alunos = listaDeAlunos;
+            MontarDadosDeTurma(model);
 
             try
             {
@@ -100,6 +94,30 @@ namespace ProjetoDeBloco.UI.Controllers
             
             CarregarModulos();
             CarregarProfessor();
+        }
+
+        private void MontarDadosDeTurma(TurmaVM model)
+        {
+            IList<AlunoVM> listaDeAlunos = new List<AlunoVM>();
+
+            foreach (var item in model.Alunos)
+            {
+                var aluno = _servicoAluno.BuscarPorNome(item.Nome);
+                //model.Alunos.Add(aluno);
+
+                AlunoVM alunoVm = new AlunoVM
+                {
+                    Id = aluno.Id,
+                    Matricula = aluno.Matricula,
+                    Nome = aluno.Nome,
+                    DataNascimento = aluno.DataNascimento
+                };
+
+                listaDeAlunos.Add(alunoVm);
+            }
+
+            model.Alunos = null; //com isso eu esvazio aquela lixarada
+            model.Alunos = listaDeAlunos;
         }
 
         #endregion
@@ -179,23 +197,22 @@ namespace ProjetoDeBloco.UI.Controllers
             ViewBag.Professores = new SelectList(_servicoProfessor.ListarTodos(), "Id", "Nome");
         }
 
-        private Guid CarregarDadosDoProfessor(TurmaVM model, Guid idModulo)
+        private void CarregarDadosDoProfessor(TurmaVM model)
         {
             Guid idProfessor;
             if (Request.Form["Professores"] != "")
             {
                 idProfessor = Guid.Parse(Request.Form["Professores"]);
-                model.Professor = _servicoProfessor.BuscarPorId(idProfessor);
+                model.IdProfessor = idProfessor;
             }
             else
             {
                 idProfessor = Guid.Empty;
-                model.Modulo.Id = idProfessor;
+                model.Professor.Id = idProfessor;
             }
-            return idProfessor;
         }
 
-        private Guid CarregarDadosDoModulo(TurmaVM model)
+        private void CarregarDadosDoModulo(TurmaVM model)
         {
             Guid idModulo;
             if (Request.Form["Modulos"] != "")
@@ -207,8 +224,7 @@ namespace ProjetoDeBloco.UI.Controllers
             {
                 idModulo = Guid.Empty;
                 model.Modulo.Id = idModulo;
-            }
-            return idModulo;
+            }            
         }
 
         #endregion
