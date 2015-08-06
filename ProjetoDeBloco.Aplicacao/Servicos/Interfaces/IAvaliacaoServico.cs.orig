@@ -1,0 +1,29 @@
+<<<<<<< HEAD
+﻿using ProjetoDeBloco.Aplicacao.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjetoDeBloco.Aplicacao.Servicos.Interfaces
+{
+    public interface IAvaliacaoServico : IAplicacaoBase<AvaliacaoVM>
+    {
+    }
+}
+=======
+﻿using ProjetoDeBloco.Aplicacao.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjetoDeBloco.Aplicacao.Servicos.Interfaces
+{
+    public interface IAvaliacaoServico : IAplicacaoBase<AvaliacaoVM>
+    {
+    }
+}
+>>>>>>> b4ef6cd652a9b423ee62859668b5e8a022cf5c51
