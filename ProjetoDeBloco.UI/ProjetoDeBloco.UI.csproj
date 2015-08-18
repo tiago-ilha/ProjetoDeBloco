@@ -211,10 +211,11 @@
     <Content Include="Views\Shared\Parciais\_AdicionarAlunos.cshtml" />
     <Content Include="Views\Turma\Cadastrar.cshtml" />
     <Content Include="Views\Turma\Editar.cshtml" />
+    <Content Include="Views\Avaliacao\Index.cshtml" />
+    <Content Include="Views\Avaliacao\Cadastrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Avaliacao\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

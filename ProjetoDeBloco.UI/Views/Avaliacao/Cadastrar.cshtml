@@ -1,0 +1,65 @@
+﻿@model ProjetoDeBloco.Aplicacao.ViewModels.AvaliacaoVM
+
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<h2>Cadastrar</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>AvaliacaoVM</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.dtInicio, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dtInicio)
+                @Html.ValidationMessageFor(model => model.dtInicio)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.dtFim, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dtFim)
+                @Html.ValidationMessageFor(model => model.dtFim)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.objAvaliacao, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.objAvaliacao)
+                @Html.ValidationMessageFor(model => model.objAvaliacao)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdTurma, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("TurmaId", "-- Selecione uma Turma --")                                
+                @*@Html.ValidationMessageFor(model => model.IdTurma)*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

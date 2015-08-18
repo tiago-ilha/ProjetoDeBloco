@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ProjetoDeBloco.Aplicacao.ViewModels.AvaliacaoVM>
+
+@{
+    ViewBag.Title = "Listagem de Avaliações";
+}
+
+<h2>Listagem de Avaliações</h2>
+
+<p>
+    @Html.ActionLink("Nova Avaliação", "Cadastrar", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.dtInicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtFim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.objAvaliacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdTurma)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtFim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.objAvaliacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdTurma)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

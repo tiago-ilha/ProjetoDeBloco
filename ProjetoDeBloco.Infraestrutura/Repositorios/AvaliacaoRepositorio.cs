@@ -1,4 +1,5 @@
-﻿using ProjetoDeBloco.Dominio.Interfaces.Repositorios;
+﻿using ProjetoDeBloco.Dominio.Entidades.AvaliacaoInstitucional;
+using ProjetoDeBloco.Dominio.Interfaces.Repositorios;
 using ProjetoDeBloco.Infraestrutura.Data;
 using System;
 using System.Collections.Generic;
@@ -17,34 +18,34 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
             _contexto = contexto;
         }
 
-        public IEnumerable<Dominio.Entidades.AvaliacaoInstitucional.Avaliacao> ObterPor()
+        public IEnumerable<Avaliacao> ObterPor()
+        {
+            return _contexto.Avaliacao.ToList();
+        }
+
+        public Avaliacao ObterPor(Guid id)
+        {
+            return _contexto.Avaliacao.Where(x => x.Id == id).FirstOrDefault();
+        }
+
+        public void Salvar(Avaliacao entidade)
         {
             throw new NotImplementedException();
         }
 
-        public Dominio.Entidades.AvaliacaoInstitucional.Avaliacao ObterPor(Guid id)
+        public void Atualizar(Avaliacao entidade)
         {
             throw new NotImplementedException();
         }
 
-        public void Salvar(Dominio.Entidades.AvaliacaoInstitucional.Avaliacao entidade)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Atualizar(Dominio.Entidades.AvaliacaoInstitucional.Avaliacao entidade)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Remover(Dominio.Entidades.AvaliacaoInstitucional.Avaliacao entidade)
+        public void Remover(Avaliacao entidade)
         {
             throw new NotImplementedException();
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _contexto.Dispose();
         }
     }
 }

@@ -30,5 +30,14 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
         public ModuloVM Modulo { get; set; }
 
         public IList<AlunoVM> Alunos { get; set; }
+
+        //[Display(Name = "Código / Nome")]
+        //public string CodigoENome
+        //{
+        //    get
+        //    {
+        //        return this.Codigo + " - " + this.Nome;
+        //    }
+        //}
     }
 }
