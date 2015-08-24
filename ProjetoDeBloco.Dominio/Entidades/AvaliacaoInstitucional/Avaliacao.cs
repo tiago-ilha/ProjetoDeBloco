@@ -14,6 +14,9 @@ namespace ProjetoDeBloco.Dominio.Entidades.AvaliacaoInstitucional
         public DateTime dtFim { get; set; }
         public String objAvaliacao { get; set; }
 
+
+        //teste
+
         public virtual Turma turma { get; set; }
         public Guid IdTurma { get; set; }
         
