@@ -14,7 +14,7 @@ namespace ProjetoDeBloco.UI.Controllers
 
         public AlunoController(IAlunoServico servico)
         {
-            _servico = servico;
+            _servico = servico; 
         }
 
         // GET: Aluno

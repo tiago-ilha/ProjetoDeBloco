@@ -11,7 +11,7 @@ namespace ProjetoDeBloco.UI.Controllers
     public class AvaliacaoController : Controller
     { 
 
-        public IAvaliacaoServico _servicoAvaliacao;
+        public IAvaliacaoServico _servicoAvaliacao; 
         public ITurmaServico _servicoTurma;
 
         public AvaliacaoController(IAvaliacaoServico servicoAvaliacao, ITurmaServico servicoTurma)
@@ -47,7 +47,13 @@ namespace ProjetoDeBloco.UI.Controllers
             else
                 avaliacao.IdTurma = Guid.Empty;
 
-            return View();
+            _servicoAvaliacao.Cadastrar(avaliacao);
+
+            ModelState.Clear();
+
+          //  ViewBag.TurmaId = new SelectList(_servicoTurma.ListarTodos(), "Id", "Nome", avaliacao.IdTurma);
+
+            return RedirectToAction("Index");
         }
 
         protected IList<AvaliacaoVM> CarregaAvaliacao()
