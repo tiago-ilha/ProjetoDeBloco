@@ -37,7 +37,41 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
         public void Cadastrar(AvaliacaoVM entidade)
         {
-            throw new NotImplementedException();
+            Avaliacao avaliacao;
+
+            if (entidade.Id == Guid.Empty)
+            {
+                var turma = _repTurma.ObterPor(entidade.IdTurma);
+
+                if (turma == null)
+                    turma.Id= Guid.Empty;
+
+                avaliacao = new Avaliacao() 
+                {
+                    dtFim = entidade.dtFim,
+                    dtInicio = entidade.dtInicio,
+                    Id = entidade.Id,
+                    objAvaliacao = entidade.objAvaliacao,
+                    IdTurma = entidade.IdTurma                    
+                };
+                    
+
+
+              //  var jaExiste = _repAvaliacao.JaExiste(entidade.dtInicio);
+
+               // if (jaExiste)
+                 //   throw new Exception("Esse bloco cadastrado com esse nome!");
+
+                _repAvaliacao.Salvar(avaliacao);
+            }
+            else
+            {
+                avaliacao = _repAvaliacao.ObterPor(entidade.Id);
+
+             //   bloco.Editar(entidade.Nome, entidade.IdCurso);
+
+               // _repBloco.Atualizar(bloco);
+            }
         }
 
         public void Remover(AvaliacaoVM entidade)

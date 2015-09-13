@@ -24,7 +24,7 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
             
             this.Alunos = new HashSet<Aluno>();
         }
-        public Guid Id { get;private set; }
+        public Guid Id { get; set; }
         public string Identificador { get; private set; }
         public Guid IdModulo { get; private set; }
         public Guid IdProfessor { get; set; }

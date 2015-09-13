@@ -136,4 +136,3 @@ C:\Users\Eduardo\Source\Repos\repoPadrao\Real4\ProjetoDeBloco.IoC\bin\Debug\Enti
 C:\Users\Eduardo\Source\Repos\repoPadrao\Real4\ProjetoDeBloco.IoC\obj\Debug\ProjetoDeBloco.IoC.csprojResolveAssemblyReference.cache
 C:\Users\Eduardo\Source\Repos\repoPadrao\Real4\ProjetoDeBloco.IoC\obj\Debug\ProjetoDeBloco.IoC.dll
 C:\Users\Eduardo\Source\Repos\repoPadrao\Real4\ProjetoDeBloco.IoC\obj\Debug\ProjetoDeBloco.IoC.pdb
-C:\Users\Eduardo\Source\Repos\repoPadrao\Real4\ProjetoDeBloco.IoC\bin\Debug\AutoMapper.Net4.dll

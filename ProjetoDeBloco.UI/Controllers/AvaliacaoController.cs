@@ -47,7 +47,13 @@ namespace ProjetoDeBloco.UI.Controllers
             else
                 avaliacao.IdTurma = Guid.Empty;
 
-            return View();
+            _servicoAvaliacao.Cadastrar(avaliacao);
+
+            ModelState.Clear();
+
+            ViewBag.TurmaId = new SelectList(_servicoTurma.ListarTodos(), "Id", "Nome", avaliacao.IdTurma);
+
+            return RedirectToAction("Index");
         }
 
         protected IList<AvaliacaoVM> CarregaAvaliacao()

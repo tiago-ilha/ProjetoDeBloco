@@ -30,7 +30,8 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
 
         public void Salvar(Avaliacao entidade)
         {
-            throw new NotImplementedException();
+            _contexto.Avaliacao.Add(entidade);
+            _contexto.SaveChanges();
         }
 
         public void Atualizar(Avaliacao entidade)
