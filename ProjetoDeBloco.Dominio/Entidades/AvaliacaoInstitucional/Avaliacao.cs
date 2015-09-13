@@ -9,10 +9,13 @@ namespace ProjetoDeBloco.Dominio.Entidades.AvaliacaoInstitucional
 {
     public class Avaliacao
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; set; }   
         public DateTime dtInicio { get; set; }
         public DateTime dtFim { get; set; }
         public String objAvaliacao { get; set; }
+
+
+        //teste
 
         public virtual Turma turma { get; set; }
         public Guid IdTurma { get; set; }
