@@ -42,16 +42,9 @@ namespace ProjetoDeBloco.UI.Controllers
         [HttpPost]
         public ActionResult Cadastrar(AvaliacaoVM avaliacao)
         {
-            if (Request.Form["TurmaId"] != null)
-                avaliacao.IdTurma = Guid.Parse(Request.Form["TurmaId"]);
-            else
-                avaliacao.IdTurma = Guid.Empty;
-
             _servicoAvaliacao.Cadastrar(avaliacao);
 
             ModelState.Clear();
-
-            ViewBag.TurmaId = new SelectList(_servicoTurma.ListarTodos(), "Id", "Nome", avaliacao.IdTurma);
 
             return RedirectToAction("Index");
         }

@@ -60,7 +60,7 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
             {
                 curso = _repCurso.ObterPor(entidade.Id);
 
-                curso.Editar(entidade.Codigo, entidade.Nome);
+                //curso.Editar(entidade.Codigo, entidade.Nome);
 
                 _repCurso.Atualizar(curso);
             }

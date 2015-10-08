@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidades\AvaliacaoInstitucional\Avaliacao.cs" />
+    <Compile Include="Entidades\AvaliacaoInstitucional\Questao.cs" />
     <Compile Include="Entidades\Instituicao\Estrutura\Bloco.cs" />
     <Compile Include="Entidades\Instituicao\Estrutura\Curso.cs" />
     <Compile Include="Entidades\Instituicao\Estrutura\Modulo.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Interfaces\Repositorios\ICursoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorios\IModuloRepositorio.cs" />
     <Compile Include="Interfaces\Repositorios\IProfessorRepositorio.cs" />
+    <Compile Include="Interfaces\Repositorios\IQuestaoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorios\IRepositorioBase.cs" />
     <Compile Include="Interfaces\Repositorios\ITurmaRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

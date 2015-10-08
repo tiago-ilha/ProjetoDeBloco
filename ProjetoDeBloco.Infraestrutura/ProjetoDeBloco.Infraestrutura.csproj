@@ -55,6 +55,7 @@
     <Compile Include="Mapeamento\ModuloMap.cs" />
     <Compile Include="Mapeamento\PessoaMap.cs" />
     <Compile Include="Mapeamento\ProfessorMap.cs" />
+    <Compile Include="Mapeamento\QuestaoMap.cs" />
     <Compile Include="Mapeamento\TurmaMap.cs" />
     <Compile Include="Migrations\201506071434561_v1.0.cs" />
     <Compile Include="Migrations\201506071434561_v1.0.Designer.cs">
@@ -68,6 +69,7 @@
     <Compile Include="Repositorios\CursoRepositorio.cs" />
     <Compile Include="Repositorios\ModuloRepositorio.cs" />
     <Compile Include="Repositorios\ProfessorRepositorio.cs" />
+    <Compile Include="Repositorios\QuestaoRepositorio.cs" />
     <Compile Include="Repositorios\TurmaRepositorio.cs">
       <SubType>Code</SubType>
     </Compile>

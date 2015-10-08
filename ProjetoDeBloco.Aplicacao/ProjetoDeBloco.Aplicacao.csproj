@@ -63,9 +63,11 @@
     <Compile Include="Servicos\Interfaces\IAplicacaoBase.cs" />
     <Compile Include="Servicos\Interfaces\IModuloServico.cs" />
     <Compile Include="Servicos\Interfaces\IProfessorServico.cs" />
+    <Compile Include="Servicos\Interfaces\IQuestaoServico.cs" />
     <Compile Include="Servicos\Interfaces\ITurmaServico.cs" />
     <Compile Include="Servicos\ModuloServico.cs" />
     <Compile Include="Servicos\ProfessorServico.cs" />
+    <Compile Include="Servicos\QuestaoServico.cs" />
     <Compile Include="Servicos\TurmaServico.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -75,6 +77,7 @@
     <Compile Include="ViewModels\CursoVM.cs" />
     <Compile Include="ViewModels\ModuloVM.cs" />
     <Compile Include="ViewModels\ProfessorVM.cs" />
+    <Compile Include="ViewModels\QuestaoVM.cs" />
     <Compile Include="ViewModels\TurmaVM.cs" />
   </ItemGroup>
   <ItemGroup>

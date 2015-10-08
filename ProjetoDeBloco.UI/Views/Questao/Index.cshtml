@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ProjetoDeBloco.Aplicacao.ViewModels.QuestaoVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Cadastro de Questões</h2>
+
+<p>
+    @Html.ActionLink("Nova Questão", "Cadastro", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PerguntaQuestao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resposta1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resposta2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resposta3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resposta4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resposta5)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PerguntaQuestao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resposta1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resposta2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resposta3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resposta4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resposta5)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id = item.Id }, new { @class = "btn btn-default btn-sm" })
+            @Html.ActionLink("Visualizar", "Visualizar", new { id = item.Id }, new { @class = "btn btn-default btn-sm" })
+            @Html.ActionLink("Remover", "Remover", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
+        </td>
+    </tr>
+}
+
+</table>

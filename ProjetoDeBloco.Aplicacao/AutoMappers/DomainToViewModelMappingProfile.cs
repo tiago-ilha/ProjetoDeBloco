@@ -27,6 +27,7 @@ namespace ProjetoDeBloco.Aplicacao.AutoMappers
             CreateMap<Aluno, AlunoVM>();
             CreateMap<Turma, TurmaVM>();
             CreateMap<Avaliacao, AvaliacaoVM>();
+            CreateMap<Questao, QuestaoVM>();
         }
     }
 }

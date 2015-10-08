@@ -29,6 +29,7 @@ namespace ProjetoDeBloco.Infraestrutura.Data
         public DbSet<Professor> Professores { get; set; }
 
         public DbSet<Avaliacao> Avaliacao { get; set; }
+        public DbSet<Questao> Questao { get; set; }
        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -47,6 +48,7 @@ namespace ProjetoDeBloco.Infraestrutura.Data
 
             modelBuilder.Configurations.Add(new ModuloMap());
             modelBuilder.Configurations.Add(new AvaliacaoMap());
+            modelBuilder.Configurations.Add(new QuestaoMap());
 
             modelBuilder.Entity<Turma>().Ignore(x => x.Professor);
         }
