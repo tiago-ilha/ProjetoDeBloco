@@ -17,7 +17,7 @@ namespace ProjetoDeBloco.Dominio.Entidades.AvaliacaoInstitucional
             //if (nome.Length < 5) throw new Exception("Informe o nome do curso com no mínimo 5!");
             //if (nome.Length > 80) throw new Exception("Informe o nome do curso com no máximo 80!");
 
-            this.Id = Guid.NewGuid();
+            this.Id = Guid.NewGuid(); 
             this.PerguntaQuestao = PerguntaQuestao;
             this.Resposta1 = Resposta1;
             this.Resposta2 = Resposta2;
