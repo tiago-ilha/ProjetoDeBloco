@@ -27,6 +27,8 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
         [Display(Name = "Código da Turma")]
         public Guid IdTurma { get; set; }
 
+        public IList<QuestaoVM> Questoes { get; set; }
+
         public string GetCodigoNome
         {
             get 

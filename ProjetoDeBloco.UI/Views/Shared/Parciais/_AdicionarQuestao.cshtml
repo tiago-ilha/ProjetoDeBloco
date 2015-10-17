@@ -1,0 +1,158 @@
+﻿@model ProjetoDeBloco.Aplicacao.ViewModels.AvaliacaoVM
+@using ProjetoDeBloco.UI.Helpers
+
+
+
+<div class="form-group alinhamento">
+    <label class="control-label col-md-1" for="listadaDeQuestoes">Questão</label>
+    <div class="col-md-4">
+        <select class="form-control" id="listadaDeQuestoes">
+            <option>Selecione as questões</option>
+        </select>
+        @Html.ValidationMessage("ValidarCampoQuestao")
+    </div>
+    <div class="col-md-1">
+        <button type="button" class="btn btn-primary" id="Adicionar">Adicionar</button>
+    </div>
+</div>
+
+@*<div class="form-group">
+    <button type="button" class="btn btn-primary" id="Adicionar">Adicionar</button>
+</div>*@
+
+
+
+<div class="centralizar-table">
+    <table id="tabelaDeQuestoes" class="table table-striped table-hover largura-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Questão</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Questoes.Count > 0)
+            {
+                var index = 0;
+                foreach (var aluno in Model.Questoes)
+                {
+                    <tr>
+                        <td>@index</td>
+                        <td>@aluno.PerguntaQuestao</td>
+                        <input type="hidden" name="Alunos[@index].PerguntaQuestao" class="campo-nome" value="@aluno.PerguntaQuestao" />
+                        <td><a class="btn" title="Remover Aluno"><i class="glyphicon glyphicon-trash"></i></a></td>
+                    </tr>
+                    index++;
+                }
+            }
+            else
+            {
+                <tr class="negrito">
+                    <td>Nenhum registro foi encontrado.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<style>
+    .centralizar-table {
+        margin-left: 200px;
+    }
+
+    .largura-table {
+        width: 600px;
+    }
+
+    .alinhamento {
+        margin-left: 100px;
+    }
+
+    .negrito {
+        font-weight: bold;
+    }
+
+    .campo-nome {
+    }
+</style>
+
+
+@using (Html.BeginScripts())
+{
+    <script>
+        $(document).ready(function () {
+            
+            ListarQuestoes();
+
+            $('#Adicionar').click(function () {
+                debugger;
+                if (!ValidarQuestoesSelecionados()) {
+                    return;
+                }                
+
+                $('.negrito').remove();
+
+
+                var numeroDeLinhas = $('#tabelaDeQuestoes tbody tr').length;
+
+                if (numeroDeLinhas == 0 || numeroDeLinhas != 0) {
+                    AdicionarLinha();
+                }
+            });
+
+        });
+
+
+        function ValidarQuestoesSelecionados() {
+            var resultado = true;
+
+            var nome = $('#listadaDeQuestoes option:selected').text();
+
+            if (nome == "" || nome == "Selecione as questões") {
+                $('#ValidarCampoQuestao').html("Informe as Questões");
+                resultado = false;
+            }
+
+            return resultado;
+        }
+
+        function ListarQuestoes() {
+            $.getJSON("/Questao/Listar", function (data) {
+                var options;
+                for (var i = 0; i < data.length; i++) {
+                    options += '<option value="' + data[i].id + '">' + data[i].nome + '</option>';
+
+                }
+                $("#listadaDeQuestoes").append(options);
+            });
+        }
+
+        function AdicionarLinha() {
+            numeroDeLinhas = $('#tabelaDeQuestoes tbody tr').length;
+
+            var id = numeroDeLinhas + 1;
+            var nome = $('#listadaDeQuestoes option:selected').text();
+
+            $('#tabelaDeQuestoes').append("<tr>" +
+                "<input type='hidden' name=Alunos[" + numeroDeLinhas + "].Nome class='campo-nome' value='" + nome + "'/>" +
+                "<td>" + id + "</td>" +
+                "<td>" + nome + "</td>" +
+                "<td><a class='btn removerAluno' title='Remover Questao'><i class='glyphicon glyphicon-trash'></i></a>" +
+                "</td></tr>");
+        }
+
+        $(document).on("click", ".removerAluno", function (event) {
+            $(this).parent().parent().remove();
+            updateRowIndex();
+        });
+
+        function updateRowIndex() {
+            $("#tabelaDeQuestoes tbody tr").each(function (index, value) {
+                $(this).find(".campo-nome").attr("name", "Alunos[" + index + "].Nome");
+            });
+        }
+
+    </script>
+}

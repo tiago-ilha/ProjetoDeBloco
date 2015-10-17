@@ -94,5 +94,15 @@ namespace ProjetoDeBloco.UI.Controllers
                 return View();
             }
         }
+
+        [HttpGet]
+        public JsonResult Listar()
+        {
+            var resultado = (from questao in _servico.ListarTodos()
+                             orderby questao.PerguntaQuestao
+                             select new { id = questao.Id, nome = questao.PerguntaQuestao }).Distinct().ToList();
+
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
 	}
 }

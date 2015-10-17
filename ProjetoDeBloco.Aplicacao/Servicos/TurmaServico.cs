@@ -80,6 +80,8 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
                     var alunoConvertido = Mapper.Map<AlunoVM, Aluno>(item);
 
                     turma.AdicionarAluno(alunoConvertido);
+
+                    
                 }
             }
         }

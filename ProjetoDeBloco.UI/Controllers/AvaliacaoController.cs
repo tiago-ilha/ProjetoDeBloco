@@ -13,22 +13,69 @@ namespace ProjetoDeBloco.UI.Controllers
 
         public IAvaliacaoServico _servicoAvaliacao;
         public ITurmaServico _servicoTurma;
+        public IQuestaoServico _servicoQuestao;
 
-        public AvaliacaoController(IAvaliacaoServico servicoAvaliacao, ITurmaServico servicoTurma)
+
+        public AvaliacaoController(IAvaliacaoServico servicoAvaliacao, ITurmaServico servicoTurma, IQuestaoServico servicoQuestao)
         {
             _servicoAvaliacao = servicoAvaliacao;
 
             _servicoTurma = servicoTurma;
+
+            _servicoQuestao = servicoQuestao;
         }
         //
         // GET: /Avaliacao/
         public ActionResult Index()
         {
 
-            var listaAvaliacao = CarregaAvaliacao();
+            //var listaAvaliacao = CarregaAvaliacao();
 
 
-            return View(listaAvaliacao);
+
+            IList<AvaliacaoVM> avaLList = new List<AvaliacaoVM>();
+
+            foreach (var item in _servicoAvaliacao.ListarTodos())
+            {
+                AvaliacaoVM avaliacao = new AvaliacaoVM();
+
+
+                avaliacao.dtFim = item.dtFim;
+                avaliacao.dtInicio = item.dtInicio;
+                avaliacao.objAvaliacao = item.objAvaliacao;
+                avaliacao.Id = item.Id;
+                avaliacao.turma = _servicoTurma.BuscarPorId(item.turma.Id);
+
+
+                avaLList.Add(avaliacao);
+
+            }
+
+            return View(avaLList);
+
+
+
+
+
+            //TurmaVM turmas;
+            //var listaDeTurmas = new List<TurmaVM>();
+
+            //foreach (var item in _servicoTurma.ListarTodos())
+            //{
+            //    turmas = new TurmaVM();
+            //    turmas.Id = item.Id;
+            //    turmas.Identificador = item.Identificador;
+            //    turmas.Modulo = _servicoModulo.BuscarPorId(item.Modulo.Id);
+            //    turmas.Professor = _servicoProfessor.BuscarPorId(item.IdProfessor);
+            //    turmas.Alunos = item.Alunos;
+
+            //    listaDeTurmas.Add(turmas);
+            //}
+
+            //return View(listaDeTurmas);
+
+
+
         }
 
 
@@ -40,23 +87,90 @@ namespace ProjetoDeBloco.UI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(AvaliacaoVM avaliacao)
+        public ActionResult Cadastrar(AvaliacaoVM model)
         {
-            _servicoAvaliacao.Cadastrar(avaliacao);
+
+            CarregarDadosDaTurma(model);
+
+            MontarDadosDasQuestoes(model);
+
+            _servicoAvaliacao.Cadastrar(model);
 
             ModelState.Clear();
 
             return RedirectToAction("Index");
+
+            CarregarTurma();
+        }
+
+        private void MontarDadosDasQuestoes(AvaliacaoVM model)
+        {
+            IList<QuestaoVM> listaDeQuestoes = new List<QuestaoVM>();
+
+            foreach (var item in model.Questoes)
+            {
+                 var questao = _servicoQuestao.BuscarPorId(item.Id);
+            //    //model.Alunos.Add(aluno);
+
+            //    AlunoVM alunoVm = new AlunoVM
+            //    {
+            //        Id = aluno.Id,
+            //        Matricula = aluno.Matricula,
+            //        Nome = aluno.Nome,
+            //        DataNascimento = aluno.DataNascimento
+            //    };
+
+            //    listaDeAlunos.Add(alunoVm);
+            }
+
+            //model.Alunos = null; //com isso eu esvazio aquela lixarada
+            //model.Alunos = listaDeAlunos;
+        }
+
+        private void CarregarTurma()
+        {
+            ViewBag.Turmas = new SelectList(_servicoTurma.ListarTodos(), "Id", "Identificador");
+        }
+
+        private void CarregarDadosDaTurma(AvaliacaoVM model)
+        {
+            //Guid idTurma;
+            //if (Request.Form["TurmaID"] != "")
+            //{
+            //    idTurma = Guid.Parse(Request.Form["TurmaID"]);
+            //    model.IdTurma = idTurma;
+            //}
+            //else
+            //{
+            //    idTurma = Guid.Empty;
+            //    model.turma.Id = idTurma;
+            //}
+
+
+            Guid idTurma;
+            if (Request.Form["TurmaID"] != "")
+            {
+                idTurma = Guid.Parse(Request.Form["TurmaID"]);
+                model.turma = _servicoTurma.BuscarPorId(idTurma);
+            }
+            else
+            {
+                idTurma = Guid.Empty;
+                model.turma.Id = idTurma;
+            }  
+
+
+
         }
 
         protected IList<AvaliacaoVM> CarregaAvaliacao()
         {
             IList<AvaliacaoVM> avaLList = new List<AvaliacaoVM>();
-            
+
             foreach (var item in _servicoAvaliacao.ListarTodos())
             {
                 AvaliacaoVM avaliacao = new AvaliacaoVM();
-                
+
 
                 avaliacao.dtFim = item.dtFim;
                 avaliacao.dtInicio = item.dtInicio;
@@ -78,5 +192,7 @@ namespace ProjetoDeBloco.UI.Controllers
             ViewBag.TurmaID = new SelectList(_servicoTurma.ListarTodos(), "Id", "Identificador");
  
         }
+
+
     }
 }

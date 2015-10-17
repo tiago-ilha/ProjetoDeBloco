@@ -1,6 +1,5 @@
 namespace ProjetoDeBloco.Infraestrutura.Migrations
 {
-    using ProjetoDeBloco.Infraestrutura.Data;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -13,7 +12,7 @@ namespace ProjetoDeBloco.Infraestrutura.Migrations
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(ProjetoDeBlocoDataContext context)
+        protected override void Seed(ProjetoDeBloco.Infraestrutura.Data.ProjetoDeBlocoDataContext context)
         {
             //  This method will be called after migrating to the latest version.
 

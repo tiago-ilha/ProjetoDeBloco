@@ -217,6 +217,7 @@
     <Content Include="Views\Questao\Index.cshtml" />
     <Content Include="Views\Questao\Cadastro.cshtml" />
     <Content Include="Views\Questao\Remover.cshtml" />
+    <Content Include="Views\Shared\Parciais\_AdicionarQuestao.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

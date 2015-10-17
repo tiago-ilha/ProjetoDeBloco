@@ -211,7 +211,7 @@ namespace ProjetoDeBloco.UI.Controllers
                 model.Professor.Id = idProfessor;
             }
         }
-
+         
         private void CarregarDadosDoModulo(TurmaVM model)
         {
             Guid idModulo;
