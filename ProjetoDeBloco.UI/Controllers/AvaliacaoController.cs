@@ -107,9 +107,9 @@ namespace ProjetoDeBloco.UI.Controllers
         {
             IList<QuestaoVM> listaDeQuestoes = new List<QuestaoVM>();
 
-            foreach (var item in model.Questoes)
-            {
-                 var questao = _servicoQuestao.BuscarPorId(item.Id);
+            //foreach (var item in model.Questoes)
+          //  {
+           //      var questao = _servicoQuestao.BuscarPorId(item.Id);
             //    //model.Alunos.Add(aluno);
 
             //    AlunoVM alunoVm = new AlunoVM
@@ -121,7 +121,7 @@ namespace ProjetoDeBloco.UI.Controllers
             //    };
 
             //    listaDeAlunos.Add(alunoVm);
-            }
+         //   }
 
             //model.Alunos = null; //com isso eu esvazio aquela lixarada
             //model.Alunos = listaDeAlunos;
