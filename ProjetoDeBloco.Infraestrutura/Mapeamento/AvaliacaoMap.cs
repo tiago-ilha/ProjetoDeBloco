@@ -23,6 +23,8 @@ namespace ProjetoDeBloco.Infraestrutura.Mapeamento
 
             Property(avaliacao => avaliacao.objAvaliacao);
 
+
+
             HasRequired(avaliacao => avaliacao.turma)
                .WithMany().HasForeignKey(avaliacao => avaliacao.IdTurma);
         }

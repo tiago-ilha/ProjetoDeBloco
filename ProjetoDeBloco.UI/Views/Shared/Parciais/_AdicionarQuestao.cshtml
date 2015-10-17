@@ -35,12 +35,12 @@
             @if (Model != null && Model.Questoes.Count > 0)
             {
                 var index = 0;
-                foreach (var aluno in Model.Questoes)
+                foreach (var questao in Model.Questoes)
                 {
                     <tr>
                         <td>@index</td>
-                        <td>@aluno.PerguntaQuestao</td>
-                        <input type="hidden" name="Alunos[@index].PerguntaQuestao" class="campo-nome" value="@aluno.PerguntaQuestao" />
+                        <td>@questao.PerguntaQuestao</td>
+                        <input type="hidden" name="Questoes[@index].PerguntaQuestao" class="campo-nome" value="@questao.PerguntaQuestao" />
                         <td><a class="btn" title="Remover Aluno"><i class="glyphicon glyphicon-trash"></i></a></td>
                     </tr>
                     index++;
@@ -136,10 +136,10 @@
             var nome = $('#listadaDeQuestoes option:selected').text();
 
             $('#tabelaDeQuestoes').append("<tr>" +
-                "<input type='hidden' name=Alunos[" + numeroDeLinhas + "].Nome class='campo-nome' value='" + nome + "'/>" +
+                "<input type='hidden' name=Questoes[" + numeroDeLinhas + "].Nome class='campo-nome' value='" + nome + "'/>" +
                 "<td>" + id + "</td>" +
                 "<td>" + nome + "</td>" +
-                "<td><a class='btn removerAluno' title='Remover Questao'><i class='glyphicon glyphicon-trash'></i></a>" +
+                "<td><a class='btn removerAluno' title='Remover Questoes'><i class='glyphicon glyphicon-trash'></i></a>" +
                 "</td></tr>");
         }
 
@@ -150,7 +150,7 @@
 
         function updateRowIndex() {
             $("#tabelaDeQuestoes tbody tr").each(function (index, value) {
-                $(this).find(".campo-nome").attr("name", "Alunos[" + index + "].Nome");
+                $(this).find(".campo-nome").attr("name", "Questoes[" + index + "].Nome");
             });
         }
 

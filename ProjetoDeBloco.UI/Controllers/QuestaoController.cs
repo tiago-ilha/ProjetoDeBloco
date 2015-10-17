@@ -23,6 +23,8 @@ namespace ProjetoDeBloco.UI.Controllers
         {
             var listaDeCursos = CarregarQuestoes();
             return View(listaDeCursos);
+
+
         }
 
         private IEnumerable<QuestaoVM> CarregarQuestoes()

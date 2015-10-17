@@ -9,6 +9,14 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
 {
     public class AvaliacaoVM
     {
+
+        public AvaliacaoVM()
+        {
+            Questoes = new List<QuestaoVM>();
+        }
+
+
+
         public Guid Id { get; set; }
 
         [Required(ErrorMessage = "Informe a Data de Início!")]

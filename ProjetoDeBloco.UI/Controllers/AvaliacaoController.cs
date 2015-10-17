@@ -45,6 +45,8 @@ namespace ProjetoDeBloco.UI.Controllers
                 avaliacao.objAvaliacao = item.objAvaliacao;
                 avaliacao.Id = item.Id;
                 avaliacao.turma = _servicoTurma.BuscarPorId(item.turma.Id);
+                avaliacao.Questoes = item.Questoes;
+
 
 
                 avaLList.Add(avaliacao);
@@ -52,29 +54,6 @@ namespace ProjetoDeBloco.UI.Controllers
             }
 
             return View(avaLList);
-
-
-
-
-
-            //TurmaVM turmas;
-            //var listaDeTurmas = new List<TurmaVM>();
-
-            //foreach (var item in _servicoTurma.ListarTodos())
-            //{
-            //    turmas = new TurmaVM();
-            //    turmas.Id = item.Id;
-            //    turmas.Identificador = item.Identificador;
-            //    turmas.Modulo = _servicoModulo.BuscarPorId(item.Modulo.Id);
-            //    turmas.Professor = _servicoProfessor.BuscarPorId(item.IdProfessor);
-            //    turmas.Alunos = item.Alunos;
-
-            //    listaDeTurmas.Add(turmas);
-            //}
-
-            //return View(listaDeTurmas);
-
-
 
         }
 

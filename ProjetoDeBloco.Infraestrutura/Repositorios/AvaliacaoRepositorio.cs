@@ -30,6 +30,11 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
 
         public void Salvar(Avaliacao entidade)
         {
+            //foreach (var item in entidade.Questoes)
+            //{
+            //    _contexto.Questao.Attach(item);
+            //}
+
             _contexto.Avaliacao.Add(entidade);
             _contexto.SaveChanges();
         }

@@ -25,6 +25,7 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
         public IEnumerable<AvaliacaoVM> ListarTodos()
         {
+
             var Avaliacoes = _repAvaliacao.ObterPor();
 
             return Mapper.Map<IEnumerable<Avaliacao>, IEnumerable<AvaliacaoVM>>(Avaliacoes);

@@ -200,3 +200,4 @@ C:\Users\Eduardo\Source\Repos\repoPadrao\Real4\ProjetoDeBloco.UI\bin\ProjetoDeBl
 C:\Users\Eduardo\Source\Repos\repoPadrao\Real4\ProjetoDeBloco.UI\obj\Debug\ProjetoDeBloco.UI.csprojResolveAssemblyReference.cache
 C:\Users\Eduardo\Source\Repos\repoPadrao\Real4\ProjetoDeBloco.UI\obj\Debug\ProjetoDeBloco.UI.dll
 C:\Users\Eduardo\Source\Repos\repoPadrao\Real4\ProjetoDeBloco.UI\obj\Debug\ProjetoDeBloco.UI.pdb
+C:\Users\Eduardo\Source\Repos\repoPadrao\Real4\ProjetoDeBloco.UI\bin\AutoMapper.Net4.dll
