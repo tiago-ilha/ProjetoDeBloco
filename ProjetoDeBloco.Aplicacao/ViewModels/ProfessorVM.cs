@@ -17,6 +17,10 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
         [MaxLength(80, ErrorMessage = "Informe o nome do Professor com no máximo 80 caracteres")]
         public string Nome { get; set; }
 
+        [Required(ErrorMessage = "Informe o e-mail do Aluno!")]
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
+
         [Required(ErrorMessage="Informe a data de nascimento!")]
         [DataType(DataType.Date)]
         public DateTime DataNascimento { get; set; }

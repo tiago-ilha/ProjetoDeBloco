@@ -30,6 +30,11 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
 
         public void Salvar(Turma entidade)
         {
+            foreach (var item in entidade.Alunos)
+            {
+                _contexto.Alunos.Attach(item);
+            }
+
             _contexto.Turmas.Add(entidade);
             _contexto.SaveChanges();
         }

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\ProjetoDeBlocoDataContext.cs" />
+    <Compile Include="Inicializar\Inicializador.cs" />
     <Compile Include="Mapeamento\AdministradorMap.cs" />
     <Compile Include="Mapeamento\AlunoMap.cs" />
     <Compile Include="Mapeamento\AvaliacaoMap.cs" />

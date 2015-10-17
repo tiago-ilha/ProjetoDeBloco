@@ -86,7 +86,7 @@ namespace ProjetoDeBloco.UI.Controllers
         public ActionResult Remover(Guid id)
         {
             var professor = CarregarProfessor(id);
-            return View();
+            return View(professor);
         }
 
         [HttpPost]

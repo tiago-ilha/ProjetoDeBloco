@@ -1,0 +1,5 @@
+C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.Utils\bin\Debug\ProjetoDeBloco.Utils.dll
+C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.Utils\bin\Debug\ProjetoDeBloco.Utils.pdb
+C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.Utils\obj\Debug\ProjetoDeBloco.Utils.csprojResolveAssemblyReference.cache
+C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.Utils\obj\Debug\ProjetoDeBloco.Utils.dll
+C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.Utils\obj\Debug\ProjetoDeBloco.Utils.pdb

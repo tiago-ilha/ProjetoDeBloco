@@ -16,12 +16,16 @@ namespace ProjetoDeBloco.Infraestrutura.Mapeamento
             ToTable("Turma");
 
             Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(x => x.Identificador).HasColumnType("varchar").HasMaxLength(10).IsRequired();            
+            Property(x => x.Identificador).HasColumnType("varchar").HasMaxLength(10).IsRequired();
 
             HasRequired(x => x.Professor)
                 .WithMany(x => x.Turmas)
-                .HasForeignKey(x => x.IdProfessor)
-                .WillCascadeOnDelete(false);
+                .HasForeignKey(x => new { x.ProfessorID});
+
+            HasRequired(x => x.Modulo)
+                .WithMany().HasForeignKey(x => new { x.ModuloID});                
+
+            HasMany(x => x.Alunos).WithMany();
         }
     }
 }

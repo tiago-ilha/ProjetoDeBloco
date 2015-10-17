@@ -117,7 +117,7 @@ namespace ProjetoDeBloco.UI.Controllers
         {
             var resultado = (from aluno in _servico.ListarTodos()
                              orderby aluno.Nome
-                             select new { id = aluno.Id, nome = aluno.Nome }).Distinct().ToList();
+                             select new { id = aluno.Id, nome = aluno.Nome , email = aluno.Email}).Distinct().ToList();
 
             return Json(resultado, JsonRequestBehavior.AllowGet);
         }

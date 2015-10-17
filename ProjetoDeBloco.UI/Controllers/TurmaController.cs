@@ -71,14 +71,18 @@ namespace ProjetoDeBloco.UI.Controllers
             Guid idProfessor;
 
             CarregarDadosDoModulo(model);
-            CarregarDadosDoProfessor(model);
+             CarregarDadosDoProfessor(model);
 
             MontarDadosDeTurma(model);
 
             try
             {
                 if (!ModelState.IsValid)
-                    return View();                
+                {
+                    CarregarModulos();
+                    CarregarProfessor();
+                    return View(model);            
+                }                       
 
                 _servicoTurma.Cadastrar(model);
                 ModelState.Clear();
@@ -110,6 +114,7 @@ namespace ProjetoDeBloco.UI.Controllers
                     Id = aluno.Id,
                     Matricula = aluno.Matricula,
                     Nome = aluno.Nome,
+                    Email = aluno.Email,
                     DataNascimento = aluno.DataNascimento
                 };
 
@@ -203,7 +208,8 @@ namespace ProjetoDeBloco.UI.Controllers
             if (Request.Form["Professores"] != "")
             {
                 idProfessor = Guid.Parse(Request.Form["Professores"]);
-                model.IdProfessor = idProfessor;
+                model.Professor = _servicoProfessor.BuscarPorId(idProfessor);
+                model.IdProfessor = model.Professor.Id;
             }
             else
             {
@@ -219,6 +225,7 @@ namespace ProjetoDeBloco.UI.Controllers
             {
                 idModulo = Guid.Parse(Request.Form["Modulos"]);
                 model.Modulo = _servicoModulo.BuscarPorId(idModulo);
+                model.IdModulo = model.Modulo.Id;
             }
             else
             {
