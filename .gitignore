@@ -5,6 +5,14 @@ ProjetoDeBloco.Infraestrutura/obj/Debug/*
 ProjetoDeBloco.Aplicacao/obj/Debug/*
 ProjetoDeBloco.Api/obj/Debug/*
 
+#Visual Studio files
+*.dll
+*.pdb
+*.xml
+*.suo
+*.txt
+*.cache
+
 # Ignore NuGet Packages
 *.nupkg
 # Ignore the packages folder
