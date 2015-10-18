@@ -1,0 +1,16 @@
+ProjetoDeBloco.Utils/obj/Debug/*
+ProjetoDeBloco.UI/obj/Debug/*
+ProjetoDeBloco.IoC/obj/Debug/*
+ProjetoDeBloco.Infraestrutura/obj/Debug/*
+ProjetoDeBloco.Aplicacao/obj/Debug/*
+ProjetoDeBloco.Api/obj/Debug/*
+
+# Ignore NuGet Packages
+*.nupkg
+# Ignore the packages folder
+/packages
+**/packages/*
+# except build/, which is used as an MSBuild target.
+!**/packages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/packages/repositories.config
