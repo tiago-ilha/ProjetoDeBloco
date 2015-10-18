@@ -13,7 +13,6 @@ App_Data/*
 */*/obj/*/*
 */*/bin/*/*
 
-
 # Ignore NuGet Packages
 *.nupkg
 # Ignore the packages folder
