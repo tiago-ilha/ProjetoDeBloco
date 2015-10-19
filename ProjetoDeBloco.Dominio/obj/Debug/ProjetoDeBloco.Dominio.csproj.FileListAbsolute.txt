@@ -16,3 +16,8 @@ C:\Users\Eduardo\Source\Repos\repoPadrao\Real4\ProjetoDeBloco.Dominio\bin\Debug\
 C:\Users\Eduardo\Source\Repos\repoPadrao\Real4\ProjetoDeBloco.Dominio\obj\Debug\ProjetoDeBloco.Dominio.dll
 C:\Users\Eduardo\Source\Repos\repoPadrao\Real4\ProjetoDeBloco.Dominio\obj\Debug\ProjetoDeBloco.Dominio.pdb
 C:\Users\Eduardo\Source\Repos\repoPadrao\Real4\ProjetoDeBloco.Dominio\obj\Debug\ProjetoDeBloco.Dominio.csprojResolveAssemblyReference.cache
+C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.Dominio\bin\Debug\ProjetoDeBloco.Dominio.dll
+C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.Dominio\bin\Debug\ProjetoDeBloco.Dominio.pdb
+C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.Dominio\obj\Debug\ProjetoDeBloco.Dominio.dll
+C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.Dominio\obj\Debug\ProjetoDeBloco.Dominio.pdb
+C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.Dominio\obj\Debug\ProjetoDeBloco.Dominio.csprojResolveAssemblyReference.cache
