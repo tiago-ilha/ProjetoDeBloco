@@ -5,7 +5,7 @@
     <label class="control-label col-md-1" for="listadaDeAlunos">Alunos</label>
     <div class="col-md-4">
         <select class="form-control" id="listadaDeAlunos">
-            <option>Selecione os alunos</option>
+            <option value="-1">Selecione os alunos</option>
         </select>
         @Html.ValidationMessage("ValidarCampoAluno")
     </div>
@@ -89,6 +89,8 @@
                 if (numeroDeLinhas == 0 || numeroDeLinhas != 0) {
                     AdicionarLinha();
                 }
+
+                
             });
 
         });
@@ -113,6 +115,7 @@
             var nome = $('#listadaDeAlunos option:selected').text();
 
             $('#tabelaDeAlunos').append("<tr>" +
+                "<input type='hidden' name=Alunos[" + numeroDeLinhas + "].Id class='campo-nome' value='" + id + "'/>" +
                 "<input type='hidden' name=Alunos[" + numeroDeLinhas + "].Nome class='campo-nome' value='" + nome + "'/>" +
                 "<td>" + id + "</td>" +
                 "<td>" + nome + "</td>" +

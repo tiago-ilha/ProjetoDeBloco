@@ -48,7 +48,7 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
             if (entidade.Id == Guid.Empty)
             {
-                aluno = new Aluno(entidade.Nome, entidade.DataNascimento);
+                aluno = new Aluno(entidade.Nome, entidade.DataNascimento,entidade.Email);
                 aluno.Ativar();
 
                 GerarMatricula(aluno);
@@ -61,7 +61,7 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
             {
                 aluno = _repAluno.ObterPor(entidade.Id);
 
-                aluno.Editar(entidade.Nome, entidade.DataNascimento);
+                aluno.Editar(entidade.Nome, entidade.DataNascimento,entidade.Email);
                 if (!aluno.Ativo)
                     aluno.Ativar();
 

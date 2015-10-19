@@ -22,7 +22,6 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
             _repTurma = repTurma;
         }
 
-
         public IEnumerable<AvaliacaoVM> ListarTodos()
         {
 

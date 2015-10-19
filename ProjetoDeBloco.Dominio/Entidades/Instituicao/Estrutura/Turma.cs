@@ -19,24 +19,29 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
 
             this.Id = Guid.NewGuid();
             this.Identificador = identificador;
-            this.IdModulo = idModulo;
-            this.IdProfessor = idProfessor;
+            this.ModuloID = idModulo;
+            this.ProfessorID = idProfessor;
             
             this.Alunos = new HashSet<Aluno>();
         }
         public Guid Id { get; set; }
         public string Identificador { get; private set; }
-        public Guid IdModulo { get; private set; }
-        public Guid IdProfessor { get; set; }
+        public Guid ModuloID { get; private set; }
+        public Guid ProfessorID { get; set; }
         public virtual Professor Professor { get; set; }
         public virtual Modulo Modulo { get; private set; }
-        public virtual HashSet<Aluno> Alunos { get; private set; }
+        public virtual ICollection<Aluno> Alunos { get; private set; }
 
 
 
         public void AdicionarAluno(Aluno aluno)
         {
             Alunos.Add(aluno);
+        }
+
+        public void LimparAlunos()
+        {
+            Alunos.Clear();
         }
 
         public void Editar(Guid idModulo,string identificador, Guid idProfessor)
@@ -46,8 +51,8 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
             if (idProfessor == Guid.Empty) throw new Exception("Informe um Professor!");
 
             this.Identificador = identificador;
-            this.IdModulo = idModulo;
-            this.IdProfessor = idProfessor;            
+            this.ModuloID = idModulo;
+            this.ProfessorID = idProfessor;            
         }
     }
 }

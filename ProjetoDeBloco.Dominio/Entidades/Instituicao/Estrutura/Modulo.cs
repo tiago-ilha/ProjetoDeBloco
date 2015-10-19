@@ -21,14 +21,13 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
             this.Id = Guid.NewGuid();
             this.Nome = nome;
             this.IdBloco = idBloco;
-            this.Turmas = new HashSet<Turma>();
         }
 
         public Guid Id { get; set; }
-        public string Nome { get; set; }
-        public Guid IdBloco { get; set; }
+        public string Nome { get; set; }        
+
         public virtual Bloco Bloco { get; set; }
-        public virtual ICollection<Turma> Turmas { get; private set; }
+        public Guid IdBloco { get; set; }
 
         public void Editar(string nome, Guid idBloco)
         {

@@ -35,7 +35,6 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
                 _contexto.Alunos.Attach(item);
             }
 
-
             _contexto.Turmas.Add(entidade);
             _contexto.SaveChanges();
         }

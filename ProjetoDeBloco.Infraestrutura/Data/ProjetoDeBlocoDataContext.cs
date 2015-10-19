@@ -9,13 +9,17 @@ using ProjetoDeBloco.Dominio.Entidades.Instituicao.Pessoas;
 using ProjetoDeBloco.Dominio.Entidades.AvaliacaoInstitucional;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using ProjetoDeBloco.Infraestrutura.Mapeamento;
+using ProjetoDeBloco.Infraestrutura.Inicializar;
 
 namespace ProjetoDeBloco.Infraestrutura.Data
 {
     public class ProjetoDeBlocoDataContext : DbContext
     {
         public ProjetoDeBlocoDataContext()
-            : base("name=ProjetoDeBloco") { }
+            : base("name=ProjetoDeBloco")
+        {
+           // Database.SetInitializer<ProjetoDeBlocoDataContext>(new Inicializador());
+        }
 
         public DbSet<Curso> Cursos { get; set; }
         public DbSet<Bloco> Blocos { get; set; }
@@ -30,7 +34,7 @@ namespace ProjetoDeBloco.Infraestrutura.Data
 
         public DbSet<Avaliacao> Avaliacao { get; set; }
         public DbSet<Questao> Questao { get; set; }
-       
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -52,5 +56,5 @@ namespace ProjetoDeBloco.Infraestrutura.Data
 
             modelBuilder.Entity<Turma>().Ignore(x => x.Professor);
         }
-    }    
+    }
 }

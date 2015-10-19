@@ -14,7 +14,7 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 {
     public class ProfessorServico : IProfessorServico
     {
-        private readonly IProfessorRepositorio _repProfessor;       
+        private readonly IProfessorRepositorio _repProfessor;
 
         public ProfessorServico(IProfessorRepositorio repProfessor)
         {
@@ -41,7 +41,7 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
             if (entidade.Id == Guid.Empty)
             {
-                professor = new Professor(entidade.Nome, entidade.DataNascimento, entidade.AreaDeFormacao, entidade.AnoDeFormacao);
+                professor = new Professor(entidade.Nome, entidade.DataNascimento, entidade.Email, entidade.AreaDeFormacao, entidade.AnoDeFormacao);
                 professor.Ativar();
 
                 GerarMatricula(professor);
@@ -54,13 +54,13 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
             {
                 professor = _repProfessor.ObterPor(entidade.Id);
 
-                professor.Editar(entidade.Nome, entidade.DataNascimento, entidade.AreaDeFormacao, entidade.AnoDeFormacao);
+                professor.Editar(entidade.Nome, entidade.DataNascimento, entidade.Email, entidade.AreaDeFormacao, entidade.AnoDeFormacao);
 
                 professor.Ativar();
 
                 _repProfessor.Atualizar(professor);
             }
-        }        
+        }
 
         public void Remover(ViewModels.ProfessorVM entidade)
         {
@@ -96,7 +96,7 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
             }
             else
                 ServicoGeradorDeMatricula.Gerar(professor, matricula);
-        }       
+        }
 
         #endregion
     }

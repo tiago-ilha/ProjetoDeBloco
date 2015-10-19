@@ -14,10 +14,19 @@ namespace ProjetoDeBloco.Dominio.Servicos
         {
             long matricula;
 
-            if (pessoa.GetType() != typeof(Administrador))
+            if (pessoa.GetType() == typeof(Aluno))
             {
                 if (ultimaMatricula == 0)
                     matricula = (DateTime.Now.Year * 100000000000) + 1;
+                else
+                    matricula = ultimaMatricula + 1;
+
+                pessoa.Matricula = matricula;
+            }
+            else if (pessoa.GetType() == typeof(Professor))
+            {
+                if (ultimaMatricula == 0)
+                    matricula = 100000000000;
                 else
                     matricula = ultimaMatricula + 1;
 
