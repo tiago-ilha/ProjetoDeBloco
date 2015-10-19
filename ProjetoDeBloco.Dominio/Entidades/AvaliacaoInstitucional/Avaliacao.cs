@@ -12,11 +12,11 @@ namespace ProjetoDeBloco.Dominio.Entidades.AvaliacaoInstitucional
 
         public Avaliacao()
         {
-          //  this.Questoes = new HashSet<Questao>();
+            this.Questoes = new HashSet<Questao>();
         }
-        
-        
-        public Guid Id { get; set; }   
+
+
+        public Guid Id { get; set; }
         public DateTime dtInicio { get; set; }
         public DateTime dtFim { get; set; }
         public String objAvaliacao { get; set; }
@@ -24,14 +24,11 @@ namespace ProjetoDeBloco.Dominio.Entidades.AvaliacaoInstitucional
         public virtual Turma turma { get; set; }
         public Guid IdTurma { get; set; }
 
-       // public virtual HashSet<Questao> Questoes { get; private set; }
-
-
-
+        public virtual HashSet<Questao> Questoes { get; private set; }
 
         public void AdicionarQuestao(Questao questao)
         {
-           // Questoes.Add(questao);
+            Questoes.Add(questao);
         }
 
     }

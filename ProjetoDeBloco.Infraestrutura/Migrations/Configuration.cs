@@ -10,6 +10,7 @@ namespace ProjetoDeBloco.Infraestrutura.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(ProjetoDeBloco.Infraestrutura.Data.ProjetoDeBlocoDataContext context)

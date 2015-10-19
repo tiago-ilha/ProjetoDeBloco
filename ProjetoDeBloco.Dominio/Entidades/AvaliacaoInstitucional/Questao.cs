@@ -24,6 +24,8 @@ namespace ProjetoDeBloco.Dominio.Entidades.AvaliacaoInstitucional
             this.Resposta3 = Resposta3;
             this.Resposta4 = Resposta4;
             this.Resposta5 = Resposta5;
+
+            Avaliacoes = new List<Avaliacao>();
         }
 
 
@@ -34,5 +36,7 @@ namespace ProjetoDeBloco.Dominio.Entidades.AvaliacaoInstitucional
         public String Resposta3 { get; set; }
         public String Resposta4 { get; set; }
         public String Resposta5 { get; set; }
+
+        public virtual ICollection<Avaliacao> Avaliacoes { get; set; }
     }
 }
