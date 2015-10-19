@@ -35,6 +35,14 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
             return Mapper.Map<Questao, QuestaoVM>(questao);
         }
 
+
+        public ViewModels.QuestaoVM BuscarPorPergunta(String pergunta)
+        {
+            var questao = _repQuestao.ObterPorPergunta(pergunta);
+
+            return Mapper.Map<Questao, QuestaoVM>(questao);
+        }
+
         public void Cadastrar(ViewModels.QuestaoVM entidade)
         {
             Questao questao;

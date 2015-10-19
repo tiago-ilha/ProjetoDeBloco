@@ -30,6 +30,11 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
             return _contexto.Questao.Where(x => x.Id == id).FirstOrDefault();
         }
 
+        public Dominio.Entidades.AvaliacaoInstitucional.Questao ObterPorPergunta(String pergunta)
+        {
+            return _contexto.Questao.Where(x => x.PerguntaQuestao == pergunta).FirstOrDefault();
+        }
+
         public void Salvar(Dominio.Entidades.AvaliacaoInstitucional.Questao entidade)
         {
             _contexto.Questao.Add(entidade);

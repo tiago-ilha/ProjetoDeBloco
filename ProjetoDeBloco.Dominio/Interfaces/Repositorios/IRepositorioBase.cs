@@ -13,6 +13,6 @@ namespace ProjetoDeBloco.Dominio.Interfaces.Repositorios
         void Salvar(T entidade);
         void Atualizar(T entidade);
         void Remover(T entidade);
-
+      
     }
 }

@@ -68,3 +68,17 @@ C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloc
 C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\obj\Debug\ProjetoDeBloco.Infraestrutura.csproj.GenerateResource.Cache
 C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\obj\Debug\ProjetoDeBloco.Infraestrutura.dll
 C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.Infraestrutura\obj\Debug\ProjetoDeBloco.Infraestrutura.pdb
+C:\Users\Eduardo\Source\Repos\repoPadrao\ProjetoDeBloco100\ProjetoDeBloco.Infraestrutura\bin\Debug\ProjetoDeBloco.Infraestrutura.dll.config
+C:\Users\Eduardo\Source\Repos\repoPadrao\ProjetoDeBloco100\ProjetoDeBloco.Infraestrutura\bin\Debug\ProjetoDeBloco.Infraestrutura.dll
+C:\Users\Eduardo\Source\Repos\repoPadrao\ProjetoDeBloco100\ProjetoDeBloco.Infraestrutura\bin\Debug\ProjetoDeBloco.Infraestrutura.pdb
+C:\Users\Eduardo\Source\Repos\repoPadrao\ProjetoDeBloco100\ProjetoDeBloco.Infraestrutura\bin\Debug\EntityFramework.dll
+C:\Users\Eduardo\Source\Repos\repoPadrao\ProjetoDeBloco100\ProjetoDeBloco.Infraestrutura\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Eduardo\Source\Repos\repoPadrao\ProjetoDeBloco100\ProjetoDeBloco.Infraestrutura\bin\Debug\ProjetoDeBloco.Dominio.dll
+C:\Users\Eduardo\Source\Repos\repoPadrao\ProjetoDeBloco100\ProjetoDeBloco.Infraestrutura\bin\Debug\ProjetoDeBloco.Dominio.pdb
+C:\Users\Eduardo\Source\Repos\repoPadrao\ProjetoDeBloco100\ProjetoDeBloco.Infraestrutura\bin\Debug\EntityFramework.xml
+C:\Users\Eduardo\Source\Repos\repoPadrao\ProjetoDeBloco100\ProjetoDeBloco.Infraestrutura\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Eduardo\Source\Repos\repoPadrao\ProjetoDeBloco100\ProjetoDeBloco.Infraestrutura\obj\Debug\ProjetoDeBloco.Infraestrutura.csprojResolveAssemblyReference.cache
+C:\Users\Eduardo\Source\Repos\repoPadrao\ProjetoDeBloco100\ProjetoDeBloco.Infraestrutura\obj\Debug\ProjetoDeBloco.Infraestrutura.Migrations.v10.resources
+C:\Users\Eduardo\Source\Repos\repoPadrao\ProjetoDeBloco100\ProjetoDeBloco.Infraestrutura\obj\Debug\ProjetoDeBloco.Infraestrutura.csproj.GenerateResource.Cache
+C:\Users\Eduardo\Source\Repos\repoPadrao\ProjetoDeBloco100\ProjetoDeBloco.Infraestrutura\obj\Debug\ProjetoDeBloco.Infraestrutura.dll
+C:\Users\Eduardo\Source\Repos\repoPadrao\ProjetoDeBloco100\ProjetoDeBloco.Infraestrutura\obj\Debug\ProjetoDeBloco.Infraestrutura.pdb

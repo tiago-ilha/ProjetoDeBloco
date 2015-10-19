@@ -87,32 +87,27 @@ namespace ProjetoDeBloco.UI.Controllers
 
             foreach (var item in model.Questoes)
             {
-                var questoesBase = _servicoQuestao.BuscarPorId(item.Id);
+                var questoesBase = _servicoQuestao.BuscarPorPergunta(item.PerguntaQuestao);
 
                 QuestaoVM questaoVm = new QuestaoVM
                 {
-                    
+                    Id = questoesBase.Id,
+                    PerguntaQuestao = questoesBase.PerguntaQuestao,
+                    Resposta1 = questoesBase.Resposta1,
+                    Resposta2 = questoesBase.Resposta2,
+                    Resposta3 = questoesBase.Resposta3,
+                    Resposta4 = questoesBase.Resposta4,
+                    Resposta5 = questoesBase.Resposta5
                 };
+
+                listaDeQuestoes.Add(questaoVm);
             }
 
-            //foreach (var item in model.Questoes)
-          //  {
-           //      var questao = _servicoQuestao.BuscarPorId(item.Id);
-            //    //model.Alunos.Add(aluno);
+            model.Questoes = null;
+            model.Questoes = listaDeQuestoes;
 
-            //    AlunoVM alunoVm = new AlunoVM
-            //    {
-            //        Id = aluno.Id,
-            //        Matricula = aluno.Matricula,
-            //        Nome = aluno.Nome,
-            //        DataNascimento = aluno.DataNascimento
-            //    };
 
-            //    listaDeAlunos.Add(alunoVm);
-         //   }
 
-            //model.Alunos = null; //com isso eu esvazio aquela lixarada
-            //model.Alunos = listaDeAlunos;
         }
 
         private void CarregarTurma()

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoDeBloco.Dominio.Entidades.AvaliacaoInstitucional
 {
-    public class Avaliacao
+    public class Avaliacao 
     {
 
         public Avaliacao()

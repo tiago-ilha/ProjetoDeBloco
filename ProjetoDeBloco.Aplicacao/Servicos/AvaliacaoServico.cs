@@ -44,69 +44,53 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
             {
                 var turma = _repTurma.ObterPor(entidade.turma.Id);
 
-
-
-
                 if (turma == null)
-                    turma.Id= Guid.Empty;
+                    turma.Id = Guid.Empty;
 
-                avaliacao = new Avaliacao() 
+                avaliacao = new Avaliacao()
                 {
                     dtFim = entidade.dtFim,
                     dtInicio = entidade.dtInicio,
                     Id = entidade.Id,
                     objAvaliacao = entidade.objAvaliacao,
-                    IdTurma = entidade.turma.Id                    
+                    IdTurma = entidade.turma.Id
                 };
-                    
 
 
-              //  var jaExiste = _repAvaliacao.JaExiste(entidade.dtInicio);
 
-               // if (jaExiste)
-                 //   throw new Exception("Esse bloco cadastrado com esse nome!");
+
+                AdicionarQuestoes(entidade, avaliacao);
+
+
+
+
+                //  var jaExiste = _repAvaliacao.JaExiste(entidade.dtInicio);
+
+                // if (jaExiste)
+                //   throw new Exception("Esse bloco cadastrado com esse nome!");
 
                 _repAvaliacao.Salvar(avaliacao);
 
-
-
-
-
-
-
-
-
-
-
-
-                //Turma turma;
-
-                //if (entidade.Id == Guid.Empty)
-                //{
-                //    turma = new Turma(entidade.Identificador, entidade.Modulo.Id, entidade.IdProfessor);
-
-                //    AdicionarAlunos(entidade, turma);
-
-                //    _repTurma.Salvar(turma);
-                //}
-                //else
-                //{
-                //    turma = _repTurma.ObterPor(entidade.Id);
-
-                //    turma.Editar(entidade.Modulo.Id, entidade.Identificador, entidade.IdProfessor);
-
-                //    AdicionarAlunos(entidade, turma);
-
-                //    _repTurma.Salvar(turma);
-                //}
             }
-            else
+
+                
+        }
+
+
+        private void AdicionarQuestoes(AvaliacaoVM entidade, Avaliacao avaliacao)
+        {
+
+            if (entidade.Questoes.Count > 0)
             {
-                avaliacao = _repAvaliacao.ObterPor(entidade.Id);
+                var questoes = entidade.Questoes;
+                foreach (var item in questoes)
+                {
+                    var alunoConvertido = Mapper.Map<QuestaoVM, Questao>(item);
 
-             //   bloco.Editar(entidade.Nome, entidade.IdCurso);
+                    avaliacao.AdicionarQuestao(alunoConvertido);
 
-               // _repBloco.Atualizar(bloco);
+
+                }
             }
         }
 

@@ -23,7 +23,9 @@
         <th>
             @Html.DisplayNameFor(model => model.IdTurma)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Questoes)
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -41,8 +43,7 @@
             @Html.DisplayFor(modelItem => item.turma.Identificador)
         </td>
 
-        @if (item.Questoes != null)
-        { 
+
         <th>
             <table>
                 <tbody>
@@ -55,7 +56,7 @@
                 </tbody>
             </table>
         </th>
-        }
+        
 
 
         <td>

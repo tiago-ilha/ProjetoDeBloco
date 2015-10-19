@@ -9,6 +9,6 @@ namespace ProjetoDeBloco.Aplicacao.Servicos.Interfaces
 {
     public interface IQuestaoServico : IAplicacaoBase<QuestaoVM>
     {
-
+        QuestaoVM BuscarPorPergunta(String pergunta);
     }
 }

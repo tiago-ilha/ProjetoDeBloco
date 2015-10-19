@@ -136,7 +136,7 @@
             var nome = $('#listadaDeQuestoes option:selected').text();
 
             $('#tabelaDeQuestoes').append("<tr>" +
-                "<input type='hidden' name=Questoes[" + numeroDeLinhas + "].Nome class='campo-nome' value='" + nome + "'/>" +
+                "<input type='hidden' name=Questoes[" + numeroDeLinhas + "].PerguntaQuestao class='campo-nome' value='" + nome + "'/>" +
                 "<td>" + id + "</td>" +
                 "<td>" + nome + "</td>" +
                 "<td><a class='btn removerAluno' title='Remover Questoes'><i class='glyphicon glyphicon-trash'></i></a>" +
@@ -150,7 +150,7 @@
 
         function updateRowIndex() {
             $("#tabelaDeQuestoes tbody tr").each(function (index, value) {
-                $(this).find(".campo-nome").attr("name", "Questoes[" + index + "].Nome");
+                $(this).find(".campo-nome").attr("name", "Questoes[" + index + "].PerguntaQuestao");
             });
         }
 

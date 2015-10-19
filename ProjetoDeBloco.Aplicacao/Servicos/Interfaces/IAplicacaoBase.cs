@@ -13,5 +13,7 @@ namespace ProjetoDeBloco.Aplicacao.Servicos.Interfaces
         T BuscarPorId(Guid id);
         void Cadastrar(T entidade);
         void Remover(T entidade);
+
+       
     }
 }
