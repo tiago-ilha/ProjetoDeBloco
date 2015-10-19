@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿@model IEnumerable<ProjetoDeBloco.Aplicacao.ViewModels.AlunoVM>
 
 @{
@@ -43,3 +44,55 @@
 }
 
 </table>
+=======
+﻿@model IEnumerable<ProjetoDeBloco.Aplicacao.ViewModels.AlunoVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Novo Aluno", "Cadastrar", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Matricula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataNascimento)
+        </th>
+        <th>Email</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Matricula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Visualizar", "Visualizar", new { id = item.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Remover", "Remover", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+>>>>>>> 783aa6575c0558e368e19a68b44aeb2233109a24

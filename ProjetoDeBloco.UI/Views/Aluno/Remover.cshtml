@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿@model ProjetoDeBloco.Aplicacao.ViewModels.AlunoVM
 
 @{
@@ -47,3 +48,61 @@
         </div>
     }
 </div>
+=======
+﻿@model ProjetoDeBloco.Aplicacao.ViewModels.AlunoVM
+
+@{
+    ViewBag.Title = "Remover Aluno";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Tem certeza que deseja remover esse registro?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Matricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataNascimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataNascimento)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Remover" class="btn btn-default" /> 
+            @Html.ActionLink("Voltar a consulta", "Index", null, new { @class = "btn btn-primary" })
+        </div>
+    }
+</div>
+>>>>>>> 783aa6575c0558e368e19a68b44aeb2233109a24

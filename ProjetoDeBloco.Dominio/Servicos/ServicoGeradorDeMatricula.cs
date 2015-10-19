@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using ProjetoDeBloco.Dominio.Entidades.Instituicao.Pessoas;
 using ProjetoDeBloco.Dominio.Enum;
 using System;
@@ -28,3 +29,44 @@ namespace ProjetoDeBloco.Dominio.Servicos
         }
     }
 }
+=======
+﻿using ProjetoDeBloco.Dominio.Entidades.Instituicao.Pessoas;
+using ProjetoDeBloco.Dominio.Enum;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjetoDeBloco.Dominio.Servicos
+{
+    public static class ServicoGeradorDeMatricula
+    {
+        public static long Gerar(Pessoa pessoa, long ultimaMatricula)
+        {
+            long matricula;
+
+            if (pessoa.GetType() == typeof(Aluno))
+            {
+                if (ultimaMatricula == 0)
+                    matricula = (DateTime.Now.Year * 100000000000) + 1;
+                else
+                    matricula = ultimaMatricula + 1;
+
+                pessoa.Matricula = matricula;
+            }
+            else if (pessoa.GetType() == typeof(Professor))
+            {
+                if (ultimaMatricula == 0)
+                    matricula = 100000000000;
+                else
+                    matricula = ultimaMatricula + 1;
+
+                pessoa.Matricula = matricula;
+            }
+
+            return pessoa.Matricula;
+        }
+    }
+}
+>>>>>>> 783aa6575c0558e368e19a68b44aeb2233109a24
