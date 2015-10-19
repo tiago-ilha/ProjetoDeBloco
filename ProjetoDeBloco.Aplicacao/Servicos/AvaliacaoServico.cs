@@ -24,6 +24,7 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
         public IEnumerable<AvaliacaoVM> ListarTodos()
         {
+
             var Avaliacoes = _repAvaliacao.ObterPor();
 
             return Mapper.Map<IEnumerable<Avaliacao>, IEnumerable<AvaliacaoVM>>(Avaliacoes);
@@ -40,7 +41,10 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
             if (entidade.Id == Guid.Empty)
             {
-                var turma = _repTurma.ObterPor(entidade.IdTurma);
+                var turma = _repTurma.ObterPor(entidade.turma.Id);
+
+
+
 
                 if (turma == null)
                     turma.Id= Guid.Empty;
@@ -51,7 +55,7 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
                     dtInicio = entidade.dtInicio,
                     Id = entidade.Id,
                     objAvaliacao = entidade.objAvaliacao,
-                    IdTurma = entidade.IdTurma                    
+                    IdTurma = entidade.turma.Id                    
                 };
                     
 
@@ -62,6 +66,38 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
                  //   throw new Exception("Esse bloco cadastrado com esse nome!");
 
                 _repAvaliacao.Salvar(avaliacao);
+
+
+
+
+
+
+
+
+
+
+
+
+                //Turma turma;
+
+                //if (entidade.Id == Guid.Empty)
+                //{
+                //    turma = new Turma(entidade.Identificador, entidade.Modulo.Id, entidade.IdProfessor);
+
+                //    AdicionarAlunos(entidade, turma);
+
+                //    _repTurma.Salvar(turma);
+                //}
+                //else
+                //{
+                //    turma = _repTurma.ObterPor(entidade.Id);
+
+                //    turma.Editar(entidade.Modulo.Id, entidade.Identificador, entidade.IdProfessor);
+
+                //    AdicionarAlunos(entidade, turma);
+
+                //    _repTurma.Salvar(turma);
+                //}
             }
             else
             {

@@ -32,6 +32,8 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
         public virtual Modulo Modulo { get; private set; }
         public virtual ICollection<Aluno> Alunos { get; private set; }
 
+
+
         public void AdicionarAluno(Aluno aluno)
         {
             Alunos.Add(aluno);

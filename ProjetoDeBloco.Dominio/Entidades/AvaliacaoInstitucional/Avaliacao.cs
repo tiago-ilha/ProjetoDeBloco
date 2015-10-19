@@ -9,16 +9,30 @@ namespace ProjetoDeBloco.Dominio.Entidades.AvaliacaoInstitucional
 {
     public class Avaliacao
     {
+
+        public Avaliacao()
+        {
+          //  this.Questoes = new HashSet<Questao>();
+        }
+        
+        
         public Guid Id { get; set; }   
         public DateTime dtInicio { get; set; }
         public DateTime dtFim { get; set; }
         public String objAvaliacao { get; set; }
 
-
-        //teste
-
         public virtual Turma turma { get; set; }
         public Guid IdTurma { get; set; }
-        
+
+       // public virtual HashSet<Questao> Questoes { get; private set; }
+
+
+
+
+        public void AdicionarQuestao(Questao questao)
+        {
+           // Questoes.Add(questao);
+        }
+
     }
 }

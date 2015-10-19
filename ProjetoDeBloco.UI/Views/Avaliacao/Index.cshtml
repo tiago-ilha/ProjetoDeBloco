@@ -38,8 +38,26 @@
             @Html.DisplayFor(modelItem => item.objAvaliacao)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.IdTurma)
+            @Html.DisplayFor(modelItem => item.turma.Identificador)
         </td>
+
+        @if (item.Questoes != null)
+        { 
+        <th>
+            <table>
+                <tbody>
+                    @foreach (var questao in item.Questoes)
+                    {
+                        <tr>
+                            <td>@questao.PerguntaQuestao</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </th>
+        }
+
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
