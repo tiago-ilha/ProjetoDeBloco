@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -29,39 +28,3 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
         public string Nome { get; set; }
     }
 }
-=======
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProjetoDeBloco.Aplicacao.ViewModels
-{
-    public class AlunoVM
-    {
-        public Guid Id { get; set; }   
-        public long? Matricula { get; set; }
-
-        [Required(ErrorMessage = "Informe o nome do Aluno!")]
-        [MinLength(5, ErrorMessage = "Informe o nome do Aluno com no mínimo 5 caracteres")]
-        [MaxLength(80, ErrorMessage = "Informe o nome do Aluno com no máximo 80 caracteres")]
-        public string Nome { get; set; }
-
-        [Required(ErrorMessage = "Informe o e-mail do Aluno!")]
-        [DataType(DataType.EmailAddress,ErrorMessage="Informe um e-mail válido!")]
-        public string Email { get; set; }
-
-        [Required(ErrorMessage = "Informe a data de nascimento!")]
-        [DataType(DataType.Date)]
-        public DateTime DataNascimento { get; set; }
-    }
-
-    public class TurmaAlunoVM
-    {
-        public Guid Id { get; set; }
-        public string Nome { get; set; }
-    }
-}
->>>>>>> 783aa6575c0558e368e19a68b44aeb2233109a24

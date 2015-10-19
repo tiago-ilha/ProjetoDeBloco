@@ -201,7 +201,6 @@ C:\Users\Eduardo\Source\Repos\repoPadrao\Real4\ProjetoDeBloco.UI\obj\Debug\Proje
 C:\Users\Eduardo\Source\Repos\repoPadrao\Real4\ProjetoDeBloco.UI\obj\Debug\ProjetoDeBloco.UI.dll
 C:\Users\Eduardo\Source\Repos\repoPadrao\Real4\ProjetoDeBloco.UI\obj\Debug\ProjetoDeBloco.UI.pdb
 C:\Users\Eduardo\Source\Repos\repoPadrao\Real4\ProjetoDeBloco.UI\bin\AutoMapper.Net4.dll
-C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.UI\bin\AutoMapper.Net4.dll
 C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.UI\bin\ProjetoDeBloco.UI.dll.config
 C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.UI\bin\ProjetoDeBloco.UI.dll
 C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.UI\bin\ProjetoDeBloco.UI.pdb
@@ -252,3 +251,4 @@ C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloc
 C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.UI\obj\Debug\ProjetoDeBloco.UI.csprojResolveAssemblyReference.cache
 C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.UI\obj\Debug\ProjetoDeBloco.UI.dll
 C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.UI\obj\Debug\ProjetoDeBloco.UI.pdb
+C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.UI\bin\AutoMapper.Net4.dll

@@ -137,7 +137,6 @@ C:\Users\Eduardo\Source\Repos\repoPadrao\Real4\ProjetoDeBloco.IoC\obj\Debug\Proj
 C:\Users\Eduardo\Source\Repos\repoPadrao\Real4\ProjetoDeBloco.IoC\obj\Debug\ProjetoDeBloco.IoC.dll
 C:\Users\Eduardo\Source\Repos\repoPadrao\Real4\ProjetoDeBloco.IoC\obj\Debug\ProjetoDeBloco.IoC.pdb
 C:\Users\Eduardo\Source\Repos\repoPadrao\Real4\ProjetoDeBloco.IoC\bin\Debug\AutoMapper.Net4.dll
-C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.IoC\bin\Debug\AutoMapper.Net4.dll
 C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.IoC\bin\Debug\ProjetoDeBloco.IoC.dll
 C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.IoC\bin\Debug\ProjetoDeBloco.IoC.pdb
 C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.IoC\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
@@ -172,3 +171,4 @@ C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloc
 C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.IoC\obj\Debug\ProjetoDeBloco.IoC.csprojResolveAssemblyReference.cache
 C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.IoC\obj\Debug\ProjetoDeBloco.IoC.dll
 C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.IoC\obj\Debug\ProjetoDeBloco.IoC.pdb
+C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.IoC\bin\Debug\AutoMapper.Net4.dll

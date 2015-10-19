@@ -9,7 +9,7 @@ using System.Web.Mvc;
 namespace ProjetoDeBloco.UI.Controllers
 {
     public class AvaliacaoController : Controller
-    {
+    { 
 
         public IAvaliacaoServico _servicoAvaliacao;
         public ITurmaServico _servicoTurma;
@@ -68,7 +68,6 @@ namespace ProjetoDeBloco.UI.Controllers
         [HttpPost]
         public ActionResult Cadastrar(AvaliacaoVM model)
         {
-
             CarregarDadosDaTurma(model);
 
             MontarDadosDasQuestoes(model);
@@ -88,28 +87,17 @@ namespace ProjetoDeBloco.UI.Controllers
 
             foreach (var item in model.Questoes)
             {
-                var questaoBase = _servicoQuestao.BuscarPorId(item.Id);
+                var questoesBase = _servicoQuestao.BuscarPorId(item.Id);
 
-                QuestaoVM questaoVM = new QuestaoVM
+                QuestaoVM questaoVm = new QuestaoVM
                 {
-                    Id = questaoBase.Id,
-                    PerguntaQuestao = questaoBase.PerguntaQuestao,
-                    Resposta1 = questaoBase.Resposta1,
-                    Resposta2 = questaoBase.Resposta2,
-                    Resposta3 = questaoBase.Resposta3,
-                    Resposta4 = questaoBase.Resposta4,
-                    Resposta5 = questaoBase.Resposta5
+                    
                 };
-
-                listaDeQuestoes.Add(questaoVM);
             }
 
-            model.Questoes = null;
-            model.Questoes = listaDeQuestoes;
-
             //foreach (var item in model.Questoes)
-            //  {
-            //      var questao = _servicoQuestao.BuscarPorId(item.Id);
+          //  {
+           //      var questao = _servicoQuestao.BuscarPorId(item.Id);
             //    //model.Alunos.Add(aluno);
 
             //    AlunoVM alunoVm = new AlunoVM
@@ -121,7 +109,7 @@ namespace ProjetoDeBloco.UI.Controllers
             //    };
 
             //    listaDeAlunos.Add(alunoVm);
-            //   }
+         //   }
 
             //model.Alunos = null; //com isso eu esvazio aquela lixarada
             //model.Alunos = listaDeAlunos;
@@ -133,20 +121,7 @@ namespace ProjetoDeBloco.UI.Controllers
         }
 
         private void CarregarDadosDaTurma(AvaliacaoVM model)
-        {
-            //Guid idTurma;
-            //if (Request.Form["TurmaID"] != "")
-            //{
-            //    idTurma = Guid.Parse(Request.Form["TurmaID"]);
-            //    model.IdTurma = idTurma;
-            //}
-            //else
-            //{
-            //    idTurma = Guid.Empty;
-            //    model.turma.Id = idTurma;
-            //}
-
-
+        {            
             Guid idTurma;
             if (Request.Form["TurmaID"] != "")
             {
@@ -158,10 +133,7 @@ namespace ProjetoDeBloco.UI.Controllers
             {
                 idTurma = Guid.Empty;
                 model.turma.Id = idTurma;
-            }
-
-
-
+            }  
         }
 
         protected IList<AvaliacaoVM> CarregaAvaliacao()
@@ -182,7 +154,7 @@ namespace ProjetoDeBloco.UI.Controllers
                 avaliacao.turma.Id = item.turma.Id;
 
                 avaLList.Add(avaliacao);
-
+                
             }
 
             return avaLList;
@@ -190,10 +162,7 @@ namespace ProjetoDeBloco.UI.Controllers
 
         public void carrregaTurma()
         {
-            ViewBag.TurmaID = new SelectList(_servicoTurma.ListarTodos(), "Id", "Identificador");
-
+            ViewBag.TurmaID = new SelectList(_servicoTurma.ListarTodos(), "Id", "Identificador"); 
         }
-
-
     }
 }

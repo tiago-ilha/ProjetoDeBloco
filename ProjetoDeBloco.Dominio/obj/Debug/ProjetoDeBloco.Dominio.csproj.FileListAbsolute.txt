@@ -20,4 +20,3 @@ C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloc
 C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.Dominio\bin\Debug\ProjetoDeBloco.Dominio.pdb
 C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.Dominio\obj\Debug\ProjetoDeBloco.Dominio.dll
 C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.Dominio\obj\Debug\ProjetoDeBloco.Dominio.pdb
-C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.Dominio\obj\Debug\ProjetoDeBloco.Dominio.csprojResolveAssemblyReference.cache

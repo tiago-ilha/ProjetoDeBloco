@@ -12,6 +12,7 @@ namespace ProjetoDeBloco.Dominio.Entidades.AvaliacaoInstitucional
 
         public Avaliacao()
         {
+
             this.Questoes = new HashSet<Questao>();
         }
 
@@ -25,6 +26,9 @@ namespace ProjetoDeBloco.Dominio.Entidades.AvaliacaoInstitucional
         public Guid IdTurma { get; set; }
 
         public virtual HashSet<Questao> Questoes { get; private set; }
+
+
+
 
         public void AdicionarQuestao(Questao questao)
         {

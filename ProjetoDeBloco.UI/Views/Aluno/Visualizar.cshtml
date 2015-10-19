@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿@model ProjetoDeBloco.Aplicacao.ViewModels.AlunoVM
 
 @{
@@ -46,60 +45,3 @@
     @Html.ActionLink("Editar", "Editar", new { id = Model.Id }, new { @class = "btn btn-default" }) 
     @Html.ActionLink("Voltar a consulta", "Index", null, new { @class = "btn btn-default" })
 </p>
-=======
-﻿@model ProjetoDeBloco.Aplicacao.ViewModels.AlunoVM
-
-@{
-    ViewBag.Title = "Visualizar Aluno";
-}
-
-<ol class="breadcrumb">
-    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-    <li>@Html.ActionLink("Aluno", "Index")</li>
-    <li class="active">@ViewBag.Title</li>
-</ol>
-
-<h2>@ViewBag.Title</h2>
-
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Matricula)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Matricula)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DataNascimento)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DataNascimento)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Editar", "Editar", new { id = Model.Id }, new { @class = "btn btn-default" }) 
-    @Html.ActionLink("Voltar a consulta", "Index", null, new { @class = "btn btn-default" })
-</p>
->>>>>>> 783aa6575c0558e368e19a68b44aeb2233109a24
