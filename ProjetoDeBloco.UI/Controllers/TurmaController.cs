@@ -77,9 +77,6 @@ namespace ProjetoDeBloco.UI.Controllers
 
             try
             {
-                if (!ModelState.IsValid)
-                    return View();                
-
                 _servicoTurma.Cadastrar(model);
                 ModelState.Clear();
 
@@ -91,7 +88,7 @@ namespace ProjetoDeBloco.UI.Controllers
                 ModelState.AddModelError("listaDeErros", ex.Message);
                 return View(model);
             }
-            
+
             CarregarModulos();
             CarregarProfessor();
         }
@@ -110,6 +107,7 @@ namespace ProjetoDeBloco.UI.Controllers
                     Id = aluno.Id,
                     Matricula = aluno.Matricula,
                     Nome = aluno.Nome,
+                    Email = aluno.Email,
                     DataNascimento = aluno.DataNascimento
                 };
 
@@ -204,6 +202,7 @@ namespace ProjetoDeBloco.UI.Controllers
             {
                 idProfessor = Guid.Parse(Request.Form["Professores"]);
                 model.IdProfessor = idProfessor;
+                model.Professor = _servicoProfessor.BuscarPorId(model.IdProfessor);
             }
             else
             {
@@ -211,20 +210,21 @@ namespace ProjetoDeBloco.UI.Controllers
                 model.Professor.Id = idProfessor;
             }
         }
-         
+
         private void CarregarDadosDoModulo(TurmaVM model)
         {
             Guid idModulo;
             if (Request.Form["Modulos"] != "")
             {
                 idModulo = Guid.Parse(Request.Form["Modulos"]);
-                model.Modulo = _servicoModulo.BuscarPorId(idModulo);
+                model.IdModulo = idModulo;
+                model.Modulo = _servicoModulo.BuscarPorId(model.IdModulo);
             }
             else
             {
                 idModulo = Guid.Empty;
                 model.Modulo.Id = idModulo;
-            }            
+            }
         }
 
         #endregion

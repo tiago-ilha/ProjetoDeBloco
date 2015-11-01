@@ -25,7 +25,7 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
 
         public Avaliacao ObterPor(Guid id)
         {
-            return _contexto.Avaliacao.Where(x => x.Id == id).FirstOrDefault();
+            return _contexto.Avaliacao.Where(x => x.Id == id).FirstOrDefault();            
         }
 
         public void Salvar(Avaliacao entidade)
@@ -52,6 +52,11 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
         public void Dispose()
         {
             _contexto.Dispose();
+        }
+
+        public bool JaExiste(DateTime dataInicio)
+        {
+            return _contexto.Avaliacao.Any(x => x.dtInicio == dataInicio);
         }
     }
 }

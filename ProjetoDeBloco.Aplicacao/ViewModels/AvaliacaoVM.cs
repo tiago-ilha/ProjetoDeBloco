@@ -12,6 +12,7 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
 
         public AvaliacaoVM()
         {
+            turma = new TurmaVM();
             Questoes = new List<QuestaoVM>();
         }
 

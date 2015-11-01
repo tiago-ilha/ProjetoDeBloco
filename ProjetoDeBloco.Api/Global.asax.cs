@@ -1,4 +1,5 @@
 ﻿using ProjetoDeBloco.Api.App_Start;
+using ProjetoDeBloco.Aplicacao.AutoMappers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace ProjetoDeBloco.Api
         protected void Application_Start()
         {
             UnityWebApiActivator.Start();
+            AutoMapperConfig.Inicializar();
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }

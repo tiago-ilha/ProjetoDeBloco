@@ -1,0 +1,35 @@
+﻿<h2>{{ titulo }}</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Data início</th>
+            <th>Data final</th>
+            <th>Objetivo da Avaliação</th>
+            <th>Identificador Turma</th>
+            <th>Professor</th>
+            <th>Módulo</th>
+            <th>Bloco</th>
+            <th>Curso</th>
+            <th> - </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="avaliacao in avaliacoes">
+            <td>{{avaliacao.DataInicio | date:'dd/MM/yyyy'}}</td>
+            <td>{{avaliacao.DataFim  | date:'dd/MM/yyyy'}}</td>
+            <td>{{avaliacao.ObjetivoAvaliacao}}</td>
+            <td>{{avaliacao.IdentificadorTurma}}</td>
+            <td>{{avaliacao.NomeProfessor}}</td>
+            <td>{{avaliacao.NomeDoModulo}}</td>
+            <td>{{avaliacao.NomeDoBloco}}</td>
+            <td>{{avaliacao.NomeDoCurso}}</td>
+            <td><a class="btn btn-primary" ng-click="Visualizar()">Visualizar</a></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="6">Total de avaliações: {{avaliacoes.length}}</td>
+        </tr>
+    </tfoot>
+</table>

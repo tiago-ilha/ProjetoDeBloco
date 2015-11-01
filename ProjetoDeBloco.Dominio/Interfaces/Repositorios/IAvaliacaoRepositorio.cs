@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace ProjetoDeBloco.Dominio.Interfaces.Repositorios
 {
     public interface IAvaliacaoRepositorio : IRepositorioBase<Avaliacao>
-    { 
+    {
+        bool JaExiste(DateTime dataInicio);
     }
 }

@@ -20,7 +20,7 @@ namespace ProjetoDeBloco.Infraestrutura.Mapeamento
 
             HasRequired(x => x.Professor)
                 .WithMany(x => x.Turmas)
-                .HasForeignKey(x => x.IdProfessor)
+                .HasForeignKey(x => x.ProfessorID)
                 .WillCascadeOnDelete(false);
         }
     }

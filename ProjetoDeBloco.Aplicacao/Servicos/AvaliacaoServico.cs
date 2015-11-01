@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoDeBloco.Aplicacao.Servicos
 {
-    public class AvaliacaoServico : IAvaliacaoServico  
+    public class AvaliacaoServico : IAvaliacaoServico
     {
         private IAvaliacaoRepositorio _repAvaliacao;
         private ITurmaRepositorio _repTurma;
@@ -22,10 +22,8 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
             _repTurma = repTurma;
         }
 
-
         public IEnumerable<AvaliacaoVM> ListarTodos()
         {
-
             var Avaliacoes = _repAvaliacao.ObterPor();
 
             return Mapper.Map<IEnumerable<Avaliacao>, IEnumerable<AvaliacaoVM>>(Avaliacoes);
@@ -33,7 +31,9 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
         public AvaliacaoVM BuscarPorId(Guid id)
         {
-            throw new NotImplementedException();
+            var avaliacao = _repAvaliacao.ObterPor(id);
+
+            return Mapper.Map<Avaliacao, AvaliacaoVM>(avaliacao);
         }
 
         public void Cadastrar(AvaliacaoVM entidade)
@@ -47,39 +47,32 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
                 if (turma == null)
                     turma.Id = Guid.Empty;
 
-                avaliacao = new Avaliacao()
-                {
-                    dtFim = entidade.dtFim,
-                    dtInicio = entidade.dtInicio,
-                    Id = entidade.Id,
-                    objAvaliacao = entidade.objAvaliacao,
-                    IdTurma = entidade.turma.Id
-                };
-
-
-
+                avaliacao = new Avaliacao(entidade.dtInicio, entidade.dtFim, entidade.objAvaliacao, entidade.IdTurma);
 
                 AdicionarQuestoes(entidade, avaliacao);
 
+                var jaExiste = _repAvaliacao.JaExiste(entidade.dtInicio);
 
-
-
-                //  var jaExiste = _repAvaliacao.JaExiste(entidade.dtInicio);
-
-                // if (jaExiste)
-                //   throw new Exception("Esse bloco cadastrado com esse nome!");
+                //if (jaExiste)
+                //    throw new Exception("Esse bloco cadastrado com esse nome!");
 
                 _repAvaliacao.Salvar(avaliacao);
-
             }
+            else
+            {
+                avaliacao = _repAvaliacao.ObterPor(entidade.Id);
 
-                
+                if (avaliacao == null)
+                    throw new Exception("Avaliação não foi encontradda!");
+
+                avaliacao.Editar(entidade.dtInicio, entidade.dtFim, entidade.objAvaliacao, entidade.IdTurma);
+
+                _repAvaliacao.Salvar(avaliacao);
+            }
         }
-
 
         private void AdicionarQuestoes(AvaliacaoVM entidade, Avaliacao avaliacao)
         {
-
             if (entidade.Questoes.Count > 0)
             {
                 var questoes = entidade.Questoes;
@@ -88,8 +81,6 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
                     var alunoConvertido = Mapper.Map<QuestaoVM, Questao>(item);
 
                     avaliacao.AdicionarQuestao(alunoConvertido);
-
-
                 }
             }
         }
