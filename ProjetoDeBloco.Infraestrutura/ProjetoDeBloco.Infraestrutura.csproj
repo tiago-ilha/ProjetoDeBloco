@@ -59,6 +59,7 @@
     <Compile Include="Mapeamento\ProfessorMap.cs" />
     <Compile Include="Mapeamento\QuestaoMap.cs" />
     <Compile Include="Mapeamento\TurmaMap.cs" />
+    <Compile Include="Mapeamento\UsuarioMap.cs" />
     <Compile Include="Migrations\201506071434561_v1.0.cs" />
     <Compile Include="Migrations\201506071434561_v1.0.Designer.cs">
       <DependentUpon>201506071434561_v1.0.cs</DependentUpon>
@@ -75,6 +76,7 @@
     <Compile Include="Repositorios\TurmaRepositorio.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Repositorios\UsuarioRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

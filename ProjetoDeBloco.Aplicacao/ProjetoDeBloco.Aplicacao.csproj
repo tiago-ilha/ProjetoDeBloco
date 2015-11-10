@@ -63,12 +63,14 @@
     <Compile Include="Servicos\Interfaces\IProfessorServico.cs" />
     <Compile Include="Servicos\Interfaces\IQuestaoServico.cs" />
     <Compile Include="Servicos\Interfaces\ITurmaServico.cs" />
+    <Compile Include="Servicos\Interfaces\IUsuarioServico.cs" />
     <Compile Include="Servicos\ModuloServico.cs" />
     <Compile Include="Servicos\ProfessorServico.cs" />
     <Compile Include="Servicos\QuestaoServico.cs" />
     <Compile Include="Servicos\TurmaServico.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Servicos\UsuarioServico.cs" />
     <Compile Include="ViewModels\AlunoVM.cs" />
     <Compile Include="ViewModels\AvaliacaoVM.cs" />
     <Compile Include="ViewModels\BlocoVM.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="ViewModels\ProfessorVM.cs" />
     <Compile Include="ViewModels\QuestaoVM.cs" />
     <Compile Include="ViewModels\TurmaVM.cs" />
+    <Compile Include="ViewModels\UsuarioVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjetoDeBloco.Dominio\ProjetoDeBloco.Dominio.csproj">

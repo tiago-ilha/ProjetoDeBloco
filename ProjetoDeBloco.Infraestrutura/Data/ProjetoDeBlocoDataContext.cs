@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura;
 using ProjetoDeBloco.Dominio.Entidades.Instituicao.Pessoas;
 using ProjetoDeBloco.Dominio.Entidades.AvaliacaoInstitucional;
+using ProjetoDeBloco.Dominio.Entidades.Administracao;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using ProjetoDeBloco.Infraestrutura.Mapeamento;
 
@@ -30,6 +31,8 @@ namespace ProjetoDeBloco.Infraestrutura.Data
 
         public DbSet<Avaliacao> Avaliacao { get; set; }
         public DbSet<Questao> Questao { get; set; }
+
+		public DbSet<Usuario> Usuario { get; set; }
        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -50,7 +53,9 @@ namespace ProjetoDeBloco.Infraestrutura.Data
             modelBuilder.Configurations.Add(new AvaliacaoMap());
             modelBuilder.Configurations.Add(new QuestaoMap());
 
-            modelBuilder.Entity<Turma>().Ignore(x => x.Professor);
+			modelBuilder.Configurations.Add(new UsuarioMap());
+
+            modelBuilder.Entity<Turma>().Ignore(x => x.Professor);			
         }
     }    
 }

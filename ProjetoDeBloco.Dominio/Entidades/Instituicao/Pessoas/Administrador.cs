@@ -17,5 +17,7 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Pessoas
         }
 
         public Guid IdAdministrador { get; set; }
+		public Guid IdUsuario { get; set; }
+
     }
 }

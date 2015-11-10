@@ -6,6 +6,11 @@
 *.exe
 *.o
 *.so
+*.xml
+*.config
+*.pdb
+*.txt
+*.cache
 
 # Packages #
 ############

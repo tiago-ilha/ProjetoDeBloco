@@ -26,6 +26,5 @@ C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloc
 C:\Users\Tiago de Oliveira\Desktop\Projeto de Bloco\ProjetoDeBloco\ProjetoDeBloco.Dominio\obj\Debug\ProjetoDeBloco.Dominio.pdb
 D:\Pasta de Backup\Área de Trabalho\Material de Aula\PROJETO_DE_BLOCO\ProjetoDeBloco\ProjetoDeBloco.Dominio\bin\Debug\ProjetoDeBloco.Dominio.dll
 D:\Pasta de Backup\Área de Trabalho\Material de Aula\PROJETO_DE_BLOCO\ProjetoDeBloco\ProjetoDeBloco.Dominio\bin\Debug\ProjetoDeBloco.Dominio.pdb
-D:\Pasta de Backup\Área de Trabalho\Material de Aula\PROJETO_DE_BLOCO\ProjetoDeBloco\ProjetoDeBloco.Dominio\obj\Debug\ProjetoDeBloco.Dominio.csprojResolveAssemblyReference.cache
 D:\Pasta de Backup\Área de Trabalho\Material de Aula\PROJETO_DE_BLOCO\ProjetoDeBloco\ProjetoDeBloco.Dominio\obj\Debug\ProjetoDeBloco.Dominio.dll
 D:\Pasta de Backup\Área de Trabalho\Material de Aula\PROJETO_DE_BLOCO\ProjetoDeBloco\ProjetoDeBloco.Dominio\obj\Debug\ProjetoDeBloco.Dominio.pdb
