@@ -1,9 +1,0 @@
-D:\Pasta de Backup\Área de Trabalho\Material de Aula\PROJETO_DE_BLOCO\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\bin\Debug\ProjetoDeBloco.Aplicacao.dll
-D:\Pasta de Backup\Área de Trabalho\Material de Aula\PROJETO_DE_BLOCO\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\bin\Debug\ProjetoDeBloco.Aplicacao.pdb
-D:\Pasta de Backup\Área de Trabalho\Material de Aula\PROJETO_DE_BLOCO\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\bin\Debug\AutoMapper.dll
-D:\Pasta de Backup\Área de Trabalho\Material de Aula\PROJETO_DE_BLOCO\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\bin\Debug\ProjetoDeBloco.Dominio.dll
-D:\Pasta de Backup\Área de Trabalho\Material de Aula\PROJETO_DE_BLOCO\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\bin\Debug\ProjetoDeBloco.Dominio.pdb
-D:\Pasta de Backup\Área de Trabalho\Material de Aula\PROJETO_DE_BLOCO\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\bin\Debug\AutoMapper.xml
-D:\Pasta de Backup\Área de Trabalho\Material de Aula\PROJETO_DE_BLOCO\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\obj\Debug\ProjetoDeBloco.Aplicacao.csprojResolveAssemblyReference.cache
-D:\Pasta de Backup\Área de Trabalho\Material de Aula\PROJETO_DE_BLOCO\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\obj\Debug\ProjetoDeBloco.Aplicacao.dll
-D:\Pasta de Backup\Área de Trabalho\Material de Aula\PROJETO_DE_BLOCO\ProjetoDeBloco\ProjetoDeBloco.Aplicacao\obj\Debug\ProjetoDeBloco.Aplicacao.pdb
