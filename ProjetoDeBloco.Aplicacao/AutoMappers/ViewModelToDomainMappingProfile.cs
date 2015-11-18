@@ -14,11 +14,6 @@ namespace ProjetoDeBloco.Aplicacao.AutoMappers
 {
     public class ViewModelToDomainMappingProfile : Profile
     {
-        public override string ProfileName
-        {
-            get { return "ViewModelToDomainMappings"; }
-        }
-
         protected override void Configure()
         {
             CreateMap<CursoVM, Curso>();
