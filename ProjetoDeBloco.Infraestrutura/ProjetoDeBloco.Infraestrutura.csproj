@@ -51,13 +51,17 @@
     <Compile Include="Data\ProjetoDeBlocoDataContext.cs" />
     <Compile Include="Mapeamento\AdministradorMap.cs" />
     <Compile Include="Mapeamento\AlunoMap.cs" />
+    <Compile Include="Mapeamento\AutorizacaoMap.cs" />
     <Compile Include="Mapeamento\AvaliacaoMap.cs" />
     <Compile Include="Mapeamento\BlocoMap.cs" />
     <Compile Include="Mapeamento\CursoMap.cs" />
     <Compile Include="Mapeamento\ModuloMap.cs" />
+    <Compile Include="Mapeamento\PerfilMap.cs" />
     <Compile Include="Mapeamento\PessoaMap.cs" />
     <Compile Include="Mapeamento\ProfessorMap.cs" />
     <Compile Include="Mapeamento\QuestaoMap.cs" />
+    <Compile Include="Mapeamento\RecursoFilhoMap.cs" />
+    <Compile Include="Mapeamento\RecursoMap.cs" />
     <Compile Include="Mapeamento\TurmaMap.cs" />
     <Compile Include="Mapeamento\UsuarioMap.cs" />
     <Compile Include="Migrations\201506071434561_v1.0.cs" />
@@ -67,12 +71,16 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\AlunoRepositorio.cs" />
+    <Compile Include="Repositorios\AutorizacaoRepositorio.cs" />
     <Compile Include="Repositorios\AvaliacaoRepositorio.cs" />
     <Compile Include="Repositorios\BlocoRepositorio.cs" />
     <Compile Include="Repositorios\CursoRepositorio.cs" />
     <Compile Include="Repositorios\ModuloRepositorio.cs" />
+    <Compile Include="Repositorios\PerfilRepositorio.cs" />
     <Compile Include="Repositorios\ProfessorRepositorio.cs" />
     <Compile Include="Repositorios\QuestaoRepositorio.cs" />
+    <Compile Include="Repositorios\RecursoFilhoRepositorio.cs" />
+    <Compile Include="Repositorios\RecursoRepositorio.cs" />
     <Compile Include="Repositorios\TurmaRepositorio.cs">
       <SubType>Code</SubType>
     </Compile>
