@@ -22,6 +22,11 @@ namespace ProjetoDeBloco.IoC
             container.RegisterType<ITurmaRepositorio, TurmaRepositorio>(new HierarchicalLifetimeManager());
             container.RegisterType<IAvaliacaoRepositorio, AvaliacaoRepositorio>(new HierarchicalLifetimeManager());
             container.RegisterType<IQuestaoRepositorio, QuestaoRepositorio>(new HierarchicalLifetimeManager());
+            container.RegisterType<IUsuarioRepositorio, UsuarioRepositorio>(new HierarchicalLifetimeManager());
+            container.RegisterType<IPerfilRepositorio, PerfilRepositorio>(new HierarchicalLifetimeManager());
+            container.RegisterType<IRecursoRepositorio, RecursoRepositorio>(new HierarchicalLifetimeManager());
+            container.RegisterType<IAutorizacaoRepositorio, AutorizacaoRepositorio>(new HierarchicalLifetimeManager());
+            container.RegisterType<IRecursoFilhoRepositorio, RecursoFilhoRepositorio>(new HierarchicalLifetimeManager());
 
             container.RegisterType<ICursoServico, CursoServico>(new HierarchicalLifetimeManager());
             container.RegisterType<IBlocoServico, BlocoServico>(new HierarchicalLifetimeManager());
