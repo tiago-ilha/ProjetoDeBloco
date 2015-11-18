@@ -39,6 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidades\Administracao\Autorizacao.cs" />
+    <Compile Include="Entidades\Administracao\Perfil.cs" />
+    <Compile Include="Entidades\Administracao\Recurso.cs" />
+    <Compile Include="Entidades\Administracao\RecursoFilho.cs" />
     <Compile Include="Entidades\Administracao\Usuario.cs" />
     <Compile Include="Entidades\AvaliacaoInstitucional\Avaliacao.cs" />
     <Compile Include="Entidades\AvaliacaoInstitucional\Questao.cs" />
@@ -54,12 +58,16 @@
     <Compile Include="Enum\SituacaoUsuario.cs" />
     <Compile Include="Enum\TopicoAvaliacao.cs" />
     <Compile Include="Interfaces\Repositorios\IAlunoRepositorio.cs" />
+    <Compile Include="Interfaces\Repositorios\IAutorizacaoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorios\IAvaliacaoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorios\IBlocoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorios\ICursoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorios\IModuloRepositorio.cs" />
+    <Compile Include="Interfaces\Repositorios\IPerfilRepositorio.cs" />
     <Compile Include="Interfaces\Repositorios\IProfessorRepositorio.cs" />
     <Compile Include="Interfaces\Repositorios\IQuestaoRepositorio.cs" />
+    <Compile Include="Interfaces\Repositorios\IRecursoFilhoRepositorio.cs" />
+    <Compile Include="Interfaces\Repositorios\IRecursoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorios\IRepositorioBase.cs" />
     <Compile Include="Interfaces\Repositorios\ITurmaRepositorio.cs" />
     <Compile Include="Interfaces\Repositorios\IUsuarioRepositorio.cs" />
