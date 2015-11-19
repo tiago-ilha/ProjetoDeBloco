@@ -2,6 +2,7 @@
 using ProjetoDeBloco.Aplicacao.Servicos.Interfaces;
 using ProjetoDeBloco.Aplicacao.ViewModels;
 using ProjetoDeBloco.Dominio.Entidades.Administracao;
+using ProjetoDeBloco.Dominio.Enum;
 using ProjetoDeBloco.Dominio.Interfaces.Repositorios;
 using System;
 using System.Collections.Generic;
@@ -20,12 +21,12 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 			_repositorio = repositorio;
 		}
 
-        public UsuarioVM Logar(string login, string senha)
-        {
-            var usuario = _repositorio.Login(login, senha);
+		public UsuarioVM Logar(string login, string senha)
+		{
+			var usuario = _repositorio.Login(login, senha);
 
-            return Mapper.Map<Usuario,UsuarioVM>(usuario);
-        }
+			return Mapper.Map<Usuario, UsuarioVM>(usuario);
+		}
 
 		public bool JaExiste(string email)
 		{
@@ -48,6 +49,8 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
 		public void Cadastrar(UsuarioVM entidade)
 		{
+			entidade.Situacao = SituacaoUsuario.Solicitado;
+
 			var usuario = Mapper.Map<UsuarioVM, Usuario>(entidade);
 
 			if (usuario.Id == Guid.Empty)
@@ -66,6 +69,6 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 		public void Dispose()
 		{
 			_repositorio.Dispose();
-		}        
-    }
+		}
+	}
 }

@@ -23,7 +23,7 @@ namespace ProjetoDeBloco.Dominio.Entidades.Administracao
 		public string Email { get; private set; }
 		public string Login { get; private set; }
 		public string Senha { get; private set; }
-		public bool Situacao { get; private set; }
+		public SituacaoUsuario Situacao { get; private set; }
 
         public Guid IdAdmistrador { get; set; }
         public virtual Administrador Adminstrador { get; set; }
@@ -44,18 +44,18 @@ namespace ProjetoDeBloco.Dominio.Entidades.Administracao
 
 		public void AtivarUsuario()
 		{
-			if (Situacao == true)
+			if (Situacao == SituacaoUsuario.Ativo)
 				throw new Exception("Usuário já está ativado!");
 
-            this.Situacao = true;
+			this.Situacao = SituacaoUsuario.Ativo;
 		}
 
 		public void DesativarUsuario()
 		{
-			if (Situacao == false)
+			if (Situacao == SituacaoUsuario.Inativo)
 				throw new Exception("Usuário já está inativo!");
 
-            this.Situacao = false;
+			this.Situacao = SituacaoUsuario.Inativo;
 		}
 	}
 }

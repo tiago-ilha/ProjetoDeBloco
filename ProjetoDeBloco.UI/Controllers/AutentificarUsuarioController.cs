@@ -10,12 +10,12 @@ namespace ProjetoDeBloco.UI.Controllers
 {
     public class AutentificarUsuarioController : Controller
     {
-        //private IUsuarioServico _servicoUsuario;
+		private IUsuarioServico _servicoUsuario;
 
-        //public AutentificarUsuarioController(IUsuarioServico servicoUsuario)
-        //{
-        //    _servicoUsuario = servicoUsuario;
-        //}
+		public AutentificarUsuarioController(IUsuarioServico servicoUsuario)
+		{
+			_servicoUsuario = servicoUsuario;
+		}
 
         public ActionResult Login()
         {

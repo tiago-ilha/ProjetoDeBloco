@@ -8,7 +8,8 @@ namespace ProjetoDeBloco.Dominio.Enum
 {
 	public enum SituacaoUsuario
 	{
-		Ativo = 8,
-		Inativo = 9
+		Solicitado = 8,
+		Ativo = 9,
+		Inativo = 10
 	}
 }
