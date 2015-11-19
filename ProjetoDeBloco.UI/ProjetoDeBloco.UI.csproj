@@ -131,6 +131,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AlunoController.cs" />
+    <Compile Include="Controllers\AutentificarUsuarioController.cs" />
     <Compile Include="Controllers\AvaliacaoController.cs" />
     <Compile Include="Controllers\BlocoController.cs" />
     <Compile Include="Controllers\CursoController.cs" />
@@ -152,6 +153,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\login.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -229,6 +231,8 @@
     <Content Include="Views\Questao\Cadastro.cshtml" />
     <Content Include="Views\Questao\Remover.cshtml" />
     <Content Include="Views\Shared\Parciais\_AdicionarQuestao.cshtml" />
+    <Content Include="Views\Shared\Login.cshtml" />
+    <Content Include="Views\AutentificarUsuario\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -250,6 +254,10 @@
     <ProjectReference Include="..\ProjetoDeBloco.IoC\ProjetoDeBloco.IoC.csproj">
       <Project>{fd8281a2-a1c2-44dc-9cd1-8a86d30c611a}</Project>
       <Name>ProjetoDeBloco.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetoDeBloco.Utilitarios\ProjetoDeBloco.Utilitarios.csproj">
+      <Project>{a8c7a9b2-1f29-4b30-8792-cdeded2717eb}</Project>
+      <Name>ProjetoDeBloco.Utilitarios</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

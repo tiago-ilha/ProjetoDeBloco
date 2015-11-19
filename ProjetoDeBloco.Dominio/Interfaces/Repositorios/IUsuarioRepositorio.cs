@@ -10,6 +10,6 @@ namespace ProjetoDeBloco.Dominio.Interfaces.Repositorios
 	public interface IUsuarioRepositorio : IRepositorioBase<Usuario>
 	{
 		bool JaExiste(string email);
-		bool Login(string email, string login, string senha);		
+		Usuario Login(string login, string senha);		
 	}
 }

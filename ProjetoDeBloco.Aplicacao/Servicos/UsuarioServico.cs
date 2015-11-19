@@ -20,10 +20,12 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 			_repositorio = repositorio;
 		}
 
-		public bool Logar(string email, string login, string senha)
-		{
-			return _repositorio.Login(email, login, senha);
-		}
+        public UsuarioVM Logar(string login, string senha)
+        {
+            var usuario = _repositorio.Login(login, senha);
+
+            return Mapper.Map<Usuario,UsuarioVM>(usuario);
+        }
 
 		public bool JaExiste(string email)
 		{
@@ -64,6 +66,6 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 		public void Dispose()
 		{
 			_repositorio.Dispose();
-		}
-	}
+		}        
+    }
 }

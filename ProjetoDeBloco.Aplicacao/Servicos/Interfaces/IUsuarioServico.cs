@@ -1,4 +1,5 @@
 ﻿using ProjetoDeBloco.Aplicacao.ViewModels;
+using ProjetoDeBloco.Dominio.Entidades.Administracao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace ProjetoDeBloco.Aplicacao.Servicos.Interfaces
 {
 	public interface IUsuarioServico : IAplicacaoBase<UsuarioVM>
 	{
-		bool Logar(string email, string login, string senha);
+        UsuarioVM Logar(string login, string senha);
 		bool JaExiste(string email);
 	}
 }
