@@ -29,6 +29,7 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Pessoas
         public string Nome { get; protected set; }
         public string Email { get; set; }
         public DateTime DataNascimento { get; protected set; }
+
         public bool Ativo { get; protected set; }
 
         public void Ativar()

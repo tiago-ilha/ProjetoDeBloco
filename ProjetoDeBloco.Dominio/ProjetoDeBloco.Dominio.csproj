@@ -57,6 +57,7 @@
     <Compile Include="Enum\AvaliacaoStatus.cs" />
     <Compile Include="Enum\SituacaoUsuario.cs" />
     <Compile Include="Enum\TopicoAvaliacao.cs" />
+    <Compile Include="Interfaces\Repositorios\IAdministradorRepositorio.cs" />
     <Compile Include="Interfaces\Repositorios\IAlunoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorios\IAutorizacaoRepositorio.cs" />
     <Compile Include="Interfaces\Repositorios\IAvaliacaoRepositorio.cs" />

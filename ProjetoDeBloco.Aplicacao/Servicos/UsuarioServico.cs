@@ -11,61 +11,80 @@ using System.Threading.Tasks;
 
 namespace ProjetoDeBloco.Aplicacao.Servicos
 {
-	public class UsuarioServico : IUsuarioServico
-	{
-		private IUsuarioRepositorio _repositorio;
+    public class UsuarioServico : IUsuarioServico
+    {
+        private IUsuarioRepositorio _repositorio;
 
-		public UsuarioServico(IUsuarioRepositorio repositorio)
-		{
-			_repositorio = repositorio;
-		}
+        public UsuarioServico(IUsuarioRepositorio repositorio)
+        {
+            _repositorio = repositorio;
+        }
 
         public UsuarioVM Logar(string login, string senha)
         {
             var usuario = _repositorio.Login(login, senha);
 
-            return Mapper.Map<Usuario,UsuarioVM>(usuario);
+            return Mapper.Map<Usuario, UsuarioVM>(usuario);
         }
 
-		public bool JaExiste(string email)
-		{
-			return _repositorio.JaExiste(email);
-		}
+        public bool JaExiste(string email)
+        {
+            return _repositorio.JaExiste(email);
+        }
 
-		public IEnumerable<UsuarioVM> ListarTodos()
-		{
-			var usuarios = _repositorio.ObterPor();
+        public IEnumerable<UsuarioVM> ListarTodos()
+        {
+            var usuarios = _repositorio.ObterPor();
 
-			return Mapper.Map<IEnumerable<Usuario>, IEnumerable<UsuarioVM>>(usuarios);
-		}
+            return Mapper.Map<IEnumerable<Usuario>, IEnumerable<UsuarioVM>>(usuarios);
+        }
 
-		public UsuarioVM BuscarPorId(Guid id)
-		{
-			var usuario = _repositorio.ObterPor(id);
+        public UsuarioVM BuscarPorId(Guid id)
+        {
+            var usuario = _repositorio.ObterPor(id);
 
-			return Mapper.Map<Usuario, UsuarioVM>(usuario);
-		}
+            return Mapper.Map<Usuario, UsuarioVM>(usuario);
+        }
 
-		public void Cadastrar(UsuarioVM entidade)
-		{
-			var usuario = Mapper.Map<UsuarioVM, Usuario>(entidade);
+        public void Cadastrar(UsuarioVM entidade)
+        {
+            var usuario = Mapper.Map<UsuarioVM, Usuario>(entidade);
 
-			if (usuario.Id == Guid.Empty)
-				_repositorio.Salvar(usuario);
-			else
-				_repositorio.Atualizar(usuario);
-		}
+            Usuario usuarioBase;
 
-		public void Remover(UsuarioVM entidade)
-		{
-			var usuario = Mapper.Map<UsuarioVM, Usuario>(entidade);
+            if (usuario.Id == Guid.Empty)
+            {
+                usuarioBase = new Usuario(usuario.Email, usuario.Login, usuario.Senha);
 
-			_repositorio.Remover(usuario);
-		}
+                _repositorio.Salvar(usuarioBase);
+            }
+            else
+            {
+                usuarioBase = _repositorio.ObterPor(entidade.Id);
 
-		public void Dispose()
-		{
-			_repositorio.Dispose();
-		}        
+                if (entidade.Email != usuarioBase.Email)
+                    usuarioBase.TrocarEmail(entidade.Email);
+
+                if (entidade.Login != usuarioBase.Login)
+                    usuarioBase.TrocarLogin(entidade.Login);
+
+                if (entidade.Senha != usuarioBase.Senha)
+                    usuarioBase.TrocarSenha(entidade.Senha);
+
+                _repositorio.Atualizar(usuario);
+            }                
+        }
+
+        public void Remover(UsuarioVM entidade)
+        {
+            var usuario = Mapper.Map<UsuarioVM, Usuario>(entidade);
+
+            _repositorio.Remover(usuario);
+        }
+
+        public void Dispose()
+        {
+            _repositorio.Dispose();
+        }        
     }
 }

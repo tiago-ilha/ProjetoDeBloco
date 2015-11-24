@@ -17,15 +17,20 @@ namespace ProjetoDeBloco.Dominio.Entidades.Administracao
 			if (string.IsNullOrWhiteSpace(email)) throw new Exception("Informe o e-mail do usuário!");
 			if (string.IsNullOrWhiteSpace(login)) throw new Exception("Informe o login do usuário!");
 			if (string.IsNullOrWhiteSpace(senha)) throw new Exception("Informe a senha do usuário!");
+
+            this.Email = email;
+            this.Login = login;
+            this.Senha = senha;
+            this.Situacao = SituacaoUsuario.Solicitado;
 		}
 
 		public Guid Id { get; private set; }
 		public string Email { get; private set; }
 		public string Login { get; private set; }
 		public string Senha { get; private set; }
-		public bool Situacao { get; private set; }
+        public SituacaoUsuario Situacao { get; private set; }
 
-        public Guid IdAdmistrador { get; set; }
+        public Guid? IdAdmistrador { get; set; }
         public virtual Administrador Adminstrador { get; set; }
 
 		public void TrocarEmail(string email)
@@ -33,6 +38,13 @@ namespace ProjetoDeBloco.Dominio.Entidades.Administracao
 			if (string.IsNullOrWhiteSpace(Email)) throw new Exception("Informe o e-mail do usuário!");
 
 			this.Email = email;
+		}
+
+        public void TrocarLogin(string login)
+		{
+			if (string.IsNullOrWhiteSpace(login)) throw new Exception("Informe o Login do usuário!");
+
+            this.Login = login;
 		}
 
 		public void TrocarSenha(string senha)
@@ -44,18 +56,18 @@ namespace ProjetoDeBloco.Dominio.Entidades.Administracao
 
 		public void AtivarUsuario()
 		{
-			if (Situacao == true)
+            if (Situacao == SituacaoUsuario.Ativo)
 				throw new Exception("Usuário já está ativado!");
 
-            this.Situacao = true;
+            this.Situacao = SituacaoUsuario.Ativo;
 		}
 
 		public void DesativarUsuario()
 		{
-			if (Situacao == false)
+            if (Situacao == SituacaoUsuario.Inativo)
 				throw new Exception("Usuário já está inativo!");
 
-            this.Situacao = false;
+            this.Situacao = SituacaoUsuario.Inativo;
 		}
 	}
 }

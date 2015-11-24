@@ -20,7 +20,7 @@ namespace ProjetoDeBloco.Infraestrutura.Mapeamento
             Property(x => x.Login).HasColumnType("varchar").HasMaxLength(80).IsRequired();
             Property(x => x.Senha).HasColumnType("varchar").HasMaxLength(250).IsRequired();
 
-            HasRequired(x => x.Adminstrador).WithMany()
+            HasOptional(x => x.Adminstrador).WithMany()
                 .HasForeignKey(x => x.IdAdmistrador).WillCascadeOnDelete(false);
         }
     }

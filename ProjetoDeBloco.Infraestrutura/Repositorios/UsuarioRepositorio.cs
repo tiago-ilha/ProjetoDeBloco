@@ -19,6 +19,11 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
             _contexto = contexto;
         }
 
+        public Guid ObterUsuarioPorEmail(string email)
+        {
+            return _contexto.Usuario.Where(x => x.Email.ToLower().Trim() == email.ToLower().Trim()).FirstOrDefault().Id;
+        }
+
         public bool JaExiste(string email)
         {
             throw new NotImplementedException();
@@ -58,6 +63,6 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
         public void Dispose()
         {
             _contexto.Dispose();
-        }
+        }        
     }
 }
