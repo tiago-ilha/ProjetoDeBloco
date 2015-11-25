@@ -19,19 +19,19 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
             _contexto = contexto;
         }
 
-        public Guid ObterUsuarioPorEmail(string email)
+        public Usuario ObterUsuarioPorLogin(string login)
         {
-            return _contexto.Usuario.Where(x => x.Email.ToLower().Trim() == email.ToLower().Trim()).FirstOrDefault().Id;
+            return _contexto.Usuario.Where(x => x.Login.ToLower() == login.ToLower()).SingleOrDefault();
         }
 
         public bool JaExiste(string email)
         {
-            throw new NotImplementedException();
+            return _contexto.Usuario.Any(x => x.Email.ToLower() == email.ToLower());
         }
 
-        public Usuario Login(string login, string senha)
+        public bool Login(string login, string senha)
         {
-            return _contexto.Usuario.Where(x => x.Login.ToLower().Trim() == login.ToLower().Trim() && x.Senha.Trim() == senha.Trim()).FirstOrDefault();
+            return _contexto.Usuario.Any(x => x.Login.ToLower().Trim() == login.ToLower().Trim() && x.Senha.Trim() == senha.Trim());
         }
 
         public IEnumerable<Usuario> ObterPor()
@@ -63,6 +63,6 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
         public void Dispose()
         {
             _contexto.Dispose();
-        }        
+        }       
     }
 }

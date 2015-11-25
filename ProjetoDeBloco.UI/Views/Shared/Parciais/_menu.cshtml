@@ -1,0 +1,104 @@
+﻿
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Projeto de Bloco", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                @if (Session["UsuarioLogado"] != null)
+                {
+                    <li>@Html.ActionLink("Contato do Grupo", "Contact", "Home")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administração<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Usuário", "Index", "Professor")</li>
+                            <li>@Html.ActionLink("Perfil", "Index", "Aluno")</li>
+                            <li>@Html.ActionLink("Autorização", "Index", "Aluno")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dados da Instituição <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Curso", "Index", "Curso")</li>
+                            <li>@Html.ActionLink("Bloco", "Index", "Bloco")</li>
+                            <li>@Html.ActionLink("Módulo", "Index", "Modulo")</li>
+                            <li>@Html.ActionLink("Turma", "Index", "Turma")</li>
+                            <li class="divider"></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pessoas<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Professor", "Index", "Professor")</li>
+                            <li>@Html.ActionLink("Aluno", "Index", "Aluno")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Avaliação Institucional<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Questionário", "Index", "Questao")</li>
+                            <li>@Html.ActionLink("Avaliação", "Index", "Avaliacao")</li>
+                        </ul>
+                    </li>
+                }
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                @if (Session["UsuarioLogado"] != null)
+                {
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Configuração
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="navbar-content">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <img src="http://placehold.it/120x120"
+                                                 alt="Alternate Text" class="img-responsive" />
+                                            <p class="text-center small">
+                                                <a href="#">Change Photo</a>
+                                            </p>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <span>@ViewBag.UsuarioLogado</span>
+                                            <div class="divider">
+                                            </div>
+                                            <a href="#" class="btn btn-primary btn-sm active">View Profile</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="navbar-footer">
+                                    <div class="navbar-footer-content">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <a href="#" class="btn btn-default btn-sm">Change Passowrd</a>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <a href="#" class="btn btn-default btn-sm pull-right" id="btnSair">Sair</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                }
+                else
+                {
+                    <li><a href="@Url.Action("Login", "AutentificarUsuario")">Entrar</a></li>
+                }
+            </ul>
+        </div>
+
+    </div>
+</div>

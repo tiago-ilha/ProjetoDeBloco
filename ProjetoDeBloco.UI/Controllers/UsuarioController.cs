@@ -1,5 +1,6 @@
 ﻿using ProjetoDeBloco.Aplicacao.Servicos.Interfaces;
 using ProjetoDeBloco.Aplicacao.ViewModels;
+using ProjetoDeBloco.UI.Filtros;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace ProjetoDeBloco.UI.Controllers
 {
+    [AutentificacaoFiltro]
     public class UsuarioController : Controller
     {
         private readonly IUsuarioServico _servicoUsuario;
@@ -37,6 +39,7 @@ namespace ProjetoDeBloco.UI.Controllers
 
         // POST: Usuario/Create
          [HttpGet]
+         [ValidateAntiForgeryToken]
         public JsonResult Cadastro(UsuarioVM model)
         {
             try
@@ -59,6 +62,7 @@ namespace ProjetoDeBloco.UI.Controllers
 
         // POST: Usuario/Edit/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, FormCollection collection)
         {
             try
@@ -81,6 +85,7 @@ namespace ProjetoDeBloco.UI.Controllers
 
         // POST: Usuario/Delete/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try

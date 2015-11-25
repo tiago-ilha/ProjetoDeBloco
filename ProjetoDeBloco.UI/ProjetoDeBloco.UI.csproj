@@ -150,6 +150,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Filtros\AutentificacaoFiltro.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -257,10 +258,10 @@
     <Content Include="Views\Administrador\Details.cshtml" />
     <Content Include="Views\Administrador\Cadastrar.cshtml" />
     <Content Include="Views\Shared\Parciais\_CadastroUsuario.cshtml" />
+    <Content Include="Views\Shared\Parciais\_menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Filtros\" />
     <Folder Include="Views\Usuario\" />
     <Folder Include="Views\Usuário\" />
   </ItemGroup>

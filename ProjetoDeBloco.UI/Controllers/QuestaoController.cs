@@ -1,5 +1,6 @@
 ﻿using ProjetoDeBloco.Aplicacao.Servicos.Interfaces;
 using ProjetoDeBloco.Aplicacao.ViewModels;
+using ProjetoDeBloco.UI.Filtros;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace ProjetoDeBloco.UI.Controllers
 {
+    [AutentificacaoFiltro]
     public class QuestaoController : Controller
     {
         private IQuestaoServico _servico;
@@ -56,6 +58,7 @@ namespace ProjetoDeBloco.UI.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Cadastro(QuestaoVM questao)
         {
             if (!ModelState.IsValid)
@@ -80,6 +83,7 @@ namespace ProjetoDeBloco.UI.Controllers
 
         // POST: Curso/Delete/5
         [HttpPost, ActionName("Remover")]
+        [ValidateAntiForgeryToken]
         public ActionResult RemoverConfirmado(Guid id)
         {
             try

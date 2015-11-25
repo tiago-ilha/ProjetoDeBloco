@@ -10,7 +10,8 @@ namespace ProjetoDeBloco.Aplicacao.Servicos.Interfaces
 {
 	public interface IUsuarioServico : IAplicacaoBase<UsuarioVM>
 	{
-        UsuarioVM Logar(string login, string senha);
+        bool Logar(string login, string senha);
 		bool JaExiste(string email);
+        UsuarioVM ObterUsuarioPeloLogin(string login);
 	}
 }

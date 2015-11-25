@@ -31,18 +31,17 @@ namespace ProjetoDeBloco.UI.Controllers
             {
                 var usuarioLogado = _servicoUsuario.Logar(login, senha);
 
-                if (usuarioLogado != null)
+                if (usuarioLogado)
                 {
-                    //FormsAuthentication.SetAuthCookie(usuarioLogado.Login, false);
+                    var usuario = _servicoUsuario.ObterUsuarioPeloLogin(login);
 
-                    Session.Add("UsuarioLogado", usuarioLogado.Login);
-                    Session.Timeout = 2;
+                    Session["usuarioLogado"] = usuario.Login;
 
                     return Json(new { ok = true, mensagem = "Usuário autenticado... Redirecionando!" }, JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
-                    return Json(new { ok = false, mensagem = "Usuário não encontrando. Tente novamente." }, JsonRequestBehavior.AllowGet);
+                    return Json(new { ok = false, mensagem = "Usuário ou senha inválidos! Tente novamente." }, JsonRequestBehavior.AllowGet);
                 }
 
             }
@@ -50,6 +49,6 @@ namespace ProjetoDeBloco.UI.Controllers
             {
                 return Json(new { OK = false, Mensagem = e.Message }, JsonRequestBehavior.AllowGet);
             }
-        }       
+        }
     }
 }

@@ -42,6 +42,7 @@ namespace ProjetoDeBloco.UI.Controllers
 
         // POST: Administrador/Create
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Cadastrar(FormCollection collection)
         {
             try
@@ -64,6 +65,7 @@ namespace ProjetoDeBloco.UI.Controllers
 
         // POST: Administrador/Edit/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, FormCollection collection)
         {
             try
@@ -86,6 +88,7 @@ namespace ProjetoDeBloco.UI.Controllers
 
         // POST: Administrador/Delete/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try

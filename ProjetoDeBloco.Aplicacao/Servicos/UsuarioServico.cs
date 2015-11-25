@@ -20,11 +20,9 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
             _repositorio = repositorio;
         }
 
-        public UsuarioVM Logar(string login, string senha)
+        public bool Logar(string login, string senha)
         {
-            var usuario = _repositorio.Login(login, senha);
-
-            return Mapper.Map<Usuario, UsuarioVM>(usuario);
+            return _repositorio.Login(login, senha);             
         }
 
         public bool JaExiste(string email)
@@ -85,6 +83,14 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
         public void Dispose()
         {
             _repositorio.Dispose();
-        }        
+        }
+
+
+        public UsuarioVM ObterUsuarioPeloLogin(string login)
+        {
+            var usuario = _repositorio.ObterUsuarioPorLogin(login);
+
+            return Mapper.Map<Usuario, UsuarioVM>(usuario);
+        }
     }
 }

@@ -47,7 +47,7 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
                 _repUsuario.Salvar(usuario);
 
-                var idUsuario = _repUsuario.ObterUsuarioPorEmail(entidade.Usuario.Email);
+                var idUsuario = _repUsuario.ObterUsuarioPorLogin(entidade.Usuario.Login).Id;
 
                 var administrador = new Administrador(entidade.Nome, entidade.Usuario.Email, DateTime.Now, idUsuario);
 

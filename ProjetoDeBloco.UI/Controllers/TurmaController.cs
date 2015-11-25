@@ -1,5 +1,6 @@
 ﻿using ProjetoDeBloco.Aplicacao.Servicos.Interfaces;
 using ProjetoDeBloco.Aplicacao.ViewModels;
+using ProjetoDeBloco.UI.Filtros;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace ProjetoDeBloco.UI.Controllers
 {
+    [AutentificacaoFiltro]
     public class TurmaController : Controller
     {
         private readonly ITurmaServico _servicoTurma;
@@ -65,6 +67,7 @@ namespace ProjetoDeBloco.UI.Controllers
 
         // POST: Turma/Create
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Cadastrar(TurmaVM model)
         {
             Guid idModulo;
@@ -136,6 +139,7 @@ namespace ProjetoDeBloco.UI.Controllers
 
         // POST: Turma/Edit/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Editar(int id, FormCollection collection)
         {
             try
@@ -161,6 +165,7 @@ namespace ProjetoDeBloco.UI.Controllers
 
         // POST: Turma/Delete/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Remover(int id, FormCollection collection)
         {
             try
