@@ -35,7 +35,7 @@ namespace ProjetoDeBloco.UI.Controllers
                 {
                     var usuario = _servicoUsuario.ObterUsuarioPeloLogin(login);
 
-                    Session["usuarioLogado"] = usuario.Login;
+                    FormsAuthentication.SetAuthCookie(usuario.Login, true);
 
                     return Json(new { ok = true, mensagem = "Usuário autenticado... Redirecionando!" }, JsonRequestBehavior.AllowGet);
                 }
@@ -49,6 +49,14 @@ namespace ProjetoDeBloco.UI.Controllers
             {
                 return Json(new { OK = false, Mensagem = e.Message }, JsonRequestBehavior.AllowGet);
             }
+        }
+
+        [HttpGet]
+        public JsonResult Deslogar()
+        {
+            FormsAuthentication.SignOut();
+
+            return Json(new { ok = true, mensagem = "Usuário deslogado!" }, JsonRequestBehavior.AllowGet);
         }
     }
 }

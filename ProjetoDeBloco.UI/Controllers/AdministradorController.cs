@@ -31,6 +31,8 @@ namespace ProjetoDeBloco.UI.Controllers
         {
              var administrador = _servicoAdministrador.BuscarPorId(id);
 
+
+
             return View(administrador);
         }
 

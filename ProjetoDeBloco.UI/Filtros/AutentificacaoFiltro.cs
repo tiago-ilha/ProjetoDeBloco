@@ -12,7 +12,7 @@ namespace ProjetoDeBloco.UI.Filtros
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var usuario = filterContext.HttpContext.Session["usuarioLogado"];
+            var usuario = filterContext.HttpContext.User.Identity.Name;
 
             if (usuario != null)
             {                
