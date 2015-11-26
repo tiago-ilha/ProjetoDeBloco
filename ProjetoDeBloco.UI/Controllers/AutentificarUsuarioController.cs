@@ -11,8 +11,10 @@ namespace ProjetoDeBloco.UI.Controllers
 {
     public class AutentificarUsuarioController : Controller
     {
+        
         private IUsuarioServico _servicoUsuario;
 
+        
         public AutentificarUsuarioController(IUsuarioServico servicoUsuario)
         {
             _servicoUsuario = servicoUsuario;
@@ -25,18 +27,22 @@ namespace ProjetoDeBloco.UI.Controllers
         }
 
         [HttpGet]
+        
         public JsonResult Logar(string login, string senha)
         {
             try
             {
                 var usuarioLogado = _servicoUsuario.Logar(login, senha);
 
+         
                 if (usuarioLogado)
                 {
                     var usuario = _servicoUsuario.ObterUsuarioPeloLogin(login);
 
+        
                     FormsAuthentication.SetAuthCookie(usuario.Login, true);
 
+        
                     return Json(new { ok = true, mensagem = "Usuário autenticado... Redirecionando!" }, JsonRequestBehavior.AllowGet);
                 }
                 else

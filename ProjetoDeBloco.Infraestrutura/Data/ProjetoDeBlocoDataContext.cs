@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ProjetoDeBloco.Dominio.Entidades.Administracao;
+using ProjetoDeBloco.Dominio.Entidades.AvaliacaoInstitucional;
 using ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura;
 using ProjetoDeBloco.Dominio.Entidades.Instituicao.Pessoas;
-using ProjetoDeBloco.Dominio.Entidades.AvaliacaoInstitucional;
-using ProjetoDeBloco.Dominio.Entidades.Administracao;
-using System.Data.Entity.ModelConfiguration.Conventions;
 using ProjetoDeBloco.Infraestrutura.Mapeamento;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace ProjetoDeBloco.Infraestrutura.Data
 {

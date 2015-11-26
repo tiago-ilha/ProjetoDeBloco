@@ -50,9 +50,10 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
             Usuario usuarioBase;
 
-            if (usuario.Id == Guid.Empty)
+            if (usuario.Id == Guid.Empty)   
             {
                 usuarioBase = new Usuario(usuario.Email, usuario.Login, usuario.Senha);
+                usuarioBase.AtivarUsuario();
 
                 _repositorio.Salvar(usuarioBase);
             }
