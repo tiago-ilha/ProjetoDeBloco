@@ -58,14 +58,15 @@ namespace ProjetoDeBloco.Dominio.Entidades.Administracao
             if (Situacao == SituacaoUsuario.Ativo)
 				throw new Exception("Usuário já está ativado!");
 
-            this.Situacao = true;		}
+            this.Situacao = SituacaoUsuario.Ativo;
+        }
 
 		public void DesativarUsuario()
 		{
             if (Situacao == SituacaoUsuario.Inativo)
 				throw new Exception("Usuário já está inativo!");
 
-            this.Situacao = false;
+            this.Situacao = SituacaoUsuario.Inativo;
 		}
 	}
 }

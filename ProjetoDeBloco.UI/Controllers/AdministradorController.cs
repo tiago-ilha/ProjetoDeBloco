@@ -5,9 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 using PagedList;
 using ProjetoDeBloco.Aplicacao.Servicos.Interfaces;
+using ProjetoDeBloco.UI.Filtros;
 
 namespace ProjetoDeBloco.UI.Controllers
 {
+    [AutentificacaoFiltro]
     public class AdministradorController : Controller
     {
         private IAdministradorServico _servicoAdministrador;
@@ -30,8 +32,6 @@ namespace ProjetoDeBloco.UI.Controllers
         public ActionResult Details(Guid id)
         {
              var administrador = _servicoAdministrador.BuscarPorId(id);
-
-
 
             return View(administrador);
         }

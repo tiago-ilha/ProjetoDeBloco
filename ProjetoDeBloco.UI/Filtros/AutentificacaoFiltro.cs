@@ -14,7 +14,7 @@ namespace ProjetoDeBloco.UI.Filtros
         {
             var usuario = filterContext.HttpContext.User.Identity.Name;
 
-            if (usuario != null)
+            if (usuario != "")
             {                
                 base.OnActionExecuting(filterContext);
             }

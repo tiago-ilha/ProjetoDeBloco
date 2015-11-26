@@ -13,8 +13,8 @@
                 waitingDialog.show("Carregando informações....");
             },
             success: function (dados) {                
-                window.location.href = "/Home/Index";
-                toastr.success(dados.mensagem, "Sucesso");
+                waitingDialog.show("Carregando informações....");
+                window.location.href = "/Home/Index";                
             },
             error: function () {
                 waitingDialog.hide();
