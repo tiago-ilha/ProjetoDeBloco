@@ -14,8 +14,7 @@ namespace ProjetoDeBloco.Infraestrutura.Mapeamento
         public AlunoMap()
         {
             ToTable("Aluno");
-
-            Property(aluno => aluno.IdAluno).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+           
         }
     }
 }

@@ -21,8 +21,7 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Pessoas
             this.AreaDeFormacao = areaDeFormacao;
             this.AnoDeFormacao = anoDeFormacao;
         }
-
-        public Guid IdProfessor { get; set; }
+       
         public string AreaDeFormacao { get; set; }
         public int AnoDeFormacao { get; set; }
 

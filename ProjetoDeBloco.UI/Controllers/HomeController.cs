@@ -9,12 +9,7 @@ namespace ProjetoDeBloco.UI.Controllers
 	public class HomeController : BaseController
 	{
 		public ActionResult Index()
-		{
-			if (UsuarioLogado != null)
-			{
-				ViewBag.UsuarioLogado = Session["UsuarioLogado"].ToString().ToUpper();
-			}
-
+		{		
 			return View();
 		}
 

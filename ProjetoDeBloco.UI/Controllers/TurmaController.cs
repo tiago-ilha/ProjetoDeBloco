@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace ProjetoDeBloco.UI.Controllers
 {
     [AutentificacaoFiltro]
-    public class TurmaController : Controller
+	public class TurmaController : BaseController
     {
         private readonly ITurmaServico _servicoTurma;
         private readonly IModuloServico _servicoModulo;

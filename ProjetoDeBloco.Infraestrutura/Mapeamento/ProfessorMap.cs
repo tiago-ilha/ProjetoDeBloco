@@ -14,8 +14,7 @@ namespace ProjetoDeBloco.Infraestrutura.Mapeamento
         public ProfessorMap()
         {
             ToTable("Professor");
-
-            Property(professor => professor.IdProfessor).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+           
             Property(professor => professor.AreaDeFormacao).HasColumnType("varchar").HasMaxLength(120).IsRequired();
             Property(professor => professor.AnoDeFormacao).HasColumnType("int").IsRequired();
 

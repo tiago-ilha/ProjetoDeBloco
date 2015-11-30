@@ -25,6 +25,7 @@ namespace ProjetoDeBloco.Aplicacao.AutoMappers
             CreateMap<Questao, QuestaoVM>();
             CreateMap<Avaliacao, AvaliacaoVM>();
 			CreateMap<Usuario, UsuarioVM>();
+			CreateMap<Administrador, AdministradorVM>();
         }
     }
 }

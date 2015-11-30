@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace ProjetoDeBloco.Infraestrutura.Mapeamento
 {
-    public class AdministradorMap : EntityTypeConfiguration<Administrador>
-    {
-        public AdministradorMap()
-        {
-            ToTable("Administrador");
+	public class AdministradorMap : EntityTypeConfiguration<Administrador>
+	{
+		public AdministradorMap()
+		{
+			ToTable("Administrador");			
 
-            Property(administrador => administrador.IdAdministrador).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-        }
-    }
+			HasOptional(adminstrador => adminstrador.Usuario).WithMany().HasForeignKey(x => x.IdUsuario).WillCascadeOnDelete(false);
+		}
+	}
 }

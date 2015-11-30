@@ -15,9 +15,7 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Pessoas
             : base(nome, email, dataNascimento)
         {
             Turmas = new HashSet<Turma>();
-        }
-
-        public Guid IdAluno { get; set; }
+        }       
 
         public virtual ICollection<Turma> Turmas { get; set; }
 

@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace ProjetoDeBloco.UI.Controllers
 {
     [AutentificacaoFiltro]
-    public class AlunoController : Controller
+	public class AlunoController : BaseController
     { 
         private IAlunoServico _servico;
 

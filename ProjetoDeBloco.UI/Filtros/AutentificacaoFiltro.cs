@@ -8,24 +8,24 @@ using System.Web.Routing;
 
 namespace ProjetoDeBloco.UI.Filtros
 {
-    public class AutentificacaoFiltro : ActionFilterAttribute
-    {
-        public override void OnActionExecuting(ActionExecutingContext filterContext)
-        {
-            var usuario = filterContext.HttpContext.User.Identity.Name;
+	public class AutentificacaoFiltro : ActionFilterAttribute
+	{
+		public override void OnActionExecuting(ActionExecutingContext filterContext)
+		{
+			var usuario = filterContext.HttpContext.Session["usuarioLogado"];
 
-            if (usuario != "")
-            {                
-                base.OnActionExecuting(filterContext);
-            }
-            else
-            {
-                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new
-                {
-                    controller = "AutentificarUsuario",
-                    action = "Login"
-                }));
-            }
-        }       
-    }
+			if (usuario != null)
+			{
+				base.OnActionExecuting(filterContext);
+			}
+			else
+			{
+				filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new
+				{
+					controller = "AutentificarUsuario",
+					action = "Login"
+				}));
+			}
+		}
+	}
 }

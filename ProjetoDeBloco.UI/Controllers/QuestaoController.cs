@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace ProjetoDeBloco.UI.Controllers
 {
     [AutentificacaoFiltro]
-    public class QuestaoController : Controller
+	public class QuestaoController : BaseController
     {
         private IQuestaoServico _servico;
 

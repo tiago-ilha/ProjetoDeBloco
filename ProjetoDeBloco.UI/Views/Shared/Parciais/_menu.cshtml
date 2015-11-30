@@ -1,5 +1,5 @@
 ﻿@{
-    var usuarioLogado = ViewBag.UsuarioLogado;
+	var usuarioLogado = Session["UsuarioLogado"] != null ? Session["UsuarioLogado"].ToString().ToUpper() : null;
 }
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -17,14 +17,14 @@
                 @if (usuarioLogado != null)
                 {
                     <li>@Html.ActionLink("Contato do Grupo", "Contact", "Home")</li>
-                    <li class="dropdown">
+                    @*<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administração<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li>@Html.ActionLink("Usuário", "Index", "Professor")</li>
                             <li>@Html.ActionLink("Perfil", "Index", "Aluno")</li>
                             <li>@Html.ActionLink("Autorização", "Index", "Aluno")</li>
                         </ul>
-                    </li>
+                    </li>*@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dados da Instituição <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
