@@ -140,6 +140,7 @@
     <Compile Include="Controllers\AlunoController.cs" />
     <Compile Include="Controllers\AutentificarUsuarioController.cs" />
     <Compile Include="Controllers\AvaliacaoController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BlocoController.cs" />
     <Compile Include="Controllers\CursoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -262,6 +263,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

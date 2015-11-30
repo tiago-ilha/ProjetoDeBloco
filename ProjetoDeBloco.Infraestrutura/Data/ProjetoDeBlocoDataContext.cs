@@ -11,7 +11,7 @@ namespace ProjetoDeBloco.Infraestrutura.Data
     public class ProjetoDeBlocoDataContext : DbContext
     {
         public ProjetoDeBlocoDataContext()
-            : base("name=ProjetoDeBloco") { }
+			: base("name=ProjetoDeBloco") { }
 
         public DbSet<Curso> Cursos { get; set; }
         public DbSet<Bloco> Blocos { get; set; }

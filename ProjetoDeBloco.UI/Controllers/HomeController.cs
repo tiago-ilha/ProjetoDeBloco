@@ -6,21 +6,21 @@ using System.Web.Mvc;
 
 namespace ProjetoDeBloco.UI.Controllers
 {
-    public class HomeController : Controller
-    {
-        public ActionResult Index()
-        {
-            if (Session["UsuarioLogado"] != null)
-            {
-                ViewBag.UsuarioLogado = Session["UsuarioLogado"].ToString().ToUpper();
-            }          
+	public class HomeController : BaseController
+	{
+		public ActionResult Index()
+		{
+			if (UsuarioLogado != null)
+			{
+				ViewBag.UsuarioLogado = Session["UsuarioLogado"].ToString().ToUpper();
+			}
 
-            return View();
-        }
+			return View();
+		}
 
-        public ActionResult Contact()
-        {
-            return View();
-        }
-    }
+		public ActionResult Contact()
+		{
+			return View();
+		}
+	}
 }
