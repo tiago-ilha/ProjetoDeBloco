@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace ProjetoDeBloco.Aplicacao.Servicos.Interfaces
 {
-    public interface IAdministradorServico : IAplicacaoBase<AdministradorVM>
-    {
-    }
+	public interface IAdministradorServico : IAplicacaoBase<AdministradorVM>
+	{
+		AdministradorVM AtivarCoordenador(Guid id);
+	}
 }

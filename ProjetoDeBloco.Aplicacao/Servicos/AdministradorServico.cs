@@ -91,5 +91,12 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 		{
 			_repAdministrador.Dispose();
 		}
+
+		public AdministradorVM AtivarCoordenador(Guid id)
+		{
+			var administrador = _repAdministrador.ObterPor(id);
+
+			return Mapper.Map<Administrador, AdministradorVM>(administrador);
+		}
 	}
 }

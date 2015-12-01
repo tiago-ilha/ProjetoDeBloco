@@ -19,7 +19,6 @@ namespace ProjetoDeBloco.Infraestrutura.Mapeamento
             Property(pessoa => pessoa.Nome).HasColumnType("varchar").HasMaxLength(80).IsRequired();
             Property(pessoa => pessoa.Matricula).HasColumnType("bigint");
             Property(pessoa => pessoa.DataNascimento).HasColumnType("datetime").IsRequired();
-            Property(pessoa => pessoa.Ativo).HasColumnType("bit").IsRequired();
         }
     }
 }

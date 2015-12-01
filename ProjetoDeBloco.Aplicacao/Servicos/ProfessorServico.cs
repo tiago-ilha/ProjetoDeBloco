@@ -42,7 +42,6 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
             if (entidade.Id == Guid.Empty)
             {
                 professor = new Professor(entidade.Nome, entidade.Email, entidade.DataNascimento, entidade.AreaDeFormacao, entidade.AnoDeFormacao);
-                professor.Ativar();
 
                 GerarMatricula(professor);
 
@@ -55,8 +54,6 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
                 professor = _repProfessor.ObterPor(entidade.Id);
 
                 professor.Editar(entidade.Nome, entidade.Email,entidade.DataNascimento, entidade.AreaDeFormacao, entidade.AnoDeFormacao);
-
-                professor.Ativar();
 
                 _repProfessor.Atualizar(professor);
             }

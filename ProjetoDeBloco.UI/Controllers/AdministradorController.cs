@@ -39,6 +39,14 @@ namespace ProjetoDeBloco.UI.Controllers
 			return View(administrador);
 		}
 
+		public ActionResult AtivarCoordenadores()
+		{
+			var administradores = _servicoAdministrador.ListarTodos();
+			return View(administradores);
+		}
+
+
+
 		// GET: Administrador/Create
 		[HttpGet]
 		public ActionResult Cadastrar()
