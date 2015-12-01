@@ -52,8 +52,29 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
 					_repAdministrador.Salvar(administrador);
 				}
+				else
+				{
+					var administrador = _repAdministrador.ObterPor(entidade.Id);
+
+					if (entidade.Nome != administrador.Nome)
+						administrador.TrocarNome(entidade.Nome);
+
+					if (entidade.Email != administrador.Email)
+						administrador.TrocarEmail(entidade.Email);
+
+					if (entidade.DataNascimento != administrador.DataNascimento)
+						administrador.TrocarDataDeNascimento(entidade.DataNascimento);
+
+					if (entidade.Usuario.Login != administrador.Usuario.Login)
+						administrador.Usuario.TrocarLogin(entidade.Usuario.Login);
+
+					if (entidade.Usuario.Senha != administrador.Usuario.Senha)
+						administrador.Usuario.TrocarSenha(entidade.Usuario.Senha);
+
+					_repAdministrador.Atualizar(administrador);
+				}
 			}
-			catch 
+			catch
 			{
 				throw new UsuarioJaCadastradoExcecao();
 			}

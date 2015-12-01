@@ -48,11 +48,10 @@ namespace ProjetoDeBloco.UI.Controllers
 
 		// POST: Administrador/Create
 		[HttpPost]
-		//[ValidateAntiForgeryToken]
 		public JsonResult Cadastrar(AdministradorVM model)
 		{
 			try
-			{			
+			{
 				_servicoAdministrador.Cadastrar(model);
 
 				return Json(new { OK = true, mensagem = "Operação foi realizada com sucesso!" }, JsonRequestBehavior.AllowGet);
@@ -61,7 +60,7 @@ namespace ProjetoDeBloco.UI.Controllers
 			{
 				return Json(new { OK = false, Mensagem = e.Message }, JsonRequestBehavior.AllowGet);
 			}
-			catch(Exception e)
+			catch (Exception e)
 			{
 				return Json(new { OK = false, Mensagem = e.Message }, JsonRequestBehavior.AllowGet);
 			}
@@ -70,23 +69,28 @@ namespace ProjetoDeBloco.UI.Controllers
 		// GET: Administrador/Edit/5
 		public ActionResult Editar(Guid id)
 		{
-			return View();
+			var administrador = _servicoAdministrador.BuscarPorId(id);
+
+			return View(administrador);
 		}
 
 		// POST: Administrador/Edit/5
 		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public ActionResult Editar(int id, FormCollection collection)
+		public JsonResult Editar(AdministradorVM model)
 		{
 			try
 			{
-				// TODO: Add update logic here
+				_servicoAdministrador.Cadastrar(model);
 
-				return RedirectToAction("Index");
+				return Json(new { OK = true, mensagem = "Operação foi realizada com sucesso!" }, JsonRequestBehavior.AllowGet);
 			}
-			catch
+			catch (UsuarioJaCadastradoExcecao e)
 			{
-				return View();
+				return Json(new { OK = false, Mensagem = e.Message }, JsonRequestBehavior.AllowGet);
+			}
+			catch (Exception e)
+			{
+				return Json(new { OK = false, Mensagem = e.Message }, JsonRequestBehavior.AllowGet);
 			}
 		}
 

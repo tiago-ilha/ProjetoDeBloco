@@ -263,7 +263,6 @@
     <Content Include="Views\Shared\Parciais\_CadastroUsuario.cshtml" />
     <Content Include="Views\Shared\Parciais\_menu.cshtml" />
     <Content Include="Views\Administrador\Visualizar.cshtml" />
-    <Content Include="Views\Administrador\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
