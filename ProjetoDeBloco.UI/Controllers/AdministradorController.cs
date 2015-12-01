@@ -31,7 +31,8 @@ namespace ProjetoDeBloco.UI.Controllers
 		}
 
 		// GET: Administrador/Details/5
-		public ActionResult Details(Guid id)
+		[HttpGet]
+		public ActionResult Visualizar(Guid id)
 		{
 			var administrador = _servicoAdministrador.BuscarPorId(id);
 
@@ -67,7 +68,7 @@ namespace ProjetoDeBloco.UI.Controllers
 		}
 
 		// GET: Administrador/Edit/5
-		public ActionResult Edit(int id)
+		public ActionResult Editar(Guid id)
 		{
 			return View();
 		}
@@ -75,7 +76,7 @@ namespace ProjetoDeBloco.UI.Controllers
 		// POST: Administrador/Edit/5
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Edit(int id, FormCollection collection)
+		public ActionResult Editar(int id, FormCollection collection)
 		{
 			try
 			{

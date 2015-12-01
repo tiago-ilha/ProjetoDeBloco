@@ -14,6 +14,9 @@
 *.suo
 *.css
 *.js
+bin
+obj
+packages
 
 # Packages #
 ############
@@ -28,3 +31,4 @@
 *.tar
 *.zip
 /ProjetoDeBloco
+
