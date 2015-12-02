@@ -74,6 +74,7 @@ namespace ProjetoDeBloco.UI.Controllers
 		}
 
 		// GET: Administrador/Edit/5
+		[HttpGet]
 		public ActionResult Editar(Guid id)
 		{
 			var administrador = _servicoAdministrador.BuscarPorId(id);
@@ -81,25 +82,25 @@ namespace ProjetoDeBloco.UI.Controllers
 			return View(administrador);
 		}
 
-		// POST: Administrador/Edit/5
-		[HttpPost]
-		public JsonResult Editar(AdministradorVM model)
-		{
-			try
-			{
-				_servicoAdministrador.Cadastrar(model);
+		//// POST: Administrador/Edit/5
+		//[HttpPost]
+		//public ActionResult Editar(AdministradorVM model)
+		//{
+		//	try
+		//	{
+		//		_servicoAdministrador.Cadastrar(model);
 
-				return Json(new { OK = true, mensagem = "Operação foi realizada com sucesso!" }, JsonRequestBehavior.AllowGet);
-			}
-			catch (UsuarioJaCadastradoExcecao e)
-			{
-				return Json(new { OK = false, Mensagem = e.Message }, JsonRequestBehavior.AllowGet);
-			}
-			catch (Exception e)
-			{
-				return Json(new { OK = false, Mensagem = e.Message }, JsonRequestBehavior.AllowGet);
-			}
-		}
+		//		return Json(new { OK = true, mensagem = "Operação foi realizada com sucesso!" }, JsonRequestBehavior.DenyGet);
+		//	}
+		//	catch (UsuarioJaCadastradoExcecao e)
+		//	{
+		//		return Json(new { OK = false, Mensagem = e.Message }, JsonRequestBehavior.DenyGet);
+		//	}
+		//	catch (Exception e)
+		//	{
+		//		return Json(new { OK = false, Mensagem = e.Message }, JsonRequestBehavior.DenyGet);
+		//	}
+		//}
 
 		// GET: Administrador/Delete/5
 		public ActionResult Delete(int id)
