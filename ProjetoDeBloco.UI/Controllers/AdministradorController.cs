@@ -22,12 +22,11 @@ namespace ProjetoDeBloco.UI.Controllers
 		}
 
 		// GET: Administrador
-		public ActionResult Index(int? pagina)
+		public ActionResult Index()
 		{
-			int tamanhoPagina = 10;
-			int numeroPagina = pagina ?? 1;
+			var administrador = _servicoAdministrador.ListarTodos();
 
-			return View(_servicoAdministrador.ListarTodos().ToPagedList(numeroPagina, tamanhoPagina));
+			return View(administrador);
 		}
 
 		// GET: Administrador/Details/5
