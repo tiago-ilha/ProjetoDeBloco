@@ -83,24 +83,24 @@ namespace ProjetoDeBloco.UI.Controllers
 		}
 
 		//// POST: Administrador/Edit/5
-		//[HttpPost]
-		//public ActionResult Editar(AdministradorVM model)
-		//{
-		//	try
-		//	{
-		//		_servicoAdministrador.Cadastrar(model);
+		[HttpPost]
+		public ActionResult Editar(AdministradorVM model)
+		{
+			try
+			{
+				_servicoAdministrador.Cadastrar(model);
 
-		//		return Json(new { OK = true, mensagem = "Operação foi realizada com sucesso!" }, JsonRequestBehavior.DenyGet);
-		//	}
-		//	catch (UsuarioJaCadastradoExcecao e)
-		//	{
-		//		return Json(new { OK = false, Mensagem = e.Message }, JsonRequestBehavior.DenyGet);
-		//	}
-		//	catch (Exception e)
-		//	{
-		//		return Json(new { OK = false, Mensagem = e.Message }, JsonRequestBehavior.DenyGet);
-		//	}
-		//}
+				return Json(new { OK = true, mensagem = "Operação foi realizada com sucesso!" }, JsonRequestBehavior.DenyGet);
+			}
+			catch (UsuarioJaCadastradoExcecao e)
+			{
+				return Json(new { OK = false, Mensagem = e.Message }, JsonRequestBehavior.DenyGet);
+			}
+			catch (Exception e)
+			{
+				return Json(new { OK = false, Mensagem = e.Message }, JsonRequestBehavior.DenyGet);
+			}
+		}
 
 		// GET: Administrador/Delete/5
 		public ActionResult Delete(int id)
