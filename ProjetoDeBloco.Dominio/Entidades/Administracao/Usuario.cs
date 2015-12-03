@@ -1,5 +1,6 @@
 ﻿using ProjetoDeBloco.Dominio.Entidades.Instituicao.Pessoas;
 using ProjetoDeBloco.Dominio.Enum;
+using ProjetoDeBloco.Utilitarios.Seguranca;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace ProjetoDeBloco.Dominio.Entidades.Administracao
 
             this.Email = email;
             this.Login = login;
-            this.Senha = senha;
+            this.Senha = Criptografia.CriptografaSenha(senha);
             this.Situacao = SituacaoUsuario.Solicitado;
 		}
 
@@ -48,7 +49,7 @@ namespace ProjetoDeBloco.Dominio.Entidades.Administracao
 		{
 			if (string.IsNullOrWhiteSpace(Senha)) throw new Exception("Informe senha do usuário!");
 
-			this.Senha = senha;
+			this.Senha = Criptografia.CriptografaSenha(senha);
 		}
 
 		public void AtivarUsuario()

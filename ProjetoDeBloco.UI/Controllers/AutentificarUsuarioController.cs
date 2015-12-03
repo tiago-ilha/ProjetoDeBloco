@@ -1,4 +1,5 @@
 ﻿using ProjetoDeBloco.Aplicacao.Servicos.Interfaces;
+using ProjetoDeBloco.Utilitarios.Seguranca;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -32,7 +33,7 @@ namespace ProjetoDeBloco.UI.Controllers
 		{
 			try
 			{
-				var usuarioLogado = _servicoUsuario.Logar(login, senha);
+				var usuarioLogado = _servicoUsuario.Logar(login, Criptografia.CriptografaSenha(senha));
 
 				if (usuarioLogado)
 				{

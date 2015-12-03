@@ -1,4 +1,5 @@
 ﻿using ProjetoDeBloco.Dominio.Entidades.Administracao;
+using ProjetoDeBloco.Dominio.Enum;
 using ProjetoDeBloco.Dominio.Interfaces.Repositorios;
 using ProjetoDeBloco.Infraestrutura.Data;
 using System;
@@ -31,7 +32,7 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
 
         public bool Login(string login, string senha)
         {
-            return _contexto.Usuario.Any(x => x.Login.ToLower().Trim() == login.ToLower().Trim() && x.Senha.Trim() == senha.Trim());
+            return _contexto.Usuario.Any(x => x.Login.ToLower().Trim() == login.ToLower().Trim() && x.Senha.Trim() == senha.Trim() && x.Situacao == SituacaoUsuario.Ativo);
         }
 
         public IEnumerable<Usuario> ObterPor()
@@ -53,11 +54,13 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
         public void Atualizar(Usuario entidade)
         {
             _contexto.Entry<Usuario>(entidade).State = EntityState.Modified;
+            _contexto.SaveChanges();
         }
 
         public void Remover(Usuario entidade)
         {
             _contexto.Usuario.Remove(entidade);
+            _contexto.SaveChanges();
         }
 
         public void Dispose()

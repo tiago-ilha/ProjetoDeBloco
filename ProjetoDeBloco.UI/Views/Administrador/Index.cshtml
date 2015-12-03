@@ -3,12 +3,13 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var mensagem = TempData["mensagemDeSucesso"];
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Novo Coordenador", "Cadastrar")
+    @Html.ActionLink("Novo Coordenador", "Cadastrar", null, new { @class = "btn btn-primary" })
 </p>
 <table class="table">
     <tr>
@@ -27,26 +28,119 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Matricula)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataNascimento)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Editar", new { id = item.Id }) |
-            @Html.ActionLink("Visualizar", "Visualizar", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Matricula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNascimento)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.Id })
+                @* <a href="@Html.Action("Editar", "Administrador", new { id = item.Id})"><i class="glyphicon glyphicon-pencil"></i></a>*@
+                <a href="@Url.Action("Visualizar","Administrador", new { id = item.Id })"><i class="glyphicon glyphicon-file"></i></a>
+                <a href="#" id="idCoordenador"><i class="glyphicon glyphicon-trash"></i></a>
+            </td>
+        </tr>
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Remover Coordenador</h4>
+                    </div>
+                    <div class="modal-body">
+                        @Html.Partial("~/Views/Administrador/parciais/_DadosCoordenador.cshtml", item)
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="btnExcluir" class="btn btn-primary">Remover</button>
+                        <button type="button" id="btnFecnar" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
 
 </table>
+
+
+
+
+@section scripts{
+
+    <script>
+
+        var coordenador = {
+            id: $('#Id'),
+            matricula: $("#matriculaCoordenador"),
+            usuario: {
+                id: $("#idUsuario"),
+                email: $("#emailUsuario"),
+                login: $("#login"),
+                senha: $("#senha")
+            },
+            nome: $("#nome"),
+            emailCoordenador: $("#emailUsuario"),
+            dataNascimento: $("#dataNascimento")
+        }
+
+
+        $(document).ready(function () {
+
+            $("#idCoordenador").click(function () {
+
+                $("#myModal").modal("toggle");
+
+            });
+
+            $("#btnExcluir").click(function () {
+                $.ajax({
+                    url: '/Administrador/Remover',
+                    data: {
+                        id: coordenador.id.val(),
+                        matricula: coordenador.matricula.val(),
+                        usuario: {
+                            id: coordenador.usuario.id.val(),
+                            email: coordenador.usuario.email.val(),
+                            login: coordenador.usuario.login.val(),
+                            senha: coordenador.usuario.senha.val(),
+                        },
+                        nome: coordenador.nome.val(),
+                        emailCoordenador: coordenador.usuario.email.val(),
+                        dataNascimento: coordenador.dataNascimento.val()
+                    },
+                    type: "POST",
+                    beforeSend: function () {
+                        $("#myModal").modal("hide");
+                        waitingDialog.show("Carregando informações....");
+                    },
+                    success: function (dados) {
+                        waitingDialog.hide();
+
+                        if (dados.OK) {
+
+                        }
+                        else {
+                            toastr.error(dados.Mensagem, "Erro");
+                        }
+                    },
+                    error: function (erro) {
+                        toastr.error(erro.mensagem, "Erro");
+                    }
+                });
+            });
+
+        });
+    </script>
+}
+
+

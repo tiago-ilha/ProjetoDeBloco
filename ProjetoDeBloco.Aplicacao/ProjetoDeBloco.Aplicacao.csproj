@@ -9,10 +9,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ProjetoDeBloco.Aplicacao</RootNamespace>
     <AssemblyName>ProjetoDeBloco.Aplicacao</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,7 +50,6 @@
     <Compile Include="AutoMappers\AutoMapperConfig.cs" />
     <Compile Include="AutoMappers\DomainToViewModelMappingProfile.cs" />
     <Compile Include="AutoMappers\ViewModelToDomainMappingProfile.cs" />
-    <Compile Include="Excecoes\UsuarioJaCadastradoExcecao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicos\AdministradorServico.cs" />
     <Compile Include="Servicos\AlunoServico.cs" />
@@ -89,6 +89,10 @@
     <ProjectReference Include="..\ProjetoDeBloco.Dominio\ProjetoDeBloco.Dominio.csproj">
       <Project>{5b0aab61-4a15-4b82-864b-b760aa5a9e9b}</Project>
       <Name>ProjetoDeBloco.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetoDeBloco.Utilitarios\ProjetoDeBloco.Utilitarios.csproj">
+      <Project>{a8c7a9b2-1f29-4b30-8792-cdeded2717eb}</Project>
+      <Name>ProjetoDeBloco.Utilitarios</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

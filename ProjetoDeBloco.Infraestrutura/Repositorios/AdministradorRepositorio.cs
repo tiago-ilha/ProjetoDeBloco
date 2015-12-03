@@ -38,6 +38,7 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
         public void Atualizar(Administrador entidade)
         {
             _contexto.Entry<Administrador>(entidade).State = EntityState.Modified;
+            _contexto.SaveChanges();
         }
 
         public void Remover(Administrador entidade)

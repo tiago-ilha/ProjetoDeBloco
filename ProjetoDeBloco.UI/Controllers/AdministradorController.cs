@@ -7,122 +7,138 @@ using PagedList;
 using ProjetoDeBloco.Aplicacao.Servicos.Interfaces;
 using ProjetoDeBloco.UI.Filtros;
 using ProjetoDeBloco.Aplicacao.ViewModels;
-using ProjetoDeBloco.Aplicacao.Excecoes;
 
 namespace ProjetoDeBloco.UI.Controllers
 {
-	[AutentificacaoFiltro]
-	public class AdministradorController : BaseController
-	{
-		private IAdministradorServico _servicoAdministrador;
+    [AutentificacaoFiltro]
+    public class AdministradorController : BaseController
+    {
+        private IAdministradorServico _servicoAdministrador;
 
-		public AdministradorController(IAdministradorServico servicoAdministrador)
-		{
-			_servicoAdministrador = servicoAdministrador;
-		}
+        public AdministradorController(IAdministradorServico servicoAdministrador)
+        {
+            _servicoAdministrador = servicoAdministrador;
+        }
 
-		// GET: Administrador
-		public ActionResult Index()
-		{
-			var administrador = _servicoAdministrador.ListarTodos();
+        // GET: Administrador
+        public ActionResult Index()
+        {
+            var administrador = _servicoAdministrador.ListarTodos();
 
-			return View(administrador);
-		}
+            return View(administrador);
+        }
 
-		// GET: Administrador/Details/5
-		[HttpGet]
-		public ActionResult Visualizar(Guid id)
-		{
-			var administrador = _servicoAdministrador.BuscarPorId(id);
+        // GET: Administrador/Details/5
+        [HttpGet]
+        public ActionResult Visualizar(Guid id)
+        {
+            var administrador = _servicoAdministrador.BuscarPorId(id);
 
-			return View(administrador);
-		}
+            if (administrador == null)
+                return RedirectToAction("Erro", "Erro");
 
-		public ActionResult AtivarCoordenadores()
-		{
-			var administradores = _servicoAdministrador.ListarTodos();
-			return View(administradores);
-		}
+            return View(administrador);
+        }
+
+        public ActionResult AtivarCoordenadores()
+        {
+            var administradores = _servicoAdministrador.ListarTodos();
+
+
+            return View(administradores);
+        }
 
 
 
-		// GET: Administrador/Create
-		[HttpGet]
-		public ActionResult Cadastrar()
-		{
-			return View();
-		}
+        // GET: Administrador/Create
+        [HttpGet]
+        public ActionResult Cadastrar()
+        {
+            return View();
+        }
 
-		// POST: Administrador/Create
-		[HttpPost]
-		public JsonResult Cadastrar(AdministradorVM model)
-		{
-			try
-			{
-				_servicoAdministrador.Cadastrar(model);
+        // POST: Administrador/Create
+        [HttpPost]
+        public JsonResult Cadastrar(AdministradorVM model)
+        {
+            try
+            {
+                _servicoAdministrador.Cadastrar(model);
 
-				return Json(new { OK = true, mensagem = "Operação foi realizada com sucesso!" }, JsonRequestBehavior.AllowGet);
-			}
-			catch (UsuarioJaCadastradoExcecao e)
-			{
-				return Json(new { OK = false, Mensagem = e.Message }, JsonRequestBehavior.AllowGet);
-			}
-			catch (Exception e)
-			{
-				return Json(new { OK = false, Mensagem = e.Message }, JsonRequestBehavior.AllowGet);
-			}
-		}
+                return Json(new { OK = true, mensagem = "Operação foi realizada com sucesso!" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { OK = false, Mensagem = e.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
 
-		// GET: Administrador/Edit/5
-		[HttpGet]
-		public ActionResult Editar(Guid id)
-		{
-			var administrador = _servicoAdministrador.BuscarPorId(id);
+        // GET: Administrador/Edit/5
+        [HttpGet]
+        public ActionResult Editar(Guid id)
+        {
+            var administrador = _servicoAdministrador.BuscarPorId(id);
 
-			return View(administrador);
-		}
+            if (administrador == null)
+                return RedirectToAction("Erro", "Erro");
 
-		//// POST: Administrador/Edit/5
-		[HttpPost]
-		public ActionResult Editar(AdministradorVM model)
-		{
-			try
-			{
-				_servicoAdministrador.Cadastrar(model);
+            return View(administrador);
+        }
 
-				return Json(new { OK = true, mensagem = "Operação foi realizada com sucesso!" }, JsonRequestBehavior.DenyGet);
-			}
-			catch (UsuarioJaCadastradoExcecao e)
-			{
-				return Json(new { OK = false, Mensagem = e.Message }, JsonRequestBehavior.DenyGet);
-			}
-			catch (Exception e)
-			{
-				return Json(new { OK = false, Mensagem = e.Message }, JsonRequestBehavior.DenyGet);
-			}
-		}
+        //// POST: Administrador/Edit/5
+        [HttpPost]
+        public ActionResult Editar(AdministradorVM model)
+        {
+            try
+            {
+                model.Email = model.Usuario.Email;
 
-		// GET: Administrador/Delete/5
-		public ActionResult Delete(int id)
-		{
-			return View();
-		}
+                _servicoAdministrador.Cadastrar(model);
 
-		// POST: Administrador/Delete/5
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public ActionResult Delete(int id, FormCollection collection)
-		{
-			try
-			{
-				// TODO: Add delete logic here
+                TempData["mensagemDeSucesso"] = "Operação foi realizada com sucesso!";
 
-				return RedirectToAction("Index");
-			}
-			catch
-			{
-				return View();
-			}
-		}
-	}
+                return Json(new { OK = true, mensagem = "Operação foi realizada com sucesso!" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { OK = false, mensagem = e.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        // GET: Administrador/Delete/5
+        [HttpGet]
+        public ActionResult Delete(Guid id)
+        {
+            try
+            {
+                var administrador = _servicoAdministrador.BuscarPorId(id);
+
+                if (administrador != null)
+                    return Json(new { OK = true, resultado = administrador }, JsonRequestBehavior.AllowGet);
+                else
+                    return Json(new { OK = false, resultado = "" }, JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception e)
+            {
+                return Json(new { OK = false, Mensagem = e.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        // POST: Administrador/Delete/5
+        [HttpPost]
+        public JsonResult Remover(AdministradorVM model)
+        {
+            try
+            {
+                _servicoAdministrador.Remover(model);
+
+                return Json(new { OK = true, resultado = "Operação foi realizada com sucesso!" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { OK = false, resultado = e.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+    }
 }

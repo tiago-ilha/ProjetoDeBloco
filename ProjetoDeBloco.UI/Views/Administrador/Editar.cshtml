@@ -86,13 +86,13 @@
 		var coordenador = {
 			id: $('#Id'),
 			usuario: {
-				id: $("idUsuario"),
+			    id: $("#idUsuario"),
 				email: $("#emailUsuario"),
 				login: $("#login"),
 				senha: $("#senha")
 			},
 			nome: $("#nome"),
-			emailCoordenador: $("#emailCoordenador"),
+			emailCoordenador: $("#emailUsuario"),
 			dataNascimento: $("#dataNascimento")
 		}
 
@@ -182,12 +182,13 @@
 				data: {
 					id: coordenador.id.val(),
 					usuario: {
+                        id: coordenador.usuario.id.val(),
 						email: coordenador.usuario.email.val(),
 						login: coordenador.usuario.login.val(),
 						senha: coordenador.usuario.senha.val(),
 					},
 					nome: coordenador.nome.val(),
-					emailCoordenador: coordenador.emailCoordenador.val(),
+					emailCoordenador: coordenador.usuario.email.val(),
 					dataNascimento: coordenador.dataNascimento.val()
 				},
 				type: "POST",
@@ -199,9 +200,8 @@
 
 
 					if (dados.OK) {
-						LimparCamposCadastroCoordenador();
-						toastr.success(dados.Mensagem, "Sucesso");
-						window.location.href = "/Administrador/Index";
+						LimparCamposCadastroCoordenador();						
+						window.location.href = "/Administrador/Index";						
 					}
 					else {
 						toastr.error(dados.Mensagem, "Erro");

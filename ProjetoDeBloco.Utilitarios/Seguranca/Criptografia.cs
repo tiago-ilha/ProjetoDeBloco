@@ -10,85 +10,24 @@ namespace ProjetoDeBloco.Utilitarios.Seguranca
 {
     public class Criptografia
     {
-        private static string _chave;        
-
-        public static string Chave
-        {
-            set
-            {
-                _chave = value;
-            }
-        }
-
-        public static string CriptografaSenha(string senhaCripto)
+        public static string CriptografaSenha(string senha)
         {
             try
             {
-                return CriptografaSenha(senhaCripto, _chave);
-            }
-            catch (Exception ex)
-            {
-                return string.Format("String errada.{0}", ex.Message);
-            }
-        }
+                MD5 md5Hash = MD5.Create();
+                // Converter a String para array de bytes, que é como a biblioteca trabalha.
+                byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(senha));
 
-        public static string DescriptografaSenha(string senhaDescripto)
-        {
-            try
-            {
-                return DescriptografaSenha(senhaDescripto, _chave);
-            }
-            catch (Exception ex)
-            {
-                return string.Format("String errada.{0}", ex.Message);
-            }
-        }
+                // Cria-se um StringBuilder para recompôr a string.
+                StringBuilder sBuilder = new StringBuilder();
 
-        public static string CriptografaSenha(string senhaCripto, string chave)
-        {
-            try
-            {
-                var objcriptografaSenha = new TripleDESCryptoServiceProvider();
-                var objcriptoMd5 = new MD5CryptoServiceProvider();
+                // Loop para formatar cada byte como uma String em hexadecimal
+                for (int i = 0; i < data.Length; i++)
+                {
+                    sBuilder.Append(data[i].ToString("x2"));
+                }
 
-                byte[] byteHash, byteBuff;
-                string strTempKey = chave;
-
-                byteHash = objcriptoMd5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(strTempKey));
-                objcriptoMd5 = null;
-                objcriptografaSenha.Key = byteHash;
-                objcriptografaSenha.Mode = CipherMode.ECB;
-
-                byteBuff = ASCIIEncoding.ASCII.GetBytes(senhaCripto);
-                return Convert.ToBase64String(objcriptografaSenha.CreateEncryptor().TransformFinalBlock(byteBuff, 0, byteBuff.Length));
-            }
-            catch (Exception ex)
-            {
-                return string.Format("Digite os valores Corretamente : {0}", ex.Message);
-            }
-        }
-
-
-        public static string DescriptografaSenha(string strCriptografada, string chave)
-        {
-            try
-            {
-                var objdescriptografaSenha = new TripleDESCryptoServiceProvider();
-                var objcriptoMd5 = new MD5CryptoServiceProvider();
-
-                byte[] byteHash, byteBuff;
-                string strTempKey = chave;
-
-                byteHash = objcriptoMd5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(strTempKey));
-                objcriptoMd5 = null;
-                objdescriptografaSenha.Key = byteHash;
-                objdescriptografaSenha.Mode = CipherMode.ECB;
-
-                byteBuff = Convert.FromBase64String(strCriptografada);
-                string strDecrypted = ASCIIEncoding.ASCII.GetString(objdescriptografaSenha.CreateDecryptor().TransformFinalBlock(byteBuff, 0, byteBuff.Length));
-                objdescriptografaSenha = null;
-
-                return strDecrypted;
+                return sBuilder.ToString();
             }
             catch (Exception ex)
             {
