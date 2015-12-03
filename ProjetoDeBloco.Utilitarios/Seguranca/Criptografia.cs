@@ -8,65 +8,99 @@ using System.Threading.Tasks;
 
 namespace ProjetoDeBloco.Utilitarios.Seguranca
 {
-    public static class Criptografia
+    public class Criptografia
     {
-        private static byte[] chave = { };
-        private static byte[] iv = { 12, 34, 56, 78, 90, 102, 114, 126 };
+        private static string _chave;        
 
-        private static string chaveCriptografia = "fabricio1234567";
-
-        //Criptografa o Cookie
-        public static string Criptografar(string valor)
+        public static string Chave
         {
-            DESCryptoServiceProvider des;
-            MemoryStream ms;
-            CryptoStream cs; byte[] input;
-
-            try
+            set
             {
-                des = new DESCryptoServiceProvider();
-                ms = new MemoryStream();
-
-                input = Encoding.UTF8.GetBytes(valor); chave = Encoding.UTF8.GetBytes(chaveCriptografia.Substring(0, 8));
-
-                cs = new CryptoStream(ms, des.CreateEncryptor(chave, iv), CryptoStreamMode.Write);
-                cs.Write(input, 0, input.Length);
-                cs.FlushFinalBlock();
-
-                return Convert.ToBase64String(ms.ToArray());
-            }
-            catch (Exception ex)
-            {
-                throw ex;
+                _chave = value;
             }
         }
 
-        public static string Descriptografar(string valor)
+        public static string CriptografaSenha(string senhaCripto)
         {
-            DESCryptoServiceProvider des;
-            MemoryStream ms;
-            CryptoStream cs; byte[] input;
-
             try
             {
-                des = new DESCryptoServiceProvider();
-                ms = new MemoryStream();
-
-                input = new byte[valor.Length];
-                input = Convert.FromBase64String(valor.Replace(" ", "+"));
-
-                chave = Encoding.UTF8.GetBytes(chaveCriptografia.Substring(0, 8));
-
-                cs = new CryptoStream(ms, des.CreateDecryptor(chave, iv), CryptoStreamMode.Write);
-                cs.Write(input, 0, input.Length);
-                cs.FlushFinalBlock();
-
-                return Encoding.UTF8.GetString(ms.ToArray());
+                return CriptografaSenha(senhaCripto, _chave);
             }
             catch (Exception ex)
             {
-                throw ex;
+                return string.Format("String errada.{0}", ex.Message);
             }
+        }
+
+        public static string DescriptografaSenha(string senhaDescripto)
+        {
+            try
+            {
+                return DescriptografaSenha(senhaDescripto, _chave);
+            }
+            catch (Exception ex)
+            {
+                return string.Format("String errada.{0}", ex.Message);
+            }
+        }
+
+        public static string CriptografaSenha(string senhaCripto, string chave)
+        {
+            try
+            {
+                var objcriptografaSenha = new TripleDESCryptoServiceProvider();
+                var objcriptoMd5 = new MD5CryptoServiceProvider();
+
+                byte[] byteHash, byteBuff;
+                string strTempKey = chave;
+
+                byteHash = objcriptoMd5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(strTempKey));
+                objcriptoMd5 = null;
+                objcriptografaSenha.Key = byteHash;
+                objcriptografaSenha.Mode = CipherMode.ECB;
+
+                byteBuff = ASCIIEncoding.ASCII.GetBytes(senhaCripto);
+                return Convert.ToBase64String(objcriptografaSenha.CreateEncryptor().TransformFinalBlock(byteBuff, 0, byteBuff.Length));
+            }
+            catch (Exception ex)
+            {
+                return string.Format("Digite os valores Corretamente : {0}", ex.Message);
+            }
+        }
+
+
+        public static string DescriptografaSenha(string strCriptografada, string chave)
+        {
+            try
+            {
+                var objdescriptografaSenha = new TripleDESCryptoServiceProvider();
+                var objcriptoMd5 = new MD5CryptoServiceProvider();
+
+                byte[] byteHash, byteBuff;
+                string strTempKey = chave;
+
+                byteHash = objcriptoMd5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(strTempKey));
+                objcriptoMd5 = null;
+                objdescriptografaSenha.Key = byteHash;
+                objdescriptografaSenha.Mode = CipherMode.ECB;
+
+                byteBuff = Convert.FromBase64String(strCriptografada);
+                string strDecrypted = ASCIIEncoding.ASCII.GetString(objdescriptografaSenha.CreateDecryptor().TransformFinalBlock(byteBuff, 0, byteBuff.Length));
+                objdescriptografaSenha = null;
+
+                return strDecrypted;
+            }
+            catch (Exception ex)
+            {
+                return string.Format("Digite os valores Corretamente : {0}", ex.Message);
+            }
+        }
+
+        public bool compararStrings(string num01, string num02)
+        {
+            if (num01.Equals(num02))
+                return true;
+            return false;
         }
     }
 }
