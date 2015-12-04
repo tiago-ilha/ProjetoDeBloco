@@ -10,125 +10,126 @@ using ProjetoDeBloco.Aplicacao.ViewModels;
 
 namespace ProjetoDeBloco.UI.Controllers
 {
-    [AutentificacaoFiltro]
-    public class AdministradorController : BaseController
-    {
-        private IAdministradorServico _servicoAdministrador;
+	[AutentificacaoFiltro]
+	public class AdministradorController : BaseController
+	{
+		private IAdministradorServico _servicoAdministrador;		
 
-        public AdministradorController(IAdministradorServico servicoAdministrador)
-        {
-            _servicoAdministrador = servicoAdministrador;
-        }
+		public AdministradorController(IAdministradorServico servicoAdministrador)
+		{
+			_servicoAdministrador = servicoAdministrador;
+			
+		}
 
-        // GET: Administrador
-        public ActionResult Index()
-        {
-            var administrador = _servicoAdministrador.ListarTodos();
+		// GET: Administrador
+		public ActionResult Index()
+		{
+			var administrador = _servicoAdministrador.ListarTodos();
 
-            return View(administrador);
-        }
+			return View(administrador);
+		}
 
-        // GET: Administrador/Details/5
-        [HttpGet]
-        public ActionResult Visualizar(Guid id)
-        {
-            var administrador = _servicoAdministrador.BuscarPorId(id);
+		// GET: Administrador/Details/5
+		[HttpGet]
+		public ActionResult Visualizar(Guid id)
+		{
+			var administrador = _servicoAdministrador.BuscarPorId(id);
 
-            if (administrador == null)
-                return RedirectToAction("Erro", "Erro");
+			if (administrador == null)
+				return RedirectToAction("Erro", "Erro");
 
-            return View(administrador);
-        }
+			return View(administrador);
+		}
 
-        // GET: Administrador/Create
-        [HttpGet]
-        public ActionResult Cadastrar()
-        {
-            return View();
-        }
+		// GET: Administrador/Create
+		[HttpGet]
+		public ActionResult Cadastrar()
+		{
+			return View();
+		}
 
-        // POST: Administrador/Create
-        [HttpPost]
-        public ActionResult Cadastrar(AdministradorVM model)
-        {
-            try
-            {
-                _servicoAdministrador.Cadastrar(model);
+		// POST: Administrador/Create
+		[HttpPost]
+		public ActionResult Cadastrar(AdministradorVM model)
+		{
+			try
+			{
+				_servicoAdministrador.Cadastrar(model);
 
-                return RedirectToAction("Index");
-            }
-            catch (Exception e)
-            {
-                ModelState.AddModelError("listaDeErros", e.Message);
-                return View(model);
-            }
-        }
+				return RedirectToAction("Index");
+			}
+			catch (Exception e)
+			{
+				modelState.Errors.Add(e.Message);
+				return View(model);
+			}
+		}
 
-        // GET: Administrador/Edit/5
-        [HttpGet]
-        public ActionResult Editar(Guid id)
-        {
-            var administrador = _servicoAdministrador.BuscarPorId(id);
+		// GET: Administrador/Edit/5
+		[HttpGet]
+		public ActionResult Editar(Guid id)
+		{
+			var administrador = _servicoAdministrador.BuscarPorId(id);
 
-            if (administrador == null)
-                return RedirectToAction("Erro", "Erro");
+			if (administrador == null)
+				return RedirectToAction("Erro", "Erro");
 
-            return View(administrador);
-        }
+			return View(administrador);
+		}
 
-        //// POST: Administrador/Edit/5
-        [HttpPost]
-        public ActionResult Editar(AdministradorVM model)
-        {
-            try
-            {
-                model.Email = model.Usuario.Email;
+		//// POST: Administrador/Edit/5
+		[HttpPost]
+		public ActionResult Editar(AdministradorVM model)
+		{
+			try
+			{
+				model.Email = model.Usuario.Email;
 
-                _servicoAdministrador.Cadastrar(model);
+				_servicoAdministrador.Cadastrar(model);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {               
-                return View(model);
-            }
-        }
+				return RedirectToAction("Index");
+			}
+			catch (Exception e)
+			{
+				modelState.Errors.Add(e.Message);
+				return View(model);
+			}
+		}
 
-        // GET: Administrador/Delete/5
-        [HttpGet]
-        public ActionResult Delete(Guid id)
-        {
-            try
-            {
-                var administrador = _servicoAdministrador.BuscarPorId(id);
+		// GET: Administrador/Delete/5
+		[HttpGet]
+		public ActionResult Deletar(Guid id)
+		{
+			var administrador = _servicoAdministrador.BuscarPorId(id);
 
-                if (administrador != null)
-                    return Json(new { OK = true, resultado = administrador }, JsonRequestBehavior.AllowGet);
-                else
-                    return Json(new { OK = false, resultado = "" }, JsonRequestBehavior.AllowGet);
+			if (administrador == null)
+				return RedirectToAction("Erro", "Erro");
 
-            }
-            catch (Exception e)
-            {
-                return Json(new { OK = false, Mensagem = e.Message }, JsonRequestBehavior.AllowGet);
-            }
-        }
+			return View(administrador);
+		}
 
-        // POST: Administrador/Delete/5
-        [HttpPost]
-        public ActionResult Remover(AdministradorVM model)
-        {
-            try
-            {
-                _servicoAdministrador.Remover(model);
+		// POST: Administrador/Delete/5
+		[HttpPost]
+		public ActionResult Deletar(AdministradorVM model)
+		{
+			try
+			{
+				if(model.Usuario != null && model.Usuario.Id == Guid.Empty)
+				{
+					var administrador = _servicoAdministrador.BuscarPorId(model.Id);
 
-                return RedirectToAction("Index");
-            }
-            catch (Exception e)
-            {
-                ModelState.AddModelError("listaDeErros", e.Message);
-                return Json(new { OK = false, resultado = e.Message }, JsonRequestBehavior.AllowGet);
-            }
-        }
-    }
+					model.Usuario = administrador.Usuario;
+				}
+
+				_servicoAdministrador.Remover(model);
+
+				return RedirectToAction("Index");
+			}
+			catch (Exception e)
+			{
+				modelState.Errors.Add(e.Message);
+				return View(model);
+			}
+		}
+	}
 }

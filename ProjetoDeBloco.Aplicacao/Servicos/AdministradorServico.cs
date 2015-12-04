@@ -82,7 +82,13 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
         {
             var administrador = Mapper.Map<AdministradorVM, Administrador>(entidade);
 
-            _repUsuario.Remover(administrador.Usuario);
+			var usuario = administrador.Usuario;
+
+			administrador.RemoverUsuario();
+
+			_repUsuario.Remover(usuario);
+
+			_repAdministrador.Atualizar(administrador);            
 
             _repAdministrador.Remover(administrador);
         }

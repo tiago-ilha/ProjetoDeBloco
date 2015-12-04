@@ -48,5 +48,11 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Pessoas
 
 			this.DataNascimento = dataNascimento;
 		}
+
+		public void RemoverUsuario()
+		{
+			this.IdUsuario = Guid.Empty;
+			this.Usuario = null;
+		}
 	}
 }

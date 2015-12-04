@@ -268,7 +268,7 @@
     <Content Include="Views\Administrador\Visualizar.cshtml" />
     <Content Include="Views\Administrador\Cadastrar.cshtml" />
     <Content Include="Views\Administrador\Editar.cshtml" />
-    <Content Include="Views\Administrador\Delete.cshtml" />
+    <Content Include="Views\Administrador\Deletar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -21,5 +21,7 @@ namespace ProjetoDeBloco.UI.Controllers
 				Session["usuarioLogado"] = value;
 			}
 		}
+
+		protected ModelState modelState = new ModelState();
 	}
 }
