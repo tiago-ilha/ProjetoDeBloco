@@ -261,15 +261,14 @@
     <Content Include="Views\Shared\Parciais\_AdicionarQuestao.cshtml" />
     <Content Include="Views\Shared\Login.cshtml" />
     <Content Include="Views\AutentificarUsuario\Login.cshtml" />
-    <Content Include="Views\Administrador\Cadastrar.cshtml" />
     <Content Include="Views\Shared\Parciais\_CadastroUsuario.cshtml" />
     <Content Include="Views\Shared\Parciais\_menu.cshtml" />
-    <Content Include="Views\Administrador\Visualizar.cshtml" />
-    <Content Include="Views\Administrador\AtivarCoordenadores.cshtml" />
-    <Content Include="Views\Administrador\Editar.cshtml" />
-    <Content Include="Views\Administrador\Index.cshtml" />
     <Content Include="Views\Erro\Erro.cshtml" />
-    <Content Include="Views\Administrador\parciais\_DadosCoordenador.cshtml" />
+    <Content Include="Views\Administrador\Index.cshtml" />
+    <Content Include="Views\Administrador\Visualizar.cshtml" />
+    <Content Include="Views\Administrador\Cadastrar.cshtml" />
+    <Content Include="Views\Administrador\Editar.cshtml" />
+    <Content Include="Views\Administrador\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

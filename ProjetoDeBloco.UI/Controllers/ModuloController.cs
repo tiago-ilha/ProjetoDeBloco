@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace ProjetoDeBloco.UI.Controllers
 {
     [AutentificacaoFiltro]
-	public class ModuloController : BaseController
+    public class ModuloController : BaseController
     {
         private readonly IModuloServico _servicoModulo;
         private readonly IBlocoServico _servicoBloco;
@@ -35,6 +35,9 @@ namespace ProjetoDeBloco.UI.Controllers
             var moduloVM = _servicoModulo.BuscarPorId(id);
             var blocoVM = _servicoBloco.BuscarPorId(moduloVM.IdBloco);
 
+            if (moduloVM == null)
+                return RedirectToAction("Erro", "Erro");
+
             if (blocoVM != null)
                 moduloVM.Bloco = blocoVM;
             else
@@ -57,7 +60,7 @@ namespace ProjetoDeBloco.UI.Controllers
         public ActionResult Cadastrar(ModuloVM model)
         {
             if (!ModelState.IsValid)
-                return View(model);        
+                return View(model);
 
             try
             {
@@ -87,6 +90,10 @@ namespace ProjetoDeBloco.UI.Controllers
         public ActionResult Editar(Guid id)
         {
             var moduloVM = _servicoModulo.BuscarPorId(id);
+
+            if (moduloVM == null)
+                return RedirectToAction("Erro", "Erro");
+
             ViewBag.Blocos = new SelectList(_servicoBloco.ListarTodos(), "Id", "Nome", moduloVM.IdBloco);
 
             return View(moduloVM);
@@ -129,10 +136,15 @@ namespace ProjetoDeBloco.UI.Controllers
             var moduloVM = _servicoModulo.BuscarPorId(id);
             var blocoVM = _servicoBloco.BuscarPorId(moduloVM.IdBloco);
 
-            if (blocoVM != null)
-                moduloVM.Bloco = blocoVM;
+            if (moduloVM == null)
+                return RedirectToAction("Erro", "Erro");
             else
-                moduloVM.Bloco.Nome = "--";
+            {
+                if (blocoVM != null)
+                    moduloVM.Bloco = blocoVM;
+                else
+                    moduloVM.Bloco.Nome = "--";
+            }
 
             return View(moduloVM);
         }

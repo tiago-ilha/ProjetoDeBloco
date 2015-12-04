@@ -28,6 +28,10 @@ namespace ProjetoDeBloco.UI.Controllers
         public ActionResult Visualizar(Guid id)
         {
             var professor = CarregarProfessor(id);
+
+            if(professor == null)
+                return RedirectToAction("Erro", "Erro");
+
             return View(professor);
         }
         
@@ -62,6 +66,10 @@ namespace ProjetoDeBloco.UI.Controllers
         public ActionResult Editar(Guid id)
         {
             var professor = CarregarProfessor(id);
+
+            if(professor == null)
+                return RedirectToAction("Erro", "Erro");
+
             return View(professor);
         }
 
@@ -90,6 +98,10 @@ namespace ProjetoDeBloco.UI.Controllers
         public ActionResult Remover(Guid id)
         {
             var professor = CarregarProfessor(id);
+
+            if(professor == null)
+                return RedirectToAction("Erro", "Erro");
+
             return View();
         }
 

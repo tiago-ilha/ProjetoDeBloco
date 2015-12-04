@@ -1,230 +1,122 @@
 ﻿@model ProjetoDeBloco.Aplicacao.ViewModels.AdministradorVM
 
 @{
-	ViewBag.Title = "Cadastrar Coordenador";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Cadastrar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2>Cadastrar</h2>
 
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-	<h5>Os campos que possuem * são de preenchimento obrigatório</h5>
+    <div class="form-horizontal">
+        <h5>Os campos que possuem * são de preenchimento obrigatório</h5>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row form-group">
+            <div class="col-xs-12">
+                <ul class="nav nav-pills nav-justified thumbnail setup-panel">
+                    <li class="active">
+                        <a href="#step-1">
+                            <h4 class="list-group-item-heading">Passo 1</h4>
+                            <p class="list-group-item-text">Informe os dados do Usuário</p>
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#step-2">
+                            <h4 class="list-group-item-heading">Passo 2</h4>
+                            <p class="list-group-item-text">Informe os dados do Coordenador</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
-	<div class="row form-group">
-		<div class="col-xs-12">
-			<ul class="nav nav-pills nav-justified thumbnail setup-panel">
-				<li class="active">
-					<a href="#step-1">
-						<h4 class="list-group-item-heading">Passo 1</h4>
-						<p class="list-group-item-text">Informe os dados do Usuário</p>
-					</a>
-				</li>
-				<li class="disabled">
-					<a href="#step-2">
-						<h4 class="list-group-item-heading">Passo 2</h4>
-						<p class="list-group-item-text">Informe os dados do Coordenador</p>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+        <div class="row setup-content" id="step-1">
+            <div class="col-xs-12">
+                <div class="col-md-12 text-center">
+                    @Html.Partial("~/Views/Shared/Parciais/_CadastroUsuario.cshtml", Model)
+                </div>
+            </div>
+        </div>
 
-	<div class="row setup-content" id="step-1">
-		<div class="col-xs-12">
-			<div class="col-md-12 text-center">
-				@Html.Partial("~/Views/Shared/Parciais/_CadastroUsuario.cshtml", Model)
-			</div>
-		</div>
-	</div>
-	@using (Html.BeginForm())
-	{
-		<div class="row setup-content" id="step-2">
+        <div class="row setup-content" id="step-2">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                </div>
+            </div>           
 
-			<div class="col-xs-12">
-				<div class="col-md-12">
+            <div class="form-group">
+                @Html.LabelFor(model => model.DataNascimento, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DataNascimento, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DataNascimento, "", new { @class = "text-danger" })
+                </div>
+            </div>            
+        </div>
+    </div>
 
-					@Html.AntiForgeryToken()
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="button" id="activate-step-1" class="btn btn-default btn-lg">Anterior</button>
+            <button type="button" id="activate-step-2" class="btn btn-default btn-lg">Próximo</button>
+            <input type="submit" value="Salvar" class="btn btn-primary btn-lg" />
+        </div>
+    </div>
+}
 
-					<div class="form-group">
-						@Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
-						<div class="col-md-10">
-							@Html.TextBoxFor(model => model.Nome, new { @id = "nome", @class = "form-control" })
-							@Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
-						</div>
-					</div>
-
-					<div class="form-group">
-						@Html.LabelFor(model => model.DataNascimento, htmlAttributes: new { @class = "control-label col-md-2" })
-						<div class="col-md-10">
-							<div class='col-sm-6'>
-								<div class="form-group">
-									<div class='input-group date' id='datetimepicker1'>
-										@Html.TextBoxFor(model => model.DataNascimento, new { @id = "dataNascimento", @class = "form-control datepicker" })
-										@Html.ValidationMessageFor(model => model.DataNascimento, "", new { @class = "text-danger" })
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<button type="button" id="activate-step-1" class="btn btn-default btn-lg">Anterior</button>
-		<button type="button" id="activate-step-2" class="btn btn-default btn-lg">Próximo</button>
-		<button type="button" id="salvar-coordenador" class="btn btn-primary btn-lg">Salvar</button>
-	}
+<div>
+    @Html.ActionLink("Voltar a página de consulta", "Index")
 </div>
 
+
 @section scripts{
-	<script>
 
-		var coordenador = {
-			usuario: {
-				email: $("#emailUsuario"),
-				login: $("#login"),
-				senha: $("#senha")
-			},
-			nome: $("#nome"),
-			emailCoordenador: $("#emailCoordenador"),
-			dataNascimento: $("#dataNascimento")
-		}
+    <script>
 
-		function LimparCamposCadastroCoordenador() {
-
-			var coordenador = {
-				usuario: {
-					email: $("#emailUsuario").val(""),
-					login: $("#login").val(""),
-					senha: $("#senha").val("")
-				},
-				nome: $("#nome").val(""),
-				emailCoordenador: $("#emailCoordenador").val(""),
-				dataNascimento: $("#dataNascimento").val("")
-			}
-		}
-
-		function Navegacao() {
-			var navListItems = $('ul.setup-panel li a'),
+        function Navegacao() {
+            var navListItems = $('ul.setup-panel li a'),
                 allWells = $('.setup-content');
 
-			allWells.hide();
+            allWells.hide();
 
-			navListItems.click(function (e) {
-				e.preventDefault();
-				var $target = $($(this).attr('href')),
+            navListItems.click(function (e) {
+                e.preventDefault();
+                var $target = $($(this).attr('href')),
                     $item = $(this).closest('li');
 
-				if (!$item.hasClass('disabled')) {
-					navListItems.closest('li').removeClass('active');
-					$item.addClass('active');
-					allWells.hide();
-					$target.show();
-				}
-			});
+                if (!$item.hasClass('disabled')) {
+                    navListItems.closest('li').removeClass('active');
+                    $item.addClass('active');
+                    allWells.hide();
+                    $target.show();
+                }
+            });
 
-			$('ul.setup-panel li.active a').trigger('click');
+            $('ul.setup-panel li.active a').trigger('click');
 
-			// DEMO ONLY //
-			$('#activate-step-2').on('click', function (e) {
-				$('ul.setup-panel li:eq(1)').removeClass('disabled');
-				$('ul.setup-panel li a[href="#step-2"]').trigger('click');
-			});
+            // DEMO ONLY //
+            $('#activate-step-2').on('click', function (e) {
+                $('ul.setup-panel li:eq(1)').removeClass('disabled');
+                $('ul.setup-panel li a[href="#step-2"]').trigger('click');
+            });
 
-			$('#activate-step-1').on('click', function (e) {
+            $('#activate-step-1').on('click', function (e) {
 
-				$('ul.setup-panel li:eq(0)').removeClass('disabled');
-				$('ul.setup-panel li a[href="#step-1"]').trigger('click');
-			});
-		}
+                $('ul.setup-panel li:eq(0)').removeClass('disabled');
+                $('ul.setup-panel li a[href="#step-1"]').trigger('click');
+            });
+        }
 
-		function ValidarDados() {
+        $(document).ready(function () {
+            Navegacao();
+        });
 
-			var valido = true;
-
-			if (coordenador.usuario.email.val() == "") {
-				$("Email").html("Informe o campo de E-mail!")
-				valido = false;
-			}
-
-			if (coordenador.usuario.login.val() == "") {
-				$("Login").html("Informe o campo de Login!");
-				valido = false;
-			}
-
-			if (coordenador.usuario.senha == "") {
-				$("Senha").html("Informe o campo de Senha!");
-				valido = false;
-			}
-
-			if (coordenador.nome.val() == "") {
-				$("Nome").html("Informe o campo de Senha!");
-				valido = false;
-			}
-
-			if (coordenador.dataNascimento.val() == "") {
-				$("DataNascimento").html("Informe o campo de Senha!");
-				valido = false;
-			}
-
-			return valido;
-		}
-
-		function salvarCoordenador() {
-
-			$.ajax({
-				url: '/Administrador/Cadastrar',
-				data: {
-					usuario: {
-						email: coordenador.usuario.email.val(),
-						login: coordenador.usuario.login.val(),
-						senha: coordenador.usuario.senha.val(),
-					},
-					nome: coordenador.nome.val(),
-					emailCoordenador: coordenador.emailCoordenador.val(),
-					dataNascimento: coordenador.dataNascimento.val()
-				},
-				type: "POST",
-				beforeSend: function () {
-					waitingDialog.show("Carregando informações....");
-				},
-				success: function (dados) {
-					waitingDialog.hide();
-					
-
-					if (dados.OK) {
-						LimparCamposCadastroCoordenador();
-						toastr.success(dados.Mensagem, "Sucesso");
-						window.location.href = "/Administrador/Index";
-					}
-					else {
-						toastr.error(dados.Mensagem, "Erro");
-					}
-				},
-				error: function (erro) {
-					toastr.error(erro.mensagem, "Erro");
-				}
-			});
-		}
-
-		$(document).ready(function () {
-
-			Navegacao();
-
-			$('.datepicker').datepicker({
-				format: 'dd/mm/yyyy',
-				startDate: '-3d'
-			})
-
-			$("#salvar-coordenador").click(function () {
-
-				if (ValidarDados())
-					salvarCoordenador();
-			});
-		});
-
-	</script>
+    </script>
 }

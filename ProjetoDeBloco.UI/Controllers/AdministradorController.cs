@@ -40,16 +40,6 @@ namespace ProjetoDeBloco.UI.Controllers
             return View(administrador);
         }
 
-        public ActionResult AtivarCoordenadores()
-        {
-            var administradores = _servicoAdministrador.ListarTodos();
-
-
-            return View(administradores);
-        }
-
-
-
         // GET: Administrador/Create
         [HttpGet]
         public ActionResult Cadastrar()
@@ -59,17 +49,18 @@ namespace ProjetoDeBloco.UI.Controllers
 
         // POST: Administrador/Create
         [HttpPost]
-        public JsonResult Cadastrar(AdministradorVM model)
+        public ActionResult Cadastrar(AdministradorVM model)
         {
             try
             {
                 _servicoAdministrador.Cadastrar(model);
 
-                return Json(new { OK = true, mensagem = "Operação foi realizada com sucesso!" }, JsonRequestBehavior.AllowGet);
+                return RedirectToAction("Index");
             }
             catch (Exception e)
             {
-                return Json(new { OK = false, Mensagem = e.Message }, JsonRequestBehavior.AllowGet);
+                ModelState.AddModelError("listaDeErros", e.Message);
+                return View(model);
             }
         }
 
@@ -95,13 +86,11 @@ namespace ProjetoDeBloco.UI.Controllers
 
                 _servicoAdministrador.Cadastrar(model);
 
-                TempData["mensagemDeSucesso"] = "Operação foi realizada com sucesso!";
-
-                return Json(new { OK = true, mensagem = "Operação foi realizada com sucesso!" }, JsonRequestBehavior.AllowGet);
+                return RedirectToAction("Index");
             }
-            catch (Exception e)
-            {
-                return Json(new { OK = false, mensagem = e.Message }, JsonRequestBehavior.AllowGet);
+            catch
+            {               
+                return View(model);
             }
         }
 
@@ -127,16 +116,17 @@ namespace ProjetoDeBloco.UI.Controllers
 
         // POST: Administrador/Delete/5
         [HttpPost]
-        public JsonResult Remover(AdministradorVM model)
+        public ActionResult Remover(AdministradorVM model)
         {
             try
             {
                 _servicoAdministrador.Remover(model);
 
-                return Json(new { OK = true, resultado = "Operação foi realizada com sucesso!" }, JsonRequestBehavior.AllowGet);
+                return RedirectToAction("Index");
             }
             catch (Exception e)
             {
+                ModelState.AddModelError("listaDeErros", e.Message);
                 return Json(new { OK = false, resultado = e.Message }, JsonRequestBehavior.AllowGet);
             }
         }

@@ -12,13 +12,16 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
 	{
 		public Guid Id { get; set; }
 
-		[Required]
+        [Display(Name = "E-mail")]
+        [Required(ErrorMessage = "Informe o e-mail do coordenador!")]
 		public string Email { get; set; }
 
-		[Required]
+        [Display(Name = "Login")]
+        [Required(ErrorMessage = "Informe o login do coordenador!")]
 		public string Login { get; set; }
 
-		[Required]
+        [Display(Name = "Senha")]
+        [Required(ErrorMessage = "Informe o senha do coordenador!")]
 		public string Senha { get; set; }
 
 		public SituacaoUsuario Situacao { get; set; }

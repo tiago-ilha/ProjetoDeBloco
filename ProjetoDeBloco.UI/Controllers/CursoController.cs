@@ -30,6 +30,10 @@ namespace ProjetoDeBloco.UI.Controllers
         public ActionResult Visualizar(Guid id)
         {
             var cursoVM = _servico.BuscarPorId(id);
+
+            if(cursoVM == null)
+                return RedirectToAction("Erro", "Erro");
+
             return View(cursoVM);
         }
 
@@ -66,6 +70,10 @@ namespace ProjetoDeBloco.UI.Controllers
         public ActionResult Editar(Guid id)
         {
             var cursoVM = _servico.BuscarPorId(id);
+
+            if(cursoVM == null)
+                return RedirectToAction("Erro", "Erro");
+
             return View(cursoVM);
         }
 
@@ -96,7 +104,7 @@ namespace ProjetoDeBloco.UI.Controllers
             var cursoVM = _servico.BuscarPorId(id);
 
             if (cursoVM == null)
-                return HttpNotFound();
+                return RedirectToAction("Erro", "Erro");
 
             return View(cursoVM);
         }

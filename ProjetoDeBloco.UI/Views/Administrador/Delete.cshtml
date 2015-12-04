@@ -1,14 +1,14 @@
 ﻿@model ProjetoDeBloco.Aplicacao.ViewModels.AdministradorVM
 
 @{
-    ViewBag.Title = "Visualizar";
+    ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Visualizar</h2>
+<h2>Delete</h2>
 
+<h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>AdministradorVM</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -43,25 +43,14 @@
             @Html.DisplayFor(model => model.DataNascimento)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuario.Login)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Usuario.Login)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuario.Situacao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Usuario.Situacao)
-        </dd>
-
     </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
 </div>
-<p>
-    @Html.ActionLink("Editar", "Editar", new { id = Model.Id }) |
-    @Html.ActionLink("Voltar a página de consulta", "Index")
-</p>
