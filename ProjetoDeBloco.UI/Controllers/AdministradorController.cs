@@ -54,6 +54,11 @@ namespace ProjetoDeBloco.UI.Controllers
 		{
 			try
 			{
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+
 				_servicoAdministrador.Cadastrar(model);
 
 				return RedirectToAction("Index");
@@ -131,5 +136,36 @@ namespace ProjetoDeBloco.UI.Controllers
 				return View(model);
 			}
 		}
+
+        [HttpGet]
+        public ActionResult AtivarCoordenador(Guid id)
+        {
+            var administrador = _servicoAdministrador.BuscarPorId(id);
+
+            if (administrador == null)
+                return RedirectToAction("Erro", "Erro");
+
+            return View(administrador);
+        }
+
+        [HttpPost]
+        public ActionResult AtivarCoordenador(AdministradorVM model)
+        {
+            try
+            {
+                var coordenador = _servicoAdministrador.BuscarPorId(model.Id);
+
+                model = coordenador;
+
+                _servicoAdministrador.AtivarCoordenador(model.Id);
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception e)
+            {
+                modelState.Errors.Add(e.Message);
+                return View("index");
+            }            
+        }
 	}
 }

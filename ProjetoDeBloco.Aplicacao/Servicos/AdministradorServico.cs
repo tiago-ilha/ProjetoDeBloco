@@ -84,7 +84,7 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
 			administrador.Usuario.DesativarUsuario();
 
-			_repAdministrador.Atualizar(administrador);
+            _repUsuario.Atualizar(administrador.Usuario);
         }
 
         public void Dispose()
@@ -95,6 +95,10 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
         public AdministradorVM AtivarCoordenador(Guid id)
         {
             var administrador = _repAdministrador.ObterPor(id);
+
+            administrador.Usuario.AtivarUsuario();
+
+            _repUsuario.Atualizar(administrador.Usuario);
 
             return Mapper.Map<Administrador, AdministradorVM>(administrador);
         }

@@ -19,9 +19,6 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
 
 		[Required(ErrorMessage = "Informe o nome do coordenador!")]
 		public string Nome { get; set; }
-
-		[Display(Name = "E-mail")]
-		[Required(ErrorMessage = "Informe o e-mail do coordenador!")]
 		public string Email { get; set; }
 
 		[Display(Name = "Data Nascimento")]

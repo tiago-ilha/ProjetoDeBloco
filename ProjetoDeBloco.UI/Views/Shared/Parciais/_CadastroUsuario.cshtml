@@ -1,27 +1,27 @@
-﻿@model ProjetoDeBloco.Aplicacao.ViewModels.UsuarioVM
+﻿@model ProjetoDeBloco.Aplicacao.ViewModels.AdministradorVM
 
-@Html.HiddenFor(model => model.Id, new { id="idUsuario"})
+@if (Model != null && Model.Usuario.Id == Guid.Empty)
+{
+    @Html.HiddenFor(model => model.Usuario.Id)
+}
 
 <div class="form-group">
-	@Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-	<div class="col-md-10">
-		@Html.TextBoxFor(model => model.Email, new { @id = "emailUsuario", @class = "form-control" })
-		@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-	</div>
+    @Html.LabelFor(model => model.Usuario.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.TextBoxFor(model => model.Usuario.Email, new { @class = "form-control" })
+    </div>
 </div>
 
 <div class="form-group">
-	@Html.LabelFor(model => model.Login, htmlAttributes: new { @class = "control-label col-md-2" })
-	<div class="col-md-10">
-		@Html.TextBoxFor(model => model.Login, new { @id = "login", @class = "form-control" })
-		@Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
-	</div>
+    @Html.LabelFor(model => model.Usuario.Login, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.TextBoxFor(model => model.Usuario.Login, new { @class = "form-control" })
+    </div>
 </div>
 
 <div class="form-group">
-	@Html.LabelFor(model => model.Senha, htmlAttributes: new { @class = "control-label col-md-2" })
-	<div class="col-md-10">
-		@Html.PasswordFor(model => model.Senha, new { @id = "senha", @class = "form-control" })
-		@Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
-	</div>
+    @Html.LabelFor(model => model.Usuario.Senha, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.PasswordFor(model => model.Usuario.Senha, new { @class = "form-control" })
+    </div>
 </div>
