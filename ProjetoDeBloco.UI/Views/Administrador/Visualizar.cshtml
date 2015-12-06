@@ -3,12 +3,13 @@
 @{
     ViewBag.Title = "Visualizar";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var usuarioLogado = Session["UsuarioLogado"] != null ? Session["UsuarioLogado"].ToString().ToUpper() : null;
 }
 
 <h2>Visualizar</h2>
 
 <div>
-    <h4>AdministradorVM</h4>
+    <h5>Dados do Coordenador</h5>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -62,6 +63,10 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Editar", new { id = Model.Id }) |
-    @Html.ActionLink("Voltar a página de consulta", "Index")
+    @Html.ActionLink("Editar", "Editar", new { id = Model.Id }, new { @class = "btn btn-default"}) 
+
+    @if (usuarioLogado == "admin")
+    {
+        @Html.ActionLink("Voltar a página de consulta", "Index", new { @class = "btn btn-default"})
+    }
 </p>

@@ -102,5 +102,11 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
             return Mapper.Map<Administrador, AdministradorVM>(administrador);
         }
+
+
+        public AdministradorVM ObterUsuarioDoCoordenadorPorId(Guid id)
+        {
+            return Mapper.Map<Administrador, AdministradorVM>(_repAdministrador.ObterUsuarioDoCoordenadorPorId(id));
+        }
     }
 }

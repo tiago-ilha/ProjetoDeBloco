@@ -39,8 +39,11 @@ namespace ProjetoDeBloco.UI.Controllers
 				{
 					var usuario = _servicoUsuario.ObterUsuarioPeloLogin(login);
 
-					if (Session["usuarioLogado"] == null)
+                    if (Session["usuarioLogado"] == null)
+                    {
 						Session.Add("usuarioLogado", usuario.Login);
+                        Session.Add("IdUsuario", usuario.Id);
+                    }
 
 					return Json(new { ok = true, mensagem = "Usuário autenticado... Redirecionando!" }, JsonRequestBehavior.AllowGet);
 				}
@@ -58,8 +61,9 @@ namespace ProjetoDeBloco.UI.Controllers
 		[HttpGet]
 		public JsonResult Deslogar()
 		{
-			if (Session["usuarioLogado"] != null)
+            if (Session["usuarioLogado"] != null && Session["IdUsuario"] != null)
 			{
+                Session.Remove("IdUsuario");
 				Session.Remove("usuarioLogado");
 				Session.Clear();
 				Session.Abandon();

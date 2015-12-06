@@ -9,5 +9,6 @@ namespace ProjetoDeBloco.Dominio.Interfaces.Repositorios
 {
     public interface IAdministradorRepositorio : IRepositorioBase<Administrador>
     {
+        Administrador ObterUsuarioDoCoordenadorPorId(Guid id);
     }
 }

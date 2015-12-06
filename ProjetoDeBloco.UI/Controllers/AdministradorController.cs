@@ -41,6 +41,16 @@ namespace ProjetoDeBloco.UI.Controllers
 			return View(administrador);
 		}
 
+        public ActionResult VisualizarUsuarioCoordenador(Guid id)
+        {
+            var configuracaoCooordenador = _servicoAdministrador.ObterUsuarioDoCoordenadorPorId(id);
+
+            if (configuracaoCooordenador == null)
+                return RedirectToAction("Erro", "Erro");
+
+            return View("Visualizar", configuracaoCooordenador);
+        }
+
 		// GET: Administrador/Create
 		[HttpGet]
 		public ActionResult Cadastrar()
@@ -100,6 +110,16 @@ namespace ProjetoDeBloco.UI.Controllers
 				return View(model);
 			}
 		}
+
+        public ActionResult EditarUsuarioCoordenador(Guid id)
+        {
+            var configuracaoCooordenador = _servicoAdministrador.ObterUsuarioDoCoordenadorPorId(id);
+
+            if(configuracaoCooordenador == null)
+                return RedirectToAction("Erro", "Erro");
+
+            return View("Editar",configuracaoCooordenador);
+        }
 
 		// GET: Administrador/Delete/5
 		[HttpGet]

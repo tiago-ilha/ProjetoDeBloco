@@ -51,5 +51,12 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
         {
             _contexto.Dispose();
         }
+
+        public Administrador ObterUsuarioDoCoordenadorPorId(Guid id)
+        {
+            var coordenador = _contexto.Administradores.Where(x => x.IdUsuario == id).FirstOrDefault();
+
+            return coordenador;
+        }
     }
 }

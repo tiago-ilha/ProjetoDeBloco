@@ -10,5 +10,6 @@ namespace ProjetoDeBloco.Aplicacao.Servicos.Interfaces
 	public interface IAdministradorServico : IAplicacaoBase<AdministradorVM>
 	{
 		AdministradorVM AtivarCoordenador(Guid id);
+        AdministradorVM ObterUsuarioDoCoordenadorPorId(Guid id);
 	}
 }

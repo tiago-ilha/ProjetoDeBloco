@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Cadastrar";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var usuarioLogado = Session["UsuarioLogado"] != null ? Session["UsuarioLogado"].ToString().ToUpper() : null;
 }
 
 <h2>Cadastrar</h2>
@@ -28,7 +29,7 @@
                     <li class="disabled">
                         <a href="#step-2">
                             <h4 class="list-group-item-heading">Passo 2</h4>
-                            <p class="list-group-item-text">Informe os dados do Usuário</p>                            
+                            <p class="list-group-item-text">Informe os dados do Usuário</p>
                         </a>
                     </li>
                 </ul>
@@ -48,7 +49,7 @@
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.DataNascimento, new { htmlAttributes = new { @class = "form-control" } })
                 </div>
-            </div>      
+            </div>
         </div>
 
         <div class="row setup-content" id="step-2">
@@ -69,10 +70,12 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Voltar a página de consulta", "Index")
-</div>
-
+@if (usuarioLogado.ToLower() == "admin")
+{
+    <div>
+        @Html.ActionLink("Voltar a página de consulta", "Index")
+    </div>
+}
 
 @section scripts{
 

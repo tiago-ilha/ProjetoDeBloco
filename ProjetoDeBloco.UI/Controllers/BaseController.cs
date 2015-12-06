@@ -10,17 +10,29 @@ namespace ProjetoDeBloco.UI.Controllers
 {
 	public class BaseController : Controller
 	{
-		protected string UsuarioLogado
+		public string UsuarioLogado
 		{
 			get
 			{
-				return (string)Session["usuarioLogado"];
+                return (string)Session["usuarioLogado"];
 			}
 			set
 			{
 				Session["usuarioLogado"] = value;
 			}
 		}
+
+        public int idUsuario
+        {
+            get
+            {
+                return (int)Session["IdUsuario"];
+            }
+            set
+            {
+                Session["IdUsuario"] = value;
+            }
+        }
 
 		protected ModelState modelState = new ModelState();
 	}
