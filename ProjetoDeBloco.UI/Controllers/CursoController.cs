@@ -124,7 +124,7 @@ namespace ProjetoDeBloco.UI.Controllers
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError("erroAoExcluir", ex.Message);
+                modelState.Errors.Add(ex.Message);
                 return View();
             }
         }

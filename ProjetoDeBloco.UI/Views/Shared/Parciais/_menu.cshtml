@@ -15,9 +15,9 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("Contato do Grupo", "Contact", "Home")</li>
                 @if (usuarioLogado != null)
-                {
-                    <li>@Html.ActionLink("Contato do Grupo", "Contact", "Home")</li>
+                {                    
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dados da Instituição <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -25,7 +25,6 @@
                             <li>@Html.ActionLink("Bloco", "Index", "Bloco")</li>
                             <li>@Html.ActionLink("Módulo", "Index", "Modulo")</li>
                             <li>@Html.ActionLink("Turma", "Index", "Turma")</li>
-                            <li class="divider"></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -33,7 +32,10 @@
                         <ul class="dropdown-menu" role="menu">
                             <li>@Html.ActionLink("Professor", "Index", "Professor")</li>
                             <li>@Html.ActionLink("Aluno", "Index", "Aluno")</li>
-                            <li>@Html.ActionLink("Coordenador", "Index", "Administrador")</li>
+                            @if (usuarioLogado.ToLower() == "admin")
+                            {
+                                <li>@Html.ActionLink("Coordenador", "Index", "Administrador")</li>
+                            }
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -62,14 +64,18 @@
                                             <img src="http://placehold.it/120x120"
                                                  alt="Alternate Text" class="img-responsive" />
                                             <p class="text-center small">
-                                                <a href="#">Change Photo</a>
+                                                
                                             </p>
                                         </div>
                                         <div class="col-md-7">
                                             <span>@usuarioLogado</span>
                                             <div class="divider">
                                             </div>
-                                            @Html.ActionLink("Visualizar Conta", "VisualizarUsuarioCoordenador", "Administrador", new { id = usuarioIdentificador }, new { @class = "btn btn-primary btn-sm active" })
+                                            @if (usuarioLogado.ToLower() != "admin")
+                                            {
+                                                @Html.ActionLink("Visualizar Conta", "VisualizarUsuarioCoordenador", "Administrador", new { id = usuarioIdentificador }, new { @class = "btn btn-primary btn-sm active" })
+                                            }
+
                                         </div>
                                     </div>
                                 </div>
@@ -77,8 +83,10 @@
                                     <div class="navbar-footer-content">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                @*<a href="@Url.Action("Editar", "Administrador", new { id = usuarioIdentificador })" class="btn btn-default btn-sm">Change Passowrd</a>*@
-                                                @Html.ActionLink("Editar Conta", "EditarUsuarioCoordenador", "Administrador", new { id = usuarioIdentificador }, new { @class = "btn btn-default btn-sm" })
+                                                @if (usuarioLogado.ToLower() != "admin")
+                                                {
+                                                    @Html.ActionLink("Editar Conta", "EditarUsuarioCoordenador", "Administrador", new { id = usuarioIdentificador }, new { @class = "btn btn-default btn-sm" })
+                                                }                                                
                                             </div>
                                             <div class="col-md-6">
                                                 <a href="#" class="btn btn-default btn-sm pull-right" id="btnSair">Sair</a>

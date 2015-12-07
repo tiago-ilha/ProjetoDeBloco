@@ -1,22 +1,24 @@
 ﻿@using System.Web.Mvc;
 
 @{
-	ViewBag.Title = "Bem-vindo ao Nosso Projeto Final";
-	var usuarioLogado = Session["UsuarioLogado"] != null ? Session["UsuarioLogado"].ToString().ToUpper() : null;
+    ViewBag.Title = "Bem-vindo ao Nosso Projeto Final";
+    var usuarioLogado = Session["UsuarioLogado"] != null ? Session["UsuarioLogado"].ToString().ToUpper() : null;
 }
 
 <ol class="breadcrumb">
-	<li>@Html.ActionLink("Bem-vindo ao Nosso Projeto Final", "Index")</li>
-	<li class="active"></li>
+    <li>@Html.ActionLink("Bem-vindo ao Nosso Projeto Final", "Index")</li>
+    <li class="active"></li>
 </ol>
 
 <div class="jumbotron">
-	@if (usuarioLogado != null && !string.IsNullOrWhiteSpace(usuarioLogado))
-	{
-		<h1>Bem-vindo, Sr. @usuarioLogado</h1>
-	}
-	else
-	{
-		<h1>Projeto de Bloco</h1>
-	}
+    @if (usuarioLogado != null && !string.IsNullOrWhiteSpace(usuarioLogado))
+    {
+        <h1>Bem-vindo, Sr. @usuarioLogado</h1>
+    }
+    else
+    {
+        <h1>Projeto de Bloco</h1>
+    }
+
+    @Html.ActionLink("Saiba quem são os membros do grupo", "Contact", "Home", new { @class = "btn btn-primary" })
 </div>

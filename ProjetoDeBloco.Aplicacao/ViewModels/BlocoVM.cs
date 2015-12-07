@@ -14,11 +14,14 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
         [Required(ErrorMessage="Informe o nome do bloco!")]
         public string Nome { get; set; }
 
-        [Required(ErrorMessage="Informe um curso para esse bloco!")]
-        [Display(Name="Nome do curso")]
+        [Display(Name="Curso")]
+        [Required(ErrorMessage = "Informe o curso para o bloco!")]
         public Guid IdCurso { get; set; }
-        public CursoVM Curso { get; set; }
 
+        //[Required(ErrorMessage = "Informe um curso para esse bloco!")]
+        //[Display(Name = "Nome do curso")]
+        public CursoVM Curso { get; set; }
+        
         public string CursoCodigoENome
         {
             get

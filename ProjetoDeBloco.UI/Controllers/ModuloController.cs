@@ -50,7 +50,7 @@ namespace ProjetoDeBloco.UI.Controllers
         public ActionResult Cadastrar()
         {
             CarregarBlocos();
-            CarregarProfessores();
+
             return View();
         }
 
@@ -192,14 +192,9 @@ namespace ProjetoDeBloco.UI.Controllers
             return lista;
         }
 
-        private void CarregarProfessores()
-        {
-            ViewBag.Professores = new SelectList(_servicoProfessor.ListarTodos(), "Id", "Nome");
-        }
-
         private void CarregarBlocos()
         {
-            ViewBag.Blocos = new SelectList(_servicoBloco.ListarTodos(), "Id", "Nome");
+            ViewBag.Blocos = _servicoBloco.ListarTodos();
         }
 
         #endregion

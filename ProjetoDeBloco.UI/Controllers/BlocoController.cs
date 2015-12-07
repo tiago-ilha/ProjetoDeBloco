@@ -58,10 +58,10 @@ namespace ProjetoDeBloco.UI.Controllers
                 if (!ModelState.IsValid)
                     return View(model);
 
-                if (Request.Form["CursoId"] != "")
-                    model.IdCurso = Guid.Parse(Request.Form["CursoId"]);
-                else
-                    model.IdCurso = Guid.Empty;
+                //if (Request.Form["CursoId"] != "")
+                //    model.IdCurso = Guid.Parse(Request.Form["CursoId"]);
+                //else
+                //    model.IdCurso = Guid.Empty;
 
                 _servicoBloco.Cadastrar(model);
 
@@ -84,6 +84,8 @@ namespace ProjetoDeBloco.UI.Controllers
         {
             var blocoVM = _servicoBloco.BuscarPorId(id);
 
+            ViewBag.CursoId = _servicoCurso.ListarTodos();
+
             if(blocoVM == null)
                 return RedirectToAction("Erro", "Erro");
 
@@ -102,7 +104,7 @@ namespace ProjetoDeBloco.UI.Controllers
 
                 _servicoBloco.Cadastrar(model);
 
-                ViewBag.CursoId = new SelectList(_servicoCurso.ListarTodos(), "Id", "Nome", model.IdCurso);
+                ViewBag.CursoId = new SelectList(_servicoCurso.ListarTodos(),"Id","Nome",model.IdCurso);
 
                 ModelState.Clear();
 
@@ -177,7 +179,7 @@ namespace ProjetoDeBloco.UI.Controllers
 
         private void CarregarCurso()
         {
-            ViewBag.CursoId = new SelectList(_servicoCurso.ListarTodos(), "Id", "CodigoENome");
+            ViewBag.CursoId = _servicoCurso.ListarTodos();
         }
 
         #endregion
