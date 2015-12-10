@@ -35,9 +35,9 @@
             @Html.DisplayFor(modelItem => item.Bloco.Nome)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Editar", new { id = item.Id }, new { @class="btn btn-default"}) 
-            @Html.ActionLink("Visualizar", "Visualizar", new { id = item.Id }, new { @class = "btn btn-default" }) 
-            @Html.ActionLink("Remover", "Remover", new { id = item.Id }, new { @class = "btn btn-danger" })
+            <a href="@Url.Action("Editar", "Modulo", new { id = item.Id })" title="Editar"><i class="glyphicon glyphicon-pencil"></i></a>
+            <a href="@Url.Action("Visualizar", "Modulo", new { id = item.Id })" title="Visualizar"><i class="glyphicon glyphicon-file"></i></a>
+            <a href="@Url.Action("Remover", "Modulo", new { id = item.Id })" title="Remover"><i class="glyphicon glyphicon-trash"></i></a>
         </td>
     </tr>
 }

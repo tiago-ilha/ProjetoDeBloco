@@ -14,13 +14,11 @@ namespace ProjetoDeBloco.UI.Controllers
     {
         private readonly IModuloServico _servicoModulo;
         private readonly IBlocoServico _servicoBloco;
-        private readonly IProfessorServico _servicoProfessor;
 
-        public ModuloController(IModuloServico servicoModulo, IBlocoServico servicoBloco, IProfessorServico servicoProfessor)
+        public ModuloController(IModuloServico servicoModulo, IBlocoServico servicoBloco)
         {
             _servicoModulo = servicoModulo;
             _servicoBloco = servicoBloco;
-            _servicoProfessor = servicoProfessor;
         }
 
         public ActionResult Index()
@@ -64,23 +62,19 @@ namespace ProjetoDeBloco.UI.Controllers
 
             try
             {
-
-                if (Request.Form["Blocos"] != "")
-                {
-                    var idBloco = Guid.Parse(Request.Form["Blocos"]);
-                    model.Bloco = _servicoBloco.BuscarPorId(idBloco);
-                }
+                model.Bloco = _servicoBloco.BuscarPorId(model.IdBloco);
 
                 _servicoModulo.Cadastrar(model);
 
                 ModelState.Clear();
 
-                ViewBag.Blocos = new SelectList(_servicoBloco.ListarTodos(), "Id", "Nome", model.IdBloco);
+                ViewBag.BlocoId = new SelectList(_servicoBloco.ListarTodos(), "Id", "Nome", model.IdBloco);
 
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
+                ViewBag.BlocoId = new SelectList(_servicoBloco.ListarTodos(), "Id", "Nome", model.IdBloco);
                 ModelState.AddModelError("listaDeErros", ex.Message);
                 return View(model);
             }
@@ -91,10 +85,10 @@ namespace ProjetoDeBloco.UI.Controllers
         {
             var moduloVM = _servicoModulo.BuscarPorId(id);
 
-            if (moduloVM == null)
-                return RedirectToAction("Erro", "Erro");
+            ViewBag.BlocoId = _servicoBloco.ListarTodos();
 
-            ViewBag.Blocos = new SelectList(_servicoBloco.ListarTodos(), "Id", "Nome", moduloVM.IdBloco);
+            if (moduloVM == null)
+                return RedirectToAction("Erro", "Erro");            
 
             return View(moduloVM);
         }
@@ -109,17 +103,11 @@ namespace ProjetoDeBloco.UI.Controllers
 
             try
             {
-                if (Request.Form["Blocos"] != "")
-                {
-                    var bloco = _servicoBloco.BuscarPorId(Guid.Parse(Request.Form["Blocos"])); ;
-                    model.IdBloco = bloco.Id;
-                }
-
                 _servicoModulo.Cadastrar(model);
 
                 ModelState.Clear();
 
-                ViewBag.Blocos = new SelectList(_servicoBloco.ListarTodos(), "Id", "Nome", model.IdBloco);
+                ViewBag.BlocoId = new SelectList(_servicoBloco.ListarTodos(), "Id", "Nome", model.IdBloco);
 
                 return RedirectToAction("Index");
             }
@@ -194,7 +182,7 @@ namespace ProjetoDeBloco.UI.Controllers
 
         private void CarregarBlocos()
         {
-            ViewBag.Blocos = _servicoBloco.ListarTodos();
+            ViewBag.BlocoId = _servicoBloco.ListarTodos();
         }
 
         #endregion
