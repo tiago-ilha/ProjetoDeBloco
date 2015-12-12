@@ -252,7 +252,6 @@
     <Content Include="Views\Aluno\Remover.cshtml" />
     <Content Include="Views\Shared\Parciais\_AdicionarAlunos.cshtml" />
     <Content Include="Views\Turma\Cadastrar.cshtml" />
-    <Content Include="Views\Turma\Editar.cshtml" />
     <Content Include="Views\Avaliacao\Index.cshtml" />
     <Content Include="Views\Avaliacao\Cadastrar.cshtml" />
     <Content Include="Views\Questao\Index.cshtml" />
@@ -270,6 +269,8 @@
     <Content Include="Views\Administrador\Editar.cshtml" />
     <Content Include="Views\Administrador\Deletar.cshtml" />
     <Content Include="Views\Administrador\AtivarCoordenador.cshtml" />
+    <Content Include="Views\Turma\Visualizar.cshtml" />
+    <Content Include="Views\Turma\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

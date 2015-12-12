@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace ProjetoDeBloco.UI.Controllers
 {
     [AutentificacaoFiltro]
-	public class TurmaController : BaseController
+    public class TurmaController : BaseController
     {
         private readonly ITurmaServico _servicoTurma;
         private readonly IModuloServico _servicoModulo;
@@ -28,6 +28,7 @@ namespace ProjetoDeBloco.UI.Controllers
             _servicoProfessor = servicoProfessor;
         }
 
+        #region Listagem
         // GET: Turma
         public ActionResult Index()
         {
@@ -40,7 +41,7 @@ namespace ProjetoDeBloco.UI.Controllers
                 turmas.Id = item.Id;
                 turmas.Identificador = item.Identificador;
                 turmas.Modulo = _servicoModulo.BuscarPorId(item.Modulo.Id);
-                turmas.Professor = _servicoProfessor.BuscarPorId(item.IdProfessor);
+                turmas.Professor = _servicoProfessor.BuscarPorId(item.Professor.Id);
                 turmas.Alunos = item.Alunos;
 
                 listaDeTurmas.Add(turmas);
@@ -49,18 +50,25 @@ namespace ProjetoDeBloco.UI.Controllers
             return View(listaDeTurmas);
         }
 
+        #endregion
+
+        #region Visualização
+
         // GET: Turma/Details/5
         public ActionResult Visualizar(Guid id)
         {
             var turma = CarregarTurma(id);
+
             return View(turma);
         }
+
+        #endregion
 
         #region Cadastro
         // GET: Turma/Create
         public ActionResult Cadastrar()
         {
-            CarregarModulos();
+            CarregarModulo();
             CarregarProfessor();
             return View();
         }
@@ -92,33 +100,8 @@ namespace ProjetoDeBloco.UI.Controllers
                 return View(model);
             }
 
-            CarregarModulos();
+            CarregarModulo();
             CarregarProfessor();
-        }
-
-        private void MontarDadosDeTurma(TurmaVM model)
-        {
-            IList<AlunoVM> listaDeAlunos = new List<AlunoVM>();
-
-            foreach (var item in model.Alunos)
-            {
-                var aluno = _servicoAluno.BuscarPorNome(item.Nome);
-                //model.Alunos.Add(aluno);
-
-                AlunoVM alunoVm = new AlunoVM
-                {
-                    Id = aluno.Id,
-                    Matricula = aluno.Matricula,
-                    Nome = aluno.Nome,
-                    Email = aluno.Email,
-                    DataNascimento = aluno.DataNascimento
-                };
-
-                listaDeAlunos.Add(alunoVm);
-            }
-
-            model.Alunos = null; //com isso eu esvazio aquela lixarada
-            model.Alunos = listaDeAlunos;
         }
 
         #endregion
@@ -129,13 +112,7 @@ namespace ProjetoDeBloco.UI.Controllers
         {
             var turma = CarregarDadosDaTurma(id);
             return View(turma);
-        }
-
-        private TurmaVM CarregarDadosDaTurma(Guid id)
-        {
-            var turmaVM = _servicoTurma.BuscarPorId(id);
-            return turmaVM;
-        }
+        }       
 
         // POST: Turma/Edit/5
         [HttpPost]
@@ -187,49 +164,84 @@ namespace ProjetoDeBloco.UI.Controllers
         private TurmaVM CarregarTurma(Guid id)
         {
             var turma = _servicoTurma.BuscarPorId(id);
+
+            if (turma.IdProfessor == Guid.Empty)
+            {
+                turma.IdProfessor = turma.Professor.Id;
+            }
+
             return turma;
         }
 
-        private void CarregarModulos()
+        private TurmaVM CarregarDadosDaTurma(Guid id)
         {
-            ViewBag.Modulos = new SelectList(_servicoModulo.ListarTodos(), "Id", "Nome");
+            var turmaVM = _servicoTurma.BuscarPorId(id);
+
+            if (turmaVM.IdProfessor == Guid.Empty)
+            {
+                turmaVM.IdProfessor = turmaVM.Professor.Id;
+            }
+
+            CarregarModulo();
+            CarregarProfessor();
+
+            return turmaVM;
+        }
+
+        private void CarregarModulo()
+        {
+            ViewBag.IdModulo = _servicoModulo.ListarTodos();
         }
 
         private void CarregarProfessor()
         {
-            ViewBag.Professores = new SelectList(_servicoProfessor.ListarTodos(), "Id", "Nome");
+            ViewBag.IdProfessor = _servicoProfessor.ListarTodos();
         }
 
         private void CarregarDadosDoProfessor(TurmaVM model)
         {
-            Guid idProfessor;
-            if (Request.Form["Professores"] != "")
+            if (model.Professor == null)
             {
-                idProfessor = Guid.Parse(Request.Form["Professores"]);
-                model.IdProfessor = idProfessor;
                 model.Professor = _servicoProfessor.BuscarPorId(model.IdProfessor);
-            }
-            else
-            {
-                idProfessor = Guid.Empty;
-                model.Professor.Id = idProfessor;
             }
         }
 
         private void CarregarDadosDoModulo(TurmaVM model)
         {
-            Guid idModulo;
-            if (Request.Form["Modulos"] != "")
+            if (model.Modulo == null)
             {
-                idModulo = Guid.Parse(Request.Form["Modulos"]);
-                model.IdModulo = idModulo;
                 model.Modulo = _servicoModulo.BuscarPorId(model.IdModulo);
             }
-            else
+            //else
+            //{
+            //    idModulo = Guid.Empty;
+            //    model.Modulo.Id = idModulo;
+            //}
+        }
+
+        private void MontarDadosDeTurma(TurmaVM model)
+        {
+            IList<AlunoVM> listaDeAlunos = new List<AlunoVM>();
+
+            foreach (var item in model.Alunos)
             {
-                idModulo = Guid.Empty;
-                model.Modulo.Id = idModulo;
+                var aluno = _servicoAluno.BuscarPorNome(item.Nome);
+                //model.Alunos.Add(aluno);
+
+                AlunoVM alunoVm = new AlunoVM
+                {
+                    Id = aluno.Id,
+                    Matricula = aluno.Matricula,
+                    Nome = aluno.Nome,
+                    Email = aluno.Email,
+                    DataNascimento = aluno.DataNascimento
+                };
+
+                listaDeAlunos.Add(alunoVm);
             }
+
+            model.Alunos = null; //com isso eu esvazio aquela lixarada
+            model.Alunos = listaDeAlunos;
         }
 
         #endregion

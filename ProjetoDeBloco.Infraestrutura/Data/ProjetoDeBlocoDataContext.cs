@@ -26,12 +26,7 @@ namespace ProjetoDeBloco.Infraestrutura.Data
         public DbSet<Avaliacao> Avaliacao { get; set; }
         public DbSet<Questao> Questao { get; set; }
 
-        public DbSet<Autorizacao> Autorizacao { get; set; }
 		public DbSet<Usuario> Usuario { get; set; }
-        public DbSet<Perfil> Perfil { get; set; }
-        public DbSet<Recurso> Recurso { get; set; }
-        public DbSet<RecursoFilho> RecursoFilho { get; set; }
-       
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -51,13 +46,9 @@ namespace ProjetoDeBloco.Infraestrutura.Data
             modelBuilder.Configurations.Add(new AvaliacaoMap());
             modelBuilder.Configurations.Add(new QuestaoMap());
 
-            modelBuilder.Configurations.Add(new AutorizacaoMap());
 			modelBuilder.Configurations.Add(new UsuarioMap());
-            modelBuilder.Configurations.Add(new PerfilMap());
-            modelBuilder.Configurations.Add(new RecursoMap());
-            modelBuilder.Configurations.Add(new RecursoFilhoMap());
 
-            modelBuilder.Entity<Turma>().Ignore(x => x.Professor);			
+            //modelBuilder.Entity<Turma>().Ignore(x => x.Professor);			
         }
     }    
 }

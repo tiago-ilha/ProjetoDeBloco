@@ -23,10 +23,6 @@ namespace ProjetoDeBloco.IoC
             container.RegisterType<IAvaliacaoRepositorio, AvaliacaoRepositorio>(new HierarchicalLifetimeManager());
             container.RegisterType<IQuestaoRepositorio, QuestaoRepositorio>(new HierarchicalLifetimeManager());
             container.RegisterType<IUsuarioRepositorio, UsuarioRepositorio>(new HierarchicalLifetimeManager());
-            container.RegisterType<IPerfilRepositorio, PerfilRepositorio>(new HierarchicalLifetimeManager());
-            container.RegisterType<IRecursoRepositorio, RecursoRepositorio>(new HierarchicalLifetimeManager());
-            container.RegisterType<IAutorizacaoRepositorio, AutorizacaoRepositorio>(new HierarchicalLifetimeManager());
-            container.RegisterType<IRecursoFilhoRepositorio, RecursoFilhoRepositorio>(new HierarchicalLifetimeManager());
             container.RegisterType<IAdministradorRepositorio, AdministradorRepositorio>(new HierarchicalLifetimeManager());
 
             container.RegisterType<ICursoServico, CursoServico>(new HierarchicalLifetimeManager());
@@ -38,8 +34,7 @@ namespace ProjetoDeBloco.IoC
             container.RegisterType<IAvaliacaoServico, AvaliacaoServico>(new HierarchicalLifetimeManager());
             container.RegisterType<IQuestaoServico, QuestaoServico>(new HierarchicalLifetimeManager());
             container.RegisterType<IUsuarioServico, UsuarioServico>(new HierarchicalLifetimeManager());
-            container.RegisterType<IAdministradorServico, AdministradorServico>(new HierarchicalLifetimeManager());
-            
+            container.RegisterType<IAdministradorServico, AdministradorServico>(new HierarchicalLifetimeManager());            
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

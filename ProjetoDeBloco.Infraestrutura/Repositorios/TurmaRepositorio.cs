@@ -20,7 +20,7 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
         }
         public IEnumerable<Turma> ObterPor()
         {
-            return _contexto.Turmas.ToList();
+            return _contexto.Turmas.Include(x => x.Professor).ToList();
         }
 
         public Turma ObterPor(Guid id)

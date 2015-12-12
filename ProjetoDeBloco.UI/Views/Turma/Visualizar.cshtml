@@ -1,0 +1,63 @@
+﻿@model ProjetoDeBloco.Aplicacao.ViewModels.TurmaVM
+
+@{
+    ViewBag.Title = "Visualizar dados da Turma";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Dados da Turma:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Identificador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Identificador)
+        </dd>
+
+        <dt>
+            Nome do Módulo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modulo.Nome)
+        </dd>
+
+        <dt>
+            Nome do Professor
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Professor.Nome) - @Html.DisplayFor(model => model.Professor.Matricula)
+        </dd>
+    </dl>
+
+    <table class="table table-responsive table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Alunos matriculados</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Alunos)
+                {
+                <tr>
+                    <td>@item.Matricula - @item.Nome</td>
+                </tr>
+                }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Total de Alunos: @Model.Alunos.Count</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.Id }, new { @class="btn btn-primary"}) 
+    @Html.ActionLink("Voltar a listagem de consulta", "Index", new { @class = "btn btn-default" })
+</p>

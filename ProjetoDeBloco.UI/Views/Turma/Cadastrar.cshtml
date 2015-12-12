@@ -11,7 +11,7 @@
 {
     @Html.AntiForgeryToken()
 
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
     @Html.ValidationMessage("listaDeErros", new { @class = "text-danger" })
 
     <legend>Dados básicos</legend>
@@ -20,23 +20,20 @@
             @Html.LabelFor(model => model.Identificador, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Identificador, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Identificador, "", new { @class = "text-danger" })
             </div>
         </div>
        
         <div class="form-group">
             @Html.LabelFor(model => model.IdModulo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Modulos", "-- Selecione um módulo --")
-                @Html.ValidationMessageFor(model => model.IdModulo, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.IdModulo, new SelectList(ViewBag.IdModulo,"Id","Nome"), "Selecione um módulo", new { @class = "form-control" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.IdProfessor, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Professores", "-- Selecione um módulo --")
-                @Html.ValidationMessageFor(model => model.IdProfessor, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.IdProfessor, new SelectList( ViewBag.IdProfessor,"Id","Nome"), "Selecione um professor", new { @class = "form-control" })
             </div>
         </div>
     </div>    
