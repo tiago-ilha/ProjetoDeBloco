@@ -43,11 +43,13 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
         public void Atualizar(Turma entidade)
         {
             _contexto.Entry<Turma>(entidade).State = EntityState.Modified;
+            _contexto.SaveChanges();
         }
 
         public void Remover(Turma entidade)
         {
             _contexto.Turmas.Remove(entidade);
+            _contexto.SaveChanges();
         }
 
         public void Dispose()

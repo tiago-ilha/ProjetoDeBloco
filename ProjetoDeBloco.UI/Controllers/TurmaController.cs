@@ -78,9 +78,6 @@ namespace ProjetoDeBloco.UI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Cadastrar(TurmaVM model)
         {
-            Guid idModulo;
-            Guid idProfessor;
-
             CarregarDadosDoModulo(model);
             CarregarDadosDoProfessor(model);
 
@@ -110,25 +107,40 @@ namespace ProjetoDeBloco.UI.Controllers
         // GET: Turma/Edit/5
         public ActionResult Editar(Guid id)
         {
-            var turma = CarregarDadosDaTurma(id);
+            var turma = _servicoTurma.BuscarPorId(id);
+            ViewBag.IdModulo = _servicoModulo.ListarTodos();
+            ViewBag.IdProfessor = _servicoProfessor.ListarTodos();
+
             return View(turma);
-        }       
+        }
 
         // POST: Turma/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar(int id, FormCollection collection)
+        public ActionResult Editar(TurmaVM model)
         {
+            CarregarDadosDoModulo(model);
+            CarregarDadosDoProfessor(model);
+
+            MontarDadosDeTurma(model);
+
             try
             {
-                // TODO: Add update logic here
+                _servicoTurma.Cadastrar(model);
+                ModelState.Clear();
 
                 return RedirectToAction("Index");
             }
-            catch
+             catch (Exception ex)
             {
-                return View();
+                ViewBag.Modulo = new SelectList(_servicoModulo.ListarTodos(), "Id", "Nome", model.IdModulo);
+                ViewBag.Professor = new SelectList(_servicoProfessor.ListarTodos(), "Id", "Nome", model.IdProfessor);
+                ModelState.AddModelError("listaDeErros", ex.Message);
+                return View(model);
             }
+
+            CarregarModulo();
+            CarregarProfessor();
         }
 
         #endregion
@@ -137,17 +149,20 @@ namespace ProjetoDeBloco.UI.Controllers
         // GET: Turma/Delete/5
         public ActionResult Remover(Guid id)
         {
-            return View();
+            var turma = _servicoTurma.BuscarPorId(id);
+            return View(turma);
         }
 
         // POST: Turma/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Remover(int id, FormCollection collection)
+        public ActionResult Remover(TurmaVM model)
         {
             try
             {
-                // TODO: Add delete logic here
+                var turma = _servicoTurma.BuscarPorId(model.Id);
+
+                _servicoTurma.Remover(turma);
 
                 return RedirectToAction("Index");
             }
@@ -212,11 +227,6 @@ namespace ProjetoDeBloco.UI.Controllers
             {
                 model.Modulo = _servicoModulo.BuscarPorId(model.IdModulo);
             }
-            //else
-            //{
-            //    idModulo = Guid.Empty;
-            //    model.Modulo.Id = idModulo;
-            //}
         }
 
         private void MontarDadosDeTurma(TurmaVM model)
@@ -226,7 +236,6 @@ namespace ProjetoDeBloco.UI.Controllers
             foreach (var item in model.Alunos)
             {
                 var aluno = _servicoAluno.BuscarPorNome(item.Nome);
-                //model.Alunos.Add(aluno);
 
                 AlunoVM alunoVm = new AlunoVM
                 {

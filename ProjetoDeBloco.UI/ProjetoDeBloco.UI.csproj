@@ -271,6 +271,7 @@
     <Content Include="Views\Administrador\AtivarCoordenador.cshtml" />
     <Content Include="Views\Turma\Visualizar.cshtml" />
     <Content Include="Views\Turma\Editar.cshtml" />
+    <Content Include="Views\Turma\Remover.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

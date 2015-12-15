@@ -1,0 +1,71 @@
+﻿@model ProjetoDeBloco.Aplicacao.ViewModels.TurmaVM
+
+@{
+    ViewBag.Title = "Remover";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Remover</h2>
+
+<h3>Tem certeza que deseja remover esse registro?</h3>
+<div>
+    <h4>TurmaVM</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Identificador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Identificador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdModulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modulo.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdProfessor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Professor.Nome) - @Html.DisplayFor(model => model.Professor.Matricula)
+        </dd>
+    </dl>
+   
+    <table class="table table-responsive table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Alunos matriculados</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Alunos)
+            {
+                <tr>
+                    <td>@item.Matricula - @item.Nome</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Total de Alunos: @Model.Alunos.Count</td>
+            </tr>
+        </tfoot>
+    </table>
+
+
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Remover" class="btn btn-primary" /> |
+            @Html.ActionLink("Voltar a listagem de consulta", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>
