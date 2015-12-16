@@ -3,6 +3,7 @@ using ProjetoDeBloco.Dominio.Entidades.AvaliacaoInstitucional;
 using ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura;
 using ProjetoDeBloco.Dominio.Entidades.Instituicao.Pessoas;
 using ProjetoDeBloco.Infraestrutura.Mapeamento;
+using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
@@ -48,6 +49,8 @@ namespace ProjetoDeBloco.Infraestrutura.Data
 
 			modelBuilder.Configurations.Add(new UsuarioMap());
 
+
+            
             //modelBuilder.Entity<Turma>().Ignore(x => x.Professor);			
         }
     }    

@@ -52,7 +52,7 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
                 AdicionarAlunos(entidade, turma);
 
-                _repTurma.Salvar(turma);
+                _repTurma.Atualizar(turma);
             }
         }
 

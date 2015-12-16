@@ -42,6 +42,11 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
 
         public void Atualizar(Turma entidade)
         {
+            foreach (var item in entidade.Alunos)
+            {
+                _contexto.Alunos.Attach(item);
+            }
+
             _contexto.Entry<Turma>(entidade).State = EntityState.Modified;
             _contexto.SaveChanges();
         }
