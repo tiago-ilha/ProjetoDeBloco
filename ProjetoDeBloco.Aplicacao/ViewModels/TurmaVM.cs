@@ -20,15 +20,15 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
         public string Identificador { get; set; }
 
         [Display(Name = "Módulo")]
+        [Required(ErrorMessage = "Informe um módulo!")]
         public Guid IdModulo { get; set; }
 
         [Display(Name = "Professor")]
-        public Guid IdProfessor { get; set; }
-
         [Required(ErrorMessage = "Informe um Professor!")]
+        public Guid IdProfessor { get; set; }
+        
         public ProfessorVM Professor { get; set; }
-
-        [Required(ErrorMessage = "Informe um módulo!")]
+        
         public ModuloVM Modulo { get; set; }
 
         public IList<AlunoVM> Alunos { get; set; }

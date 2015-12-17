@@ -1,4 +1,5 @@
 ﻿using ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura;
+using ProjetoDeBloco.Dominio.Entidades.Instituicao.Pessoas;
 using ProjetoDeBloco.Dominio.Interfaces.Repositorios;
 using ProjetoDeBloco.Infraestrutura.Data;
 using System;
@@ -44,15 +45,21 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
         {
             foreach (var item in entidade.Alunos)
             {
+                //_contexto.Entry<Aluno>(item).State = EntityState.Modified;
                 _contexto.Alunos.Attach(item);
             }
-
-            _contexto.Entry<Turma>(entidade).State = EntityState.Modified;
+            
+            _contexto.Entry<Turma>(entidade).State = EntityState.Added;
             _contexto.SaveChanges();
         }
 
         public void Remover(Turma entidade)
         {
+            foreach (var item in entidade.Alunos)
+            {
+                _contexto.Alunos.Attach(item);
+            }
+
             _contexto.Turmas.Remove(entidade);
             _contexto.SaveChanges();
         }

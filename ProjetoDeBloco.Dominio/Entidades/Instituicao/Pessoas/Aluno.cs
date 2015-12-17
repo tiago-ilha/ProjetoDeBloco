@@ -28,6 +28,7 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Pessoas
             if (dataNascimento == null) throw new Exception("Informe uma data de nascimento!");
 
             this.Nome = nome;
+            this.Email = email;
             this.DataNascimento = dataNascimento;
         }
     }

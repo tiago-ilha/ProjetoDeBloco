@@ -43,8 +43,6 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
             {
                 professor = new Professor(entidade.Nome, entidade.Email, entidade.DataNascimento, entidade.AreaDeFormacao, entidade.AnoDeFormacao);
 
-                GerarMatricula(professor);
-
                 VerificaSeJaExiste(entidade);
 
                 _repProfessor.Salvar(professor);
@@ -79,20 +77,6 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
             if (jaExiste)
                 throw new Exception("Já existe um professor cadastrado com esse nome!");
-        }
-
-        private void GerarMatricula(Professor professor)
-        {
-            var listaDePessoas = _repProfessor.ObterPor();
-
-            long matricula = 0;
-            if (listaDePessoas.Count() > 0)
-            {
-                matricula = listaDePessoas.OrderBy(x => x.Matricula).Reverse().FirstOrDefault().Matricula;
-                ServicoGeradorDeMatricula.Gerar(professor, matricula);
-            }
-            else
-                ServicoGeradorDeMatricula.Gerar(professor, matricula);
         }
 
         #endregion

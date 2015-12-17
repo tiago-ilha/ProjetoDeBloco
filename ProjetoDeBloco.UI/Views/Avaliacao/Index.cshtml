@@ -9,6 +9,9 @@
 <p>
     @Html.ActionLink("Nova Avaliação", "Cadastrar", null, new { @class = "btn btn-primary" })
 </p>
+<p class="pull-right">
+    <a href="@Url.Action("EnviarAvaliacao","Avaliacao")" class="btn btn-primary">Dispara e-mail</a>
+</p>
 <table class="table">
     <tr>
         <th>

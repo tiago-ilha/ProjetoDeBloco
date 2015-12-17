@@ -1,30 +1,33 @@
 ﻿using ProjetoDeBloco.Aplicacao.Servicos.Interfaces;
 using ProjetoDeBloco.Aplicacao.ViewModels;
 using ProjetoDeBloco.UI.Filtros;
+using ProjetoDeBloco.Utilitarios.ServicoEmail;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 
 namespace ProjetoDeBloco.UI.Controllers
 {
     [AutentificacaoFiltro]
-	public class AvaliacaoController : BaseController
-    { 
+    public class AvaliacaoController : BaseController
+    {
 
         public IAvaliacaoServico _servicoAvaliacao;
         public ITurmaServico _servicoTurma;
         public IQuestaoServico _servicoQuestao;
+        public IAlunoServico _servicoAluno;
 
 
-        public AvaliacaoController(IAvaliacaoServico servicoAvaliacao, ITurmaServico servicoTurma, IQuestaoServico servicoQuestao)
+        public AvaliacaoController(IAvaliacaoServico servicoAvaliacao, ITurmaServico servicoTurma, IQuestaoServico servicoQuestao, IAlunoServico servicoAluno)
         {
             _servicoAvaliacao = servicoAvaliacao;
-
             _servicoTurma = servicoTurma;
-
             _servicoQuestao = servicoQuestao;
+            _servicoAluno = servicoAluno;
         }
         //
         // GET: /Avaliacao/
@@ -84,6 +87,30 @@ namespace ProjetoDeBloco.UI.Controllers
             CarregarTurma();
         }
 
+        public ActionResult EnviarAvaliacao()
+        {
+            var avaliacaoAberta = _servicoAvaliacao.ListarTodos();
+
+            string corpoMensagem = "Teste";
+
+            if (avaliacaoAberta.Count() > 0)
+            {
+                foreach (var avaliacao in avaliacaoAberta)
+                {
+                    if (avaliacao.dtInicio >= DateTime.Now || avaliacao.dtFim > DateTime.Now)
+                    {
+                        foreach (var aluno in avaliacao.turma.Alunos)
+                        {
+                            aluno.Email = _servicoAluno.BuscarPorId(aluno.Id).Email;
+                            EmailUtil.EnviarEmail(aluno.Email, "Avaliação Institucional", corpoMensagem);
+                        }
+                    }                    
+                }
+            }
+
+            return RedirectToAction("Index");
+        }
+
         private void MontarDadosDasQuestoes(AvaliacaoVM model)
         {
             IList<QuestaoVM> listaDeQuestoes = new List<QuestaoVM>();
@@ -119,7 +146,7 @@ namespace ProjetoDeBloco.UI.Controllers
         }
 
         private void CarregarDadosDaTurma(AvaliacaoVM model)
-        {            
+        {
             Guid idTurma;
             if (Request.Form["TurmaID"] != "")
             {
@@ -131,7 +158,7 @@ namespace ProjetoDeBloco.UI.Controllers
             {
                 idTurma = Guid.Empty;
                 model.turma.Id = idTurma;
-            }  
+            }
         }
 
         protected IList<AvaliacaoVM> CarregaAvaliacao()
@@ -152,7 +179,7 @@ namespace ProjetoDeBloco.UI.Controllers
                 avaliacao.turma.Id = item.turma.Id;
 
                 avaLList.Add(avaliacao);
-                
+
             }
 
             return avaLList;
@@ -160,7 +187,7 @@ namespace ProjetoDeBloco.UI.Controllers
 
         public void carrregaTurma()
         {
-            ViewBag.TurmaID = new SelectList(_servicoTurma.ListarTodos(), "Id", "Identificador"); 
+            ViewBag.TurmaID = new SelectList(_servicoTurma.ListarTodos(), "Id", "Identificador");
         }
     }
-}
+}s

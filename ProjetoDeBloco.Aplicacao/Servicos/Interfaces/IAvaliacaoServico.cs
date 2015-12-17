@@ -9,5 +9,6 @@ namespace ProjetoDeBloco.Aplicacao.Servicos.Interfaces
 {
     public interface IAvaliacaoServico : IAplicacaoBase<AvaliacaoVM>
     {
+        IList<AvaliacaoVM> ObterPorPeriodo(DateTime dataAtual);
     }
 }

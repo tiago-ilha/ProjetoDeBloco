@@ -17,7 +17,6 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
             if (idModulo == Guid.Empty) throw new Exception("Informe um módulo!");
             if (idProfessor == Guid.Empty) throw new Exception("Informe um Professor!");
 
-            this.Id = Guid.NewGuid();
             this.Identificador = identificador;
             this.IdModulo = idModulo;
             this.ProfessorID = idProfessor;
@@ -37,6 +36,11 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
         public void AdicionarAluno(Aluno aluno)
         {
             Alunos.Add(aluno);
+        }
+
+        public void LimparListaDeAlunos()
+        {
+            Alunos = new HashSet<Aluno>();
         }
 
         public void Editar(Guid idModulo,string identificador, Guid idProfessor)

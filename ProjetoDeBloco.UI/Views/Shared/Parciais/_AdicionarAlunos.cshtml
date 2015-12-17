@@ -131,14 +131,6 @@
             });
         }
 
-        //function ListarAlunos() {
-        //    $.getJSON("/Aluno/Listar", null, function (data) {
-        //        $.each(data.Result, function (index, aluno) {
-        //            $("#listadaDeAlunos").append("<option value='" + aluno.id + "'>" + aluno.nome + "</option>");
-        //        });
-        //    });
-        //}
-
 
         function ListarAlunos() {
             $.getJSON("/Aluno/Listar", function (data) {
@@ -150,17 +142,5 @@
                 $("#listadaDeAlunos").append(options);
             });
         }
-
-
-        //function displayData(data) {
-        //    if (data != null) {
-        //        for (var i = 0; i < data.length; i++) {
-        //            $("#listadaDeAlunos").append("<li>" + data[i].id + " " + data[i].nome + "</li>")
-        //        }
-        //    }
-        //}
-
-
-
     </script>
 }

@@ -108,8 +108,13 @@ namespace ProjetoDeBloco.UI.Controllers
         public ActionResult Editar(Guid id)
         {
             var turma = _servicoTurma.BuscarPorId(id);
-            ViewBag.Modulo = new SelectList(_servicoModulo.ListarTodos(),"Id","Nome",turma.Modulo.Id);
-            ViewBag.Professor = new SelectList(_servicoProfessor.ListarTodos(), "Id", "Nome", turma.Professor.Id);
+            turma.IdProfessor = _servicoProfessor.BuscarPorId(turma.Professor.Id).Id;
+
+            ViewBag.Modulo = _servicoModulo.ListarTodos();
+            ViewBag.Professor = _servicoProfessor.ListarTodos();
+
+            if (turma == null)
+                return RedirectToAction("Erro", "Erro");
 
             return View(turma);
         }
@@ -118,21 +123,7 @@ namespace ProjetoDeBloco.UI.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Editar(TurmaVM model)
-        {
-            if (Request.Form["Modulo"] != null)
-            {
-                Guid idModulo = Guid.Parse(Request.Form["Modulo"]);
-                model.IdModulo = idModulo;
-                model.Modulo = _servicoModulo.BuscarPorId(model.IdModulo);
-            }
-
-            if (Request.Form["Professor"] != null)
-            {
-                Guid idProfessor = Guid.Parse(Request.Form["Professor"]);
-                model.IdProfessor = idProfessor;
-                model.Professor = _servicoProfessor.BuscarPorId(model.IdProfessor);
-            }
-
+        {            
             MontarDadosDeTurma(model);
 
             try
@@ -142,7 +133,7 @@ namespace ProjetoDeBloco.UI.Controllers
 
                 return RedirectToAction("Index");
             }
-             catch (Exception ex)
+            catch (Exception ex)
             {
                 ViewBag.Modulo = new SelectList(_servicoModulo.ListarTodos(), "Id", "Nome", model.IdModulo);
                 ViewBag.Professor = new SelectList(_servicoProfessor.ListarTodos(), "Id", "Nome", model.IdProfessor);

@@ -10,5 +10,6 @@ namespace ProjetoDeBloco.Dominio.Interfaces.Repositorios
     public interface IAvaliacaoRepositorio : IRepositorioBase<Avaliacao>
     {
         bool JaExiste(DateTime dataInicio);
+        IList<Avaliacao> ObterPorPeriodo(DateTime dataAtual);
     }
 }

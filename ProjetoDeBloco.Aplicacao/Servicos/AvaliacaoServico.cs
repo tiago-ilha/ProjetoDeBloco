@@ -94,5 +94,12 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
         {
             _repAvaliacao.Dispose();
         }
+
+        public IList<AvaliacaoVM> ObterPorPeriodo(DateTime dataAtual)
+        {
+            var avaliacao = _repAvaliacao.ObterPorPeriodo(dataAtual);
+
+            return Mapper.Map<IList<Avaliacao>, IList<AvaliacaoVM>>(avaliacao);
+        }
     }
 }

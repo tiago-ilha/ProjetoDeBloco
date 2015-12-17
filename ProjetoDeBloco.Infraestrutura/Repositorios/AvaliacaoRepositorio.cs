@@ -58,5 +58,11 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
         {
             return _contexto.Avaliacao.Any(x => x.dtInicio == dataInicio);
         }
+
+
+        public IList<Avaliacao> ObterPorPeriodo(DateTime dataAtual)
+        {
+            return _contexto.Avaliacao.Where(x => x.dtInicio >= dataAtual || x.dtFim < dataAtual).ToList();
+        }
     }
 }
