@@ -22,17 +22,21 @@ namespace ProjetoDeBloco.Aplicacao.ViewModels
 
         [Required(ErrorMessage = "Informe a Data de Início!")]
         [Display(Name = "Data de Início")]
+        [DataType(DataType.Date)]
         public DateTime dtInicio { get; set; }     
 
         [Required(ErrorMessage = "Informe a Data de Fim!")]
         [Display(Name = "Data Fim")]
+        [DataType(DataType.Date)]
         public DateTime dtFim { get; set; }
 
+        [Required(ErrorMessage = "Informe qual o objetivo dessa avaliação!")]
         [Display(Name = "Objetivo")]
         public String objAvaliacao { get; set; }
 
         public virtual TurmaVM turma { get; set; }
 
+        [Required(ErrorMessage = "Informe a turma!")]
         [Display(Name = "Código da Turma")]
         public Guid IdTurma { get; set; }
 

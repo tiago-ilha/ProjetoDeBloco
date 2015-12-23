@@ -3,6 +3,7 @@ using ProjetoDeBloco.Aplicacao.ViewModels;
 using ProjetoDeBloco.UI.Filtros;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -132,6 +133,11 @@ namespace ProjetoDeBloco.UI.Controllers
                 ModelState.Clear();
 
                 return RedirectToAction("Index");
+            }
+            catch (DbUpdateException e)
+            {
+                ModelState.AddModelError("listaDeErros", e.Message);
+                return View(model);
             }
             catch (Exception ex)
             {

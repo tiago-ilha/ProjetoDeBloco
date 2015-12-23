@@ -3,6 +3,7 @@ using ProjetoDeBloco.Dominio.Interfaces.Repositorios;
 using ProjetoDeBloco.Infraestrutura.Data;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,9 +31,10 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
 
         public void Salvar(Avaliacao entidade)
         {
-            foreach (var item in entidade.Questoes)
+            foreach (Questao q in entidade.Questoes)
             {
-                _contexto.Questao.Attach(item);
+                if (_contexto.Entry(q).State == EntityState.Detached)
+                    _contexto.Questao.Attach(q);
             }
 
             _contexto.Avaliacao.Add(entidade);
@@ -41,12 +43,14 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
 
         public void Atualizar(Avaliacao entidade)
         {
-            throw new NotImplementedException();
+            _contexto.Entry<Avaliacao>(entidade).State = EntityState.Modified;
+            _contexto.SaveChanges();
         }
 
         public void Remover(Avaliacao entidade)
         {
-            throw new NotImplementedException();
+            _contexto.Avaliacao.Remove(entidade);
+            _contexto.SaveChanges();
         }
 
         public void Dispose()

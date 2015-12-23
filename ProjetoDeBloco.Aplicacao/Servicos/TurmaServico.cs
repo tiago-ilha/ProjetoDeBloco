@@ -6,6 +6,7 @@ using ProjetoDeBloco.Dominio.Entidades.Instituicao.Pessoas;
 using ProjetoDeBloco.Dominio.Interfaces.Repositorios;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ProjetoDeBloco.Aplicacao.Servicos
 {
@@ -46,11 +47,12 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
             }
             else
             {
-                turma = _repTurma.ObterPor(entidade.Id);
+                turma = _repTurma.ObterPor(entidade.Id);                
 
-                _repTurma.Remover(turma);
+                var alunos = turma.Alunos.ToList();
+                alunos.ForEach(c => turma.Alunos.Remove(c));
 
-                turma = null;
+                //_repTurma.Remover(turma);
 
                 turma = new Turma(entidade.Identificador, entidade.IdModulo, entidade.IdProfessor);
 

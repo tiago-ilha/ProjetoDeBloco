@@ -12,7 +12,7 @@
 {
     @Html.AntiForgeryToken()
 
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
     @Html.ValidationMessage("listaDeErros", new { @class = "text-danger" })
 
     <legend>Dados básicos</legend>
@@ -26,7 +26,6 @@
             @Html.LabelFor(model => model.dtInicio, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.dtInicio)
-                @Html.ValidationMessageFor(model => model.dtInicio)
             </div>
         </div>
 
@@ -34,7 +33,6 @@
             @Html.LabelFor(model => model.dtFim, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.dtFim)
-                @Html.ValidationMessageFor(model => model.dtFim)
             </div>
         </div>
 
@@ -42,7 +40,6 @@
             @Html.LabelFor(model => model.objAvaliacao, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextAreaFor(model => model.objAvaliacao)
-                @Html.ValidationMessageFor(model => model.objAvaliacao)
             </div>
         </div>
 
@@ -60,14 +57,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Salvar" class="btn btn-primary" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Voltar a consulta", "Index", null, new { @class = "btn btn-default" })
 </div>
 
 

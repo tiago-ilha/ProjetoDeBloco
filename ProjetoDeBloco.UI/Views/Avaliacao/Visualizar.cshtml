@@ -1,0 +1,66 @@
+﻿@model ProjetoDeBloco.Aplicacao.ViewModels.AvaliacaoVM
+
+@{
+    ViewBag.Title = "Visualizar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Visualizar</h2>
+
+<div>
+    <h4>AvaliacaoVM</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dtInicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtInicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dtFim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtFim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.objAvaliacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.objAvaliacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.turma.Identificador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.turma.Identificador)
+        </dd>
+    </dl>
+
+    <table class="table table-bordered table-hover table-responsive">
+        <thead>
+            <tr>
+                <th colspan="3">Questões</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @foreach (var item in Model.Questoes)
+                {
+                    <td>@item.PerguntaQuestao</td>
+                }
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.Id }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Voltar a consulta", "Index", null, new { @class = "btn btn-default" })
+</p>

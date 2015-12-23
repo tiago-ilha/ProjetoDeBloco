@@ -4,9 +4,11 @@ using ProjetoDeBloco.UI.Filtros;
 using ProjetoDeBloco.Utilitarios.ServicoEmail;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -91,25 +93,121 @@ namespace ProjetoDeBloco.UI.Controllers
         {
             var avaliacaoAberta = _servicoAvaliacao.ListarTodos();
 
-            string corpoMensagem = "Teste";
+            var smtp = ConfigurationManager.AppSettings["smtpServer"];
+            var porta = ConfigurationManager.AppSettings["Porta"];
+            var email = ConfigurationManager.AppSettings["LoginEmail"];
+            var senha = ConfigurationManager.AppSettings["SenhaEmail"];
 
             if (avaliacaoAberta.Count() > 0)
             {
                 foreach (var avaliacao in avaliacaoAberta)
                 {
-                    if (avaliacao.dtInicio >= DateTime.Now || avaliacao.dtFim > DateTime.Now)
+                    if (avaliacao.dtInicio >= DateTime.Now || avaliacao.dtFim <= DateTime.Now)
                     {
                         foreach (var aluno in avaliacao.turma.Alunos)
                         {
-                            aluno.Email = _servicoAluno.BuscarPorId(aluno.Id).Email;
-                            EmailUtil.EnviarEmail(aluno.Email, "Avaliação Institucional", corpoMensagem);
+                            var mensagem = new StringBuilder();
+
+                            mensagem.AppendLine("Olá caro aluno, " + aluno.Nome + ", gostariamos de saber a sua opnião para melhorar nosso curso!");
+                            mensagem.AppendLine("Segue abaixo o link com o questionário:");
+                            mensagem.AppendLine("http://localhost/Avaliacao/Questionario");
+
+                            //aluno.Email = _servicoAluno.BuscarPorId(aluno.Id).Email;
+                            //EmailUtil.EnviarEmail(aluno.Email, "Avaliação Institucional", corpoMensagem,);
+                            EmailUtil.EnviaEmail("Avaliação Institucional",email,"jonas.xiko.ribeiro@gmail.com",true,mensagem,smtp,senha);
                         }
-                    }                    
+                    }
                 }
             }
 
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult Visualizar(Guid id)
+        {
+            var avaliacao = _servicoAvaliacao.BuscarPorId(id);
+
+            if (avaliacao == null)
+            {
+                return RedirectToAction("Erro", "Erro");
+            }
+
+            return View(avaliacao);
+        }
+
+        [HttpGet]
+        public ActionResult Editar(Guid id)
+        {
+            var avaliacao = _servicoAvaliacao.BuscarPorId(id);
+            avaliacao.IdTurma = avaliacao.turma.Id;
+
+            if (avaliacao == null)
+            {
+                return RedirectToAction("Erro", "Erro");
+            }
+
+            ViewBag.TurmaID = _servicoTurma.ListarTodos();
+
+            return View(avaliacao);
+        }
+
+        [HttpPost]
+        public ActionResult Editar(AvaliacaoVM model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _servicoAvaliacao.Cadastrar(model);
+
+                    ModelState.Clear();
+                }
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception e)
+            {
+                modelState.Errors.Add(e.Message);
+                return View(model);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Remover(Guid id)
+        {
+            var avaliacao = _servicoAvaliacao.BuscarPorId(id);
+
+            if (avaliacao == null)
+                return RedirectToAction("Erro", "Erro");
+
+            return View(avaliacao);
+        }
+
+        [HttpPost]
+        public ActionResult Remover(AvaliacaoVM model)
+        {
+            try
+            {
+                _servicoAvaliacao.Remover(model);
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception e)
+            {
+                modelState.Errors.Add(e.Message);
+                return View(model);
+            }
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult Questionario()
+        {
+            return View("Questionario");
+        }
+
+        #region Métodos compartilhados
 
         private void MontarDadosDasQuestoes(AvaliacaoVM model)
         {
@@ -189,5 +287,8 @@ namespace ProjetoDeBloco.UI.Controllers
         {
             ViewBag.TurmaID = new SelectList(_servicoTurma.ListarTodos(), "Id", "Identificador");
         }
+
+        #endregion
+
     }
-}s
+}

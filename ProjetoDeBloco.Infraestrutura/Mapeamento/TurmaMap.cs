@@ -22,6 +22,14 @@ namespace ProjetoDeBloco.Infraestrutura.Mapeamento
                 .WithMany(x => x.Turmas)
                 .HasForeignKey(x => x.ProfessorID)
                 .WillCascadeOnDelete(false);
+
+            HasMany(x => x.Alunos)
+                .WithMany(x => x.Turmas).Map(x =>
+                {
+                    x.ToTable("TurmaAluno");
+                    x.MapLeftKey("Turma_Id");
+                    x.MapRightKey("Aluno_Id");
+                });
         }
     }
 }

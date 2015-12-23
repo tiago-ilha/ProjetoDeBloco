@@ -1,0 +1,80 @@
+﻿@model ProjetoDeBloco.Aplicacao.ViewModels.AvaliacaoVM
+
+@{
+    ViewBag.Title = "Remover";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Remover</h2>
+
+<h3>Dados da avaliação</h3>
+<div>
+    <h4>AvaliacaoVM</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dtInicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtInicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dtFim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtFim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.objAvaliacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.objAvaliacao)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.IdTurma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdTurma)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GetCodigoNome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GetCodigoNome)
+        </dd>
+    </dl>
+
+    <table class="table table-bordered table-hover table-responsive">
+        <thead>
+            <tr>
+                <th colspan="3">Questões</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @foreach (var item in Model.Questoes)
+                {
+                    <td>@item.PerguntaQuestao</td>
+                }
+            </tr>
+        </tbody>
+    </table>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Remover" class="btn btn-primary" /> 
+            @Html.ActionLink("Voltar a consulta", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>

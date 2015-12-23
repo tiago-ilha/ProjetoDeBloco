@@ -31,9 +31,10 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
 
         public void Salvar(Turma entidade)
         {
-            foreach (var item in entidade.Alunos)
+            foreach (Aluno a in entidade.Alunos)
             {
-                _contexto.Alunos.Attach(item);
+                if (_contexto.Entry(a).State == EntityState.Detached)
+                    _contexto.Alunos.Attach(a);
             }
 
 
@@ -45,10 +46,9 @@ namespace ProjetoDeBloco.Infraestrutura.Repositorios
         {
             foreach (var item in entidade.Alunos)
             {
-                //_contexto.Entry<Aluno>(item).State = EntityState.Modified;
                 _contexto.Alunos.Attach(item);
             }
-            
+
             _contexto.Entry<Turma>(entidade).State = EntityState.Added;
             _contexto.SaveChanges();
         }

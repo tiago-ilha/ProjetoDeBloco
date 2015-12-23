@@ -65,7 +65,14 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
                 if (avaliacao == null)
                     throw new Exception("Avaliação não foi encontradda!");
 
+                avaliacao.IdTurma = avaliacao.turma.Id;
+
                 avaliacao.Editar(entidade.dtInicio, entidade.dtFim, entidade.objAvaliacao, entidade.IdTurma);
+
+                var questoes = avaliacao.Questoes.ToList();
+                questoes.ForEach(c => avaliacao.Questoes.Remove(c));
+                
+                AdicionarQuestoes(entidade, avaliacao);
 
                 _repAvaliacao.Salvar(avaliacao);
             }
@@ -87,7 +94,11 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
 
         public void Remover(AvaliacaoVM entidade)
         {
-            throw new NotImplementedException();
+            var avaliacao = _repAvaliacao.ObterPor(entidade.Id);
+            var questoes = avaliacao.Questoes.ToList();
+            questoes.ForEach(c => avaliacao.Questoes.Remove(c));
+
+            _repAvaliacao.Remover(avaliacao);
         }
 
         public void Dispose()

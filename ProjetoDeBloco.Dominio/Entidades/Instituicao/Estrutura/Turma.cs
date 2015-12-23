@@ -17,10 +17,11 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
             if (idModulo == Guid.Empty) throw new Exception("Informe um módulo!");
             if (idProfessor == Guid.Empty) throw new Exception("Informe um Professor!");
 
+            this.Id = Guid.NewGuid();
             this.Identificador = identificador;
             this.IdModulo = idModulo;
             this.ProfessorID = idProfessor;
-            
+
             this.Alunos = new HashSet<Aluno>();
         }
         public Guid Id { get; set; }
@@ -29,7 +30,7 @@ namespace ProjetoDeBloco.Dominio.Entidades.Instituicao.Estrutura
         public Guid ProfessorID { get; set; }
         public virtual Professor Professor { get; set; }
         public virtual Modulo Modulo { get; private set; }
-        public virtual HashSet<Aluno> Alunos { get; private set; }
+        public virtual ICollection<Aluno> Alunos { get; private set; }
 
 
 
