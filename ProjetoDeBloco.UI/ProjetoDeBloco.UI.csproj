@@ -278,6 +278,8 @@
     <Content Include="Views\Avaliacao\Editar.cshtml" />
     <Content Include="Views\Avaliacao\Remover.cshtml" />
     <Content Include="Views\Avaliacao\Questionario.cshtml" />
+    <Content Include="Views\Questao\Visualizar.cshtml" />
+    <Content Include="Views\Questao\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

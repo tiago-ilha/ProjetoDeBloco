@@ -102,7 +102,7 @@ namespace ProjetoDeBloco.UI.Controllers
             if(professor == null)
                 return RedirectToAction("Erro", "Erro");
 
-            return View();
+            return View(professor);
         }
 
         [HttpPost]

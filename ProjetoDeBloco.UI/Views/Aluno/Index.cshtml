@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<ProjetoDeBloco.Aplicacao.ViewModels.AlunoVM>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Listagem de Alunos";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
     @Html.ActionLink("Novo Aluno", "Cadastrar", null, new { @class="btn btn-primary"})

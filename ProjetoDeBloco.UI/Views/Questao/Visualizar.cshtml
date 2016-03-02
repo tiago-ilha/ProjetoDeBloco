@@ -1,0 +1,67 @@
+﻿@model ProjetoDeBloco.Aplicacao.ViewModels.QuestaoVM
+
+@{
+    ViewBag.Title = "Visualizar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Visualizar</h2>
+
+<div>
+    <h4>QuestaoVM</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PerguntaQuestao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PerguntaQuestao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resposta1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resposta1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resposta2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resposta2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resposta3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resposta3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resposta4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resposta4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resposta5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resposta5)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

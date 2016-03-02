@@ -38,5 +38,15 @@ namespace ProjetoDeBloco.Dominio.Entidades.AvaliacaoInstitucional
         public String Resposta5 { get; set; }
 
         public virtual ICollection<Avaliacao> Avaliacoes { get; set; }
+
+        public void Editar(string PerguntaQuestao, string Resposta1, string Resposta2, string Resposta3, string Resposta4, string Resposta5)
+        {
+            this.PerguntaQuestao = PerguntaQuestao;
+            this.Resposta1 = Resposta1;
+            this.Resposta2 = Resposta2;
+            this.Resposta3 = Resposta3;
+            this.Resposta4 = Resposta4;
+            this.Resposta5 = Resposta5;
+        }
     }
 }

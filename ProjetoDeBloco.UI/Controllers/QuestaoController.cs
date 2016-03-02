@@ -52,6 +52,17 @@ namespace ProjetoDeBloco.UI.Controllers
             return lista;
         }
 
+        public ActionResult Visualizar(Guid id)
+        {
+            var questaoVm = _servico.BuscarPorId(id);
+
+            if (questaoVm == null)
+                return HttpNotFound();
+
+            return View(questaoVm);
+        }
+
+
         public ActionResult Cadastro()
         {
             return View();
@@ -60,6 +71,29 @@ namespace ProjetoDeBloco.UI.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Cadastro(QuestaoVM questao)
+        {
+            if (!ModelState.IsValid)
+                return View(questao);
+
+            _servico.Cadastrar(questao);
+
+            ModelState.Clear();
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Editar(Guid id)
+        {
+            var questaoVm = _servico.BuscarPorId(id);
+
+            if (questaoVm == null)
+                return HttpNotFound();
+
+            return View(questaoVm);
+        }
+
+        [HttpPost]
+        public ActionResult Editar(QuestaoVM questao)
         {
             if (!ModelState.IsValid)
                 return View(questao);

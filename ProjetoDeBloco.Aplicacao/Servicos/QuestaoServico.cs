@@ -62,7 +62,7 @@ namespace ProjetoDeBloco.Aplicacao.Servicos
             {
                 questao = _repQuestao.ObterPor(entidade.Id);
 
-               // questao.Editar(entidade.PerguntaQuestao);
+                questao.Editar(questao.PerguntaQuestao, questao.Resposta1, questao.Resposta2, questao.Resposta3, questao.Resposta4, questao.Resposta5);
 
                 _repQuestao.Atualizar(questao);
             }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Apresentacao", "1 - Apresentacao", "{5B763217-5468-497F-B6ED-15DE7A3E4839}"
 EndProject
@@ -29,7 +29,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoDeBloco.UI", "Projet
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoDeBloco.Api", "ProjetoDeBloco.Api\ProjetoDeBloco.Api.csproj", "{65D396CB-15B3-4699-AEF1-A593D84AF70E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilitarios", "Utilitarios", "{29565D12-F0EE-4016-8281-6C3963B28424}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6 - Utilitarios", "6 - Utilitarios", "{29565D12-F0EE-4016-8281-6C3963B28424}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoDeBloco.Utilitarios", "ProjetoDeBloco.Utilitarios\ProjetoDeBloco.Utilitarios.csproj", "{A8C7A9B2-1F29-4B30-8792-CDEDED2717EB}"
 EndProject
